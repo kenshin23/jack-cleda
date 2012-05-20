@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.cleda.org/role.xsd" xmlns="http://www.cleda.org/role.xsd">
+
+	<!-- **************************************** -->
+	<!-- description -->
+	<!-- **************************************** -->
+
+	<xs:element name="description">
+		<xs:complexType mixed="true" />
+	</xs:element>
+
+	<!-- **************************************** -->
+	<!-- role -->
+	<!-- **************************************** -->
+
+	<xs:element name="role">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="description" />
+			</xs:sequence>
+
+			<xs:attribute name="name" type="xs:string" use="required" />
+		</xs:complexType>
+	</xs:element>
+
+	<!-- **************************************** -->
+	<!-- role-list -->
+	<!-- **************************************** -->
+
+	<xs:element name="role-list">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="role" minOccurs="0" maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+</xs:schema>

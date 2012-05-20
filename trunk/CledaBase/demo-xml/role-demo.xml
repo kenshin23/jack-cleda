@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<role-list>
+	<role name="role1">
+		<description>desc1</description>
+
+		<privilege name="priv1" />
+		<privilege name="priv2" />
+		<privilege name="priv3" />
+	</role>
+	<role name="role2">
+		<description>desc2</description>
+
+		<privilege name="priv1" />
+		<privilege name="priv2" />
+		<privilege name="priv3" />
+	</role>
+	<role name="role3">
+		<description>desc3</description>
+
+		<privilege name="priv1" />
+		<privilege name="priv2" />
+		<privilege name="priv3" />
+	</role>
+</role-list>

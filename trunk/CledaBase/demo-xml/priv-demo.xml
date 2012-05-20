@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<priv-list>
+	<priv name="priv1">
+		<description>desc1</description>
+	</priv>
+	<priv name="priv2">
+		<description>desc2</description>
+	</priv>
+	<priv name="priv3">
+		<description>desc3</description>
+	</priv>
+</priv-list>

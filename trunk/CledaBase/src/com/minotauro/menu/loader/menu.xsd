@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.cleda.org/menu.xsd" xmlns="http://www.cleda.org/menu.xsd">
+
+	<!-- **************************************** -->
+	<!-- i18nCls -->
+	<!-- **************************************** -->
+
+	<xs:element name="i18nCls">
+		<xs:complexType>
+			<xs:attribute name="key" type="xs:string" use="required" />
+			<xs:attribute name="cls" type="xs:string" use="required" />
+		</xs:complexType>
+	</xs:element>
+
+	<!-- **************************************** -->
+	<!-- menu-base -->
+	<!-- **************************************** -->
+
+	<xs:complexType name="menu-base">
+		<xs:attribute name="route" type="xs:string" use="required" />
+		<xs:attribute name="order" type="xs:int" use="required" />
+	</xs:complexType>
+
+	<!-- **************************************** -->
+	<!-- entry -->
+	<!-- **************************************** -->
+
+	<xs:element name="entry">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="menu-base">
+					<xs:attribute name="i18nCls" type="xs:string" use="optional" />
+					<xs:attribute name="i18nKey" type="xs:string" use="required" />
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+
+	<!-- **************************************** -->
+	<!-- group -->
+	<!-- **************************************** -->
+
+	<xs:element name="group">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="menu-base" />
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+
+	<!-- **************************************** -->
+	<!-- event -->
+	<!-- **************************************** -->
+
+	<xs:element name="event">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="menu-base">
+					<xs:sequence minOccurs="0" maxOccurs="unbounded">
+						<xs:element ref="meta-data" maxOccurs="unbounded" />
+					</xs:sequence>
+
+					<xs:attribute name="i18nCls" type="xs:string" use="optional" />
+					<xs:attribute name="i18nKey" type="xs:string" use="required" />
+
+					<xs:attribute name="handler" type="xs:string" use="required" />
+
+					<xs:attribute name="scope" type="scope" use="optional"
+						default="internal" />
+
+					<xs:attribute name="priv" type="xs:string" use="optional" />
+					<xs:attribute name="role" type="xs:string" use="optional" />
+
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+
+	<!-- **************************************** -->
+	<!-- event's scope -->
+	<!-- **************************************** -->
+
+	<xs:simpleType name="scope">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="external" />
+			<xs:enumeration value="internal" />
+			<xs:enumeration value="all" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- **************************************** -->
+	<!-- meta-data -->
+	<!-- **************************************** -->
+
+	<xs:element name="meta-data">
+		<xs:complexType>
+			<xs:attribute name="key" type="xs:string" use="required" />
+			<xs:attribute name="val" type="xs:string" use="required" />
+		</xs:complexType>
+	</xs:element>
+
+
+	<!-- **************************************** -->
+	<!-- menu-list -->
+	<!-- **************************************** -->
+
+	<xs:element name="menu-list">
+		<xs:complexType mixed="true">
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:element ref="i18nCls" />
+				<xs:element ref="entry" />
+				<xs:element ref="group" />
+				<xs:element ref="event" />
+			</xs:choice>
+		</xs:complexType>
+	</xs:element>
+
+</xs:schema>
