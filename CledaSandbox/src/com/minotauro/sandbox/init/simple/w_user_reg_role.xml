@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<role-list xmlns="http://www.cleda.org/role.xsd">
+	<role name="check_user_reg">
+		<description>check_user_reg</description>
+	</role>
+</role-list>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<role-list xmlns="http://www.cleda.org/role.xsd">
+	<role name="enterdoc">
+		<description>enterdoc</description>
+	</role>
+	<role name="check1st">
+		<description>check1st</description>
+	</role>
+	<role name="check2nd">
+		<description>check2nd</description>
+	</role>
+</role-list>

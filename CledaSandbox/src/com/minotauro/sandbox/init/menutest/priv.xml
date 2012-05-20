@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<priv-list xmlns="http://www.cleda.org/priv.xsd">
+
+	<priv name="test.priv1">
+		<description>test.priv1</description>
+	</priv>
+
+	<priv name="test.priv2">
+		<description>test.priv2</description>
+	</priv>
+
+</priv-list>

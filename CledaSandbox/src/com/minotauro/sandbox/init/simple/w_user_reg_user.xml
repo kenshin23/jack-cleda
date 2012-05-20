@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<user-list xmlns="http://www.cleda.org/user.xsd">
+
+	<user user="user_reg" pass="1" language="en" country="US"
+		variant="">
+		<prof name="check_user_reg" />
+	</user>
+
+</user-list>

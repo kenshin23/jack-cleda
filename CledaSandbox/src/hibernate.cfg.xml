@@ -1,0 +1,150 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+
+		<!-- **************************************** -->
+		<!-- P6Spy -->
+		<!-- **************************************** -->
+
+		<!-- <property name="hibernate.connection.driver_class">com.p6spy.engine.spy.P6SpyDriver</property> -->
+
+		<!-- **************************************** -->
+		<!-- MySQL -->
+		<!-- **************************************** -->
+
+		<property name="hibernate.connection.driver_class">
+			com.mysql.jdbc.Driver
+		</property>
+		<property name="hibernate.connection.url">
+			jdbc:mysql://localhost/cleda_sandbox
+		</property>
+		<property name="dialect">
+			org.hibernate.dialect.MySQLDialect
+		</property>
+		<property name="hibernate.connection.username">sa</property>
+		<property name="hibernate.connection.password">sa003</property>
+		<property name="hibernate.connection.pool_size">5</property>
+
+		<!-- **************************************** -->
+		<!-- ORACLE -->
+		<!-- **************************************** -->
+
+		<!-- <property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property> 
+			<property name="hibernate.connection.url">jdbc:oracle:thin:@127.0.0.1:1521:XE</property> 
+			<property name="dialect">org.hibernate.dialect.Oracle9Dialect</property> 
+			<property name="hibernate.connection.username">CFC_USER</property> <property 
+			name="hibernate.connection.password">sa003</property> <property name="hibernate.connection.pool_size">5</property> 
+			<property name="hibernate.jdbc.batch_size">0</property> -->
+
+		<!-- **************************************** -->
+		<!-- Misc -->
+		<!-- **************************************** -->
+
+		<property name="hibernate.bytecode.use_reflection_optimizer">
+			false
+		</property>
+		<property name="show_sql">false</property>
+
+		<!-- XXX: We save near than one sec disabling this here -->
+		<property name="hibernate.hbm2ddl.auto">update</property>
+		<!-- <property name="hibernate.hbm2ddl.auto">create</property> -->
+
+		<property name="transaction.factory_class">
+			org.hibernate.transaction.JDBCTransactionFactory
+		</property>
+		<property name="hibernate.cache.provider_class">
+			org.hibernate.cache.HashtableCacheProvider
+		</property>
+
+		<!-- **************************************** -->
+		<!-- configuration pool via c3p0 -->
+		<!-- **************************************** -->
+
+		<!-- c3p0 sizes -->
+		<property name="c3p0.initialPoolSize">5</property>
+		<property name="c3p0.minPoolSize">5</property>
+		<property name="c3p0.maxPoolSize">20</property>
+		<property name="c3p0.maxIdleTime">1200</property>
+
+		<!-- must be less then my.cnf timeout! (default: 28800) -->
+		<property name="c3p0.idleConnectionTestPeriod">1200</property>
+		<property name="c3p0.maxStatements">50</property>
+
+		<!-- c3p0 other -->
+		<property name="c3p0.automaticTestTable">
+			C3P0TestTable
+		</property>
+		<property name="c3p0.acquireRetryAttempts">30</property>
+		<property name="c3p0.acquireIncrement">3</property>
+
+		<!-- The mapping files -->
+
+		<mapping class="com.minotauro.sandbox.model.MCrudA" />
+		<mapping class="com.minotauro.sandbox.model.MCrudB" />
+		<mapping class="com.minotauro.sandbox.model.MCrudC" />
+		<mapping class="com.minotauro.sandbox.model.MCrudD" />
+		<mapping class="com.minotauro.sandbox.model.MCrudPost" />
+		<mapping class="com.minotauro.sandbox.model.MInnerA" />
+		<mapping class="com.minotauro.sandbox.model.MMultJointAB" />
+		<mapping class="com.minotauro.sandbox.model.MMultJointAC" />
+		<mapping class="com.minotauro.sandbox.model.MSingJointAB" />
+		<mapping class="com.minotauro.sandbox.model.MSingJointAC" />
+
+		<mapping class="com.minotauro.sandbox.model.DMainA" />
+		<mapping class="com.minotauro.sandbox.model.DInnerA" />
+		<mapping class="com.minotauro.sandbox.model.DMultJointAB" />
+		<mapping class="com.minotauro.sandbox.model.DMultJointAC" />
+		<mapping class="com.minotauro.sandbox.model.DSingJointAB" />
+		<mapping class="com.minotauro.sandbox.model.DSingJointAC" />
+
+		<mapping class="com.minotauro.user.model.MUser" />
+		<mapping class="com.minotauro.user.model.MUserProf" />
+		<mapping class="com.minotauro.user.model.MProf" />
+		<mapping class="com.minotauro.user.model.MProfRole" />
+		<mapping class="com.minotauro.user.model.MRole" />
+		<mapping class="com.minotauro.user.model.MProfPriv" />
+		<mapping class="com.minotauro.user.model.MPriv" />
+
+		<mapping class="com.minotauro.menu.model.MMenu" />
+		<mapping class="com.minotauro.menu.model.MMenuMetaData" />
+
+		<mapping class="com.minotauro.workflow.model.MActor" />
+		<mapping class="com.minotauro.workflow.model.MActorCurr" />
+		<mapping class="com.minotauro.workflow.model.MActorHist" />
+		<mapping class="com.minotauro.workflow.model.MDocument" />
+		<mapping class="com.minotauro.workflow.model.MNetPlace" />
+		<mapping class="com.minotauro.workflow.model.MNetStateGrp" />
+		<mapping class="com.minotauro.workflow.model.MNetStateGrpMetaData" />
+		<mapping class="com.minotauro.workflow.model.MPlaceState" />
+		<mapping class="com.minotauro.workflow.model.MDocSection" />
+		<mapping class="com.minotauro.workflow.model.MNetStateSet" />
+		<mapping class="com.minotauro.workflow.model.MWorklist" />
+		<mapping class="com.minotauro.workflow.model.MWorklistMetaData" />
+		<mapping class="com.minotauro.workflow.model.MDocSectionEditState" />
+		<mapping class="com.minotauro.workflow.model.MNetTrans" />
+		<mapping class="com.minotauro.workflow.model.MWorkflow" />
+		<mapping class="com.minotauro.workflow.model.MDocSectionValidateState" />
+		<mapping class="com.minotauro.workflow.model.MDocSectionViewState" />
+		<mapping class="com.minotauro.workflow.model.MNetTransMetaData" />
+		<mapping class="com.minotauro.workflow.model.MWrkPlace" />
+		<mapping class="com.minotauro.workflow.model.MDocType" />
+		<mapping class="com.minotauro.workflow.model.MNetTransSet" />
+		<mapping class="com.minotauro.workflow.model.MNetTransSetRole" />
+		<mapping class="com.minotauro.workflow.model.MWrkTrans" />
+		<mapping class="com.minotauro.workflow.model.MDocTypeMetaData" />
+		<mapping class="com.minotauro.workflow.model.MNetTransSetMetaData" />
+		<mapping class="com.minotauro.workflow.model.MWrkTransLog" />
+		<mapping class="com.minotauro.workflow.model.MNetEdge" />
+		<mapping class="com.minotauro.workflow.model.MNetPetri" />
+		<mapping class="com.minotauro.workflow.model.MNetPetriMetaData" />
+		<mapping class="com.minotauro.workflow.model.MWrkTransSet" />
+
+		<mapping class="com.minotauro.cleda.task.model.MTask" />
+
+	</session-factory>
+</hibernate-configuration>

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<menu-list xmlns="http://www.cleda.org/menu.xsd">
+
+	<i18nCls key="admin" cls="com.minotauro.sandbox.gui.user._I18NMenu" />
+	<i18nCls key="demo" cls="com.minotauro.sandbox.app._I18NMenu" />
+
+	<!-- **************************************** -->
+	<!-- nauth menu -->
+	<!-- **************************************** -->
+
+	<entry route="nauth" order="-1" i18nCls="demo" i18nKey="hello" />
+
+	<event route="nauth/login" order="0" i18nCls="demo" i18nKey="login"
+		handler="com.minotauro.echo.desktop.event.LogEvent" scope="external">
+	</event>
+
+	<!-- **************************************** -->
+	<!-- admin menu -->
+	<!-- **************************************** -->
+
+	<entry route="admin" order="0" i18nCls="admin" i18nKey="admin" />
+
+	<group route="admin/auth" order="1" />
+
+	<event route="admin/auth/user" order="0" i18nCls="admin" i18nKey="user"
+		handler="com.minotauro.echo.desktop.event.CrudListEvent" priv="main.admin.user">
+		<meta-data key="frm" val="com.minotauro.sandbox.gui.user.FrmMUserList" />
+	</event>
+
+	<event route="admin/auth/prof" order="1" i18nCls="admin" i18nKey="prof"
+		handler="com.minotauro.echo.desktop.event.CrudListEvent" priv="main.admin.prof">
+		<meta-data key="frm" val="com.minotauro.sandbox.gui.user.FrmMProfList" />
+	</event>
+
+	<event route="admin/exit" order="2" i18nCls="admin" i18nKey="exit"
+		handler="com.minotauro.echo.desktop.event.ExitEvent" />
+
+	<!-- **************************************** -->
+	<!-- crud menu -->
+	<!-- **************************************** -->
+
+	<entry route="crud" order="1" i18nCls="demo" i18nKey="crud" />
+
+	<group route="crud/comp" order="1" />
+
+	<event route="crud/comp/crudAlist" order="1" i18nCls="demo"
+		i18nKey="crudAlist" handler="com.minotauro.echo.desktop.event.CrudListEvent"
+		priv="crud.crudA">
+		<meta-data key="frm"
+			val="com.minotauro.sandbox.gui.mcruda.FrmMCrudAList" />
+	</event>
+
+	<event route="crud/comp/crudBlist" order="2" i18nCls="demo"
+		i18nKey="crudBlist" handler="com.minotauro.echo.desktop.event.CrudListEvent"
+		priv="crud.crudB">
+		<meta-data key="frm"
+			val="com.minotauro.sandbox.gui.mcrudb.FrmMCrudBList" />
+	</event>
+
+	<event route="crud/comp/crudClist" order="3" i18nCls="demo"
+		i18nKey="crudClist" handler="com.minotauro.echo.desktop.event.CrudListEvent"
+		priv="crud.crudC">
+		<meta-data key="frm"
+			val="com.minotauro.sandbox.gui.mcrudc.FrmMCrudCList" />
+	</event>
+
+	<group route="crud/simp" order="2" />
+
+	<event route="crud/simp/crudDlist" order="1" i18nCls="demo"
+		i18nKey="crudDlist" handler="com.minotauro.echo.desktop.event.CrudListEvent"
+		priv="crud.crudD">
+		<meta-data key="frm"
+			val="com.minotauro.sandbox.gui.mcrudd.FrmMCrudDList" />
+	</event>
+	
+	<group route="crud/post" order="3" />
+
+	<event route="crud/post/crudPostlist" order="1" i18nCls="demo"
+		i18nKey="crudPostlist" handler="com.minotauro.echo.desktop.event.CrudListEvent"
+		priv="crud.crudPost">
+		<meta-data key="frm"
+			val="com.minotauro.sandbox.gui.mcrudpost.FrmMCrudPostList" />
+	</event>
+
+	<!-- **************************************** -->
+	<!-- wizard menu -->
+	<!-- **************************************** -->
+
+	<entry route="wizard" order="4" i18nCls="demo" i18nKey="wizard" />
+
+	<event route="wizard/test" order="1" i18nCls="demo" i18nKey="wizardA"
+		handler="com.minotauro.echo.desktop.event.WizardEvent">
+		<meta-data key="frm"
+			val="com.minotauro.sandbox.gui.wizmcruda.FrmWizardMCrudA" />
+	</event>
+
+	<!-- **************************************** -->
+	<!-- dummy menu -->
+	<!-- **************************************** -->
+
+	<entry route="dummy" order="5" i18nCls="demo" i18nKey="dummy" />
+
+	<event route="dummy/dummy1" order="1" i18nCls="demo" i18nKey="dummy1"
+		handler="com.minotauro.echo.desktop.event.DummyEvent" priv="dummy">
+		<meta-data key="i18nMsgKey" val="helloDummy1" />
+	</event>
+
+	<event route="dummy/dummy2" order="2" i18nCls="demo" i18nKey="dummy2"
+		handler="com.minotauro.echo.desktop.event.DummyEvent" priv="dummy">
+		<meta-data key="i18nMsgKey" val="helloDummy2" />
+	</event>
+
+	<!-- **************************************** -->
+	<!-- test PC menu -->
+	<!-- **************************************** -->
+
+	<entry route="testPC" order="6" i18nCls="demo" i18nKey="testPC" />
+
+	<event route="testPC/testPC" order="1" i18nCls="demo" i18nKey="testPC"
+		handler="com.minotauro.sandbox.gui.frmpc.FrmPCEvent">
+	</event>
+
+	<group route="testPC/misc" order="2" />
+
+	<event route="testPC/misc/dump" order="1" i18nCls="demo" i18nKey="dumpPC"
+		handler="com.minotauro.sandbox.gui.frmpc.DumpPCEvent" />
+
+</menu-list>
