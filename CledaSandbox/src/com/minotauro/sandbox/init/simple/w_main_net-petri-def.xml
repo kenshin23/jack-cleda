@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- **************************************** -->
+<!-- net-petri definition -->
+<!-- **************************************** -->
+
+<net-petri-def xmlns="http://www.cleda.org/net-petri-def.xsd"
+	name="test-net" doc-type="test-doc">
+
+	<!-- **************************************** -->
+	<!-- The global MetaData -->
+	<!-- **************************************** -->
+
+	<meta-data key="java.echo.doc.editor"
+		val="com.minotauro.sandbox.gui.dmaina.FrmDMainAEdit" />
+	<meta-data key="java.echo.doc.i18n.cls"
+		val="com.minotauro.sandbox.gui.dmaina._I18NFrmDMainAEdit" />
+
+	<!-- **************************************** -->
+	<!-- The role list and delegators -->
+	<!-- **************************************** -->
+
+	<roles-list>
+		<role name="enterdoc" delegator="com.minotauro.workflow.impl.WorkflowDelegatorImpl" />
+		<role name="check1st" delegator="com.minotauro.workflow.impl.WorkflowDelegatorImpl" />
+		<role name="check2nd" delegator="com.minotauro.workflow.impl.WorkflowDelegatorImpl" />
+	</roles-list>
+
+	<!-- **************************************** -->
+	<!-- The list of places in the net-petri -->
+	<!-- **************************************** -->
+
+	<place-list>
+		<place name="p0" /> <!-- beg-ext -->
+		<place name="p1" /> <!-- beg-int -->
+		<place name="p2" /> <!-- deny 1st -->
+		<place name="p3" /> <!-- accept 1st -->
+		<place name="p4" /> <!-- end deny -->
+		<place name="p5" /> <!-- deny 2nd -->
+		<place name="p6" /> <!-- accept 2nd -->
+		<place name="p7" /> <!-- end accept -->
+		<place name="p8" /> <!-- end cancel -->
+	</place-list>
+
+	<!-- **************************************** -->
+	<!-- The list of trans-set and trans -->
+	<!-- **************************************** -->
+
+	<trans-list>
+		<trans-set name="enterdoc" init="true">
+			<role name="enterdoc" />
+			<work name="worklist1" />
+
+			<doc-section-state name="frstName" state="editable" />
+			<doc-section-state name="lastName" state="editable" />
+			<doc-section-state name="note1" state="hidden" />
+			<doc-section-state name="note2" state="hidden" />
+
+			<trans name="enterdoc">
+				<meta-data key="java.echo.doc.i18n.key" val="enterdoc" />
+
+				<pre-place name="p0" />
+				<pos-place name="p1" />
+			</trans>
+		</trans-set>
+
+		<trans-set name="check-1st">
+			<role name="check1st" />
+			<work name="worklist1" />
+
+			<doc-section-state name="frstName" state="readonly" />
+			<doc-section-state name="lastName" state="readonly" />
+			<doc-section-state name="note1" state="editable" />
+			<doc-section-state name="note2" state="hidden" />
+
+			<trans name="deny-1st">
+				<meta-data key="java.echo.doc.i18n.key" val="deny1st" />
+
+				<doc-section-state name="note1" state="dovalidate" />
+
+				<pre-place name="p1" />
+				<pos-place name="p2" />
+			</trans>
+			<trans name="accept-1st">
+				<meta-data key="java.echo.doc.i18n.key" val="accept1st" />
+
+				<doc-section-state name="note1" state="novalidate" />
+
+				<pre-place name="p1" />
+				<pos-place name="p3" />
+			</trans>
+			<trans name="save-tmp">
+				<meta-data key="java.echo.doc.i18n.key" val="saveTmp" />
+
+				<doc-section-state name="note1" state="novalidate" />
+
+				<pre-place name="p1" />
+				<pos-place name="p1" />
+			</trans>
+		</trans-set>
+
+		<trans-set name="deny-1st-mail">
+			<!-- TODO: Timed Transitions are crashing -->
+			<auto type="com.minotauro.workflow.test.base.DummyOneTransAgent"
+				time="0" />
+
+			<trans name="deny-1st-mail">
+				<pre-place name="p2" />
+				<pos-place name="p4" />
+			</trans>
+		</trans-set>
+
+		<trans-set name="check-2nd">
+			<role name="check2nd" />
+			<work name="worklist1" />
+
+			<doc-section-state name="frstName" state="readonly" />
+			<doc-section-state name="lastName" state="readonly" />
+			<doc-section-state name="note1" state="readonly" />
+			<doc-section-state name="note2" state="editable" />
+
+			<trans name="deny-2nd">
+				<meta-data key="java.echo.doc.i18n.key" val="deny2nd" />
+
+				<pre-place name="p3" />
+				<pos-place name="p5" />
+			</trans>
+			<trans name="accept-2nd">
+				<meta-data key="java.echo.doc.i18n.key" val="accept2nd" />
+
+				<doc-section-state name="note2" state="novalidate" />
+
+				<pre-place name="p3" />
+				<pos-place name="p6" />
+			</trans>
+			<trans name="save-tmp">
+				<meta-data key="java.echo.doc.i18n.key" val="saveTmp" />
+
+				<doc-section-state name="note2" state="novalidate" />
+
+				<pre-place name="p3" />
+				<pos-place name="p3" />
+			</trans>
+		</trans-set>
+
+		<trans-set name="deny-2nd-mail">
+			<auto type="com.minotauro.workflow.test.base.DummyOneTransAgent"
+				time="0" />
+
+			<trans name="deny-2nd-mail">
+				<pre-place name="p5" />
+				<pos-place name="p4" />
+			</trans>
+		</trans-set>
+
+		<trans-set name="accept-mail">
+			<auto type="com.minotauro.workflow.test.base.DummyOneTransAgent"
+				time="0" />
+
+			<trans name="accept-mail">
+				<pre-place name="p6" />
+				<pos-place name="p7" />
+			</trans>
+		</trans-set>
+
+		<trans-set name="cancel1">
+			<role name="enterdoc" />
+			<work name="worklist2" />
+
+			<doc-section-state name="frstName" state="readonly" />
+			<doc-section-state name="lastName" state="readonly" />
+			<doc-section-state name="note1" state="hidden" />
+			<doc-section-state name="note2" state="hidden" />
+
+			<trans name="cancel1">
+				<meta-data key="java.echo.doc.i18n.key" val="cancel1" />
+
+				<pre-place name="p1" />
+				<pos-place name="p8" />
+			</trans>
+		</trans-set>
+
+		<trans-set name="cancel2">
+			<role name="enterdoc" />
+			<work name="worklist2" />
+
+			<doc-section-state name="frstName" state="readonly" />
+			<doc-section-state name="lastName" state="readonly" />
+			<doc-section-state name="note1" state="readonly" />
+			<doc-section-state name="note2" state="hidden" />
+
+			<trans name="cancel2">
+				<meta-data key="java.echo.doc.i18n.key" val="cancel2" />
+
+				<pre-place name="p3" />
+				<pos-place name="p8" />
+			</trans>
+		</trans-set>
+	</trans-list>
+
+	<!-- **************************************** -->
+	<!-- The list of states in the net-petri -->
+	<!-- **************************************** -->
+
+	<state-list>
+		<state-grp name="enterdoc" terminal="false">
+			<state-set name="enterdoc">
+				<place name="p0" tokens="1" />
+			</state-set>
+		</state-grp>
+		<state-grp name="wait-for-1st" terminal="false">
+			<doc-section-state name="frstName" state="visible" />
+			<doc-section-state name="lastName" state="visible" />
+			<doc-section-state name="note1" state="visible" />
+			<doc-section-state name="note2" state="hidden" />
+
+			<state-set name="wait-for-1st">
+				<place name="p1" tokens="1" />
+			</state-set>
+		</state-grp>
+		<state-grp name="wait-for-2nd" terminal="false">
+			<doc-section-state name="frstName" state="visible" />
+			<doc-section-state name="lastName" state="visible" />
+			<doc-section-state name="note1" state="visible" />
+			<doc-section-state name="note2" state="visible" />
+
+			<state-set name="wait-for-2nd">
+				<place name="p3" tokens="1" />
+			</state-set>
+		</state-grp>
+		<state-grp name="deny-mail-1" terminal="false">
+			<state-set name="deny-mail-1">
+				<place name="p2" tokens="1" />
+			</state-set>
+		</state-grp>
+		<state-grp name="deny-mail-2" terminal="false">
+			<state-set name="deny-mail-2">
+				<place name="p5" tokens="1" />
+			</state-set>
+		</state-grp>
+		<state-grp name="deny" terminal="true">
+			<doc-section-state name="frstName" state="visible" />
+			<doc-section-state name="lastName" state="visible" />
+			<doc-section-state name="note1" state="visible" />
+			<doc-section-state name="note2" state="visible" />
+
+			<state-set name="deny">
+				<place name="p4" tokens="1" />
+			</state-set>
+		</state-grp>
+		<state-grp name="accept-mail" terminal="false">
+			<doc-section-state name="frstName" state="visible" />
+			<doc-section-state name="lastName" state="visible" />
+			<doc-section-state name="note1" state="hidden" />
+			<doc-section-state name="note2" state="hidden" />
+
+			<state-set name="accept-mail">
+				<place name="p6" tokens="1" />
+			</state-set>
+		</state-grp>
+		<state-grp name="accept" terminal="true">
+			<state-set name="accept">
+				<place name="p7" tokens="1" />
+			</state-set>
+		</state-grp>
+		<state-grp name="cancel" terminal="true">
+			<state-set name="cancel">
+				<place name="p8" tokens="1" />
+			</state-set>
+		</state-grp>
+	</state-list>
+
+</net-petri-def>

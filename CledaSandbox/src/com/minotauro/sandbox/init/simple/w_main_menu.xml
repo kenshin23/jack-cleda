@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<menu-list xmlns="http://www.cleda.org/menu.xsd">
+
+	<i18nCls key="demo" cls="com.minotauro.sandbox.app._I18NMenu" />
+
+	<!-- **************************************** -->
+	<!-- work menu -->
+	<!-- **************************************** -->
+
+	<entry route="work" order="2" i18nCls="demo" i18nKey="work" />
+
+	<group route="work/tasks" order="1" />
+
+	<event route="work/tasks/worklist1" order="1" i18nCls="demo"
+		i18nKey="worklist1" handler="com.minotauro.echo.desktop.event.TaskListEvent"
+		priv="work.worklist1">
+		<meta-data key="worklist" val="worklist1" />
+	</event>
+
+	<event route="work/tasks/worklist2" order="2" i18nCls="demo"
+		i18nKey="worklist2" handler="com.minotauro.echo.desktop.event.TaskListEvent"
+		priv="work.worklist2">
+		<meta-data key="worklist" val="worklist2" />
+	</event>
+
+
+	<event route="work/tasks/worklist3" order="3" i18nCls="demo"
+		i18nKey="worklist3" handler="com.minotauro.echo.desktop.event.TaskListEvent"
+		priv="work.worklist3">
+		<meta-data key="worklist" val="worklist3" />
+	</event>
+
+	<group route="work/main" order="2" />
+
+	<event route="work/main/edit" order="1" i18nCls="demo" i18nKey="workmainedit"
+		handler="com.minotauro.echo.desktop.event.DocEditEvent" role="enterdoc">
+		<meta-data key="frm"
+			val="com.minotauro.sandbox.gui.dmaina.FrmDMainAEdit" />
+	</event>
+
+	<event route="work/main/list" order="2" i18nCls="demo" i18nKey="workmainlist"
+		handler="com.minotauro.echo.desktop.event.DocListEvent" priv="work.main.list">
+		<meta-data key="frm"
+			val="com.minotauro.sandbox.gui.dmaina.FrmDMainAList" />
+	</event>
+
+</menu-list>

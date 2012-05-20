@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ss>
+	<s n="Default" t="nextapp.echo.app.Button">
+		<p n="background" t="Color">#f2f2ed</p>
+		<p n="foreground" t="Color">#000000</p>
+		<p n="border" t="Border">1px solid #d6d3ce</p>
+
+		<p n="disabledBackground" t="Color">#f2f2ed</p>
+		<p n="disabledForeground" t="Color">#aaaaaa</p>
+		<p n="disabledBorder" t="Border">1px solid #f8f5ef</p>
+
+		<p n="alignment" t="Alignment">
+			<a h="center" />
+		</p>
+		<p n="insets" t="Insets">3px</p>
+	</s>
+
+	<s n="Validation_Label" t="nextapp.echo.app.Button">
+		<p n="rolloverEnabled" t="b">true</p>
+		<p n="background" t="Color">#f2f2ed</p>
+		<p n="rolloverBackground" t="Color">#fafafd</p>
+		<p n="foreground" t="Color">#aa2222</p>
+		<p n="rolloverForeground" t="Color">#ba3232</p>
+		<p n="border" t="Border">1px solid #d6d3ce</p>
+		<p n="alignment" t="Alignment">
+			<a h="center" />
+		</p>
+		<p n="insets" t="Insets">3px</p>
+	</s>
+
+	<s n="AppDesktop.SplMain" t="nextapp.echo.app.SplitPane">
+		<p n="separatorPosition" t="Extent">25px</p>
+	</s>
+
+	<s n="Default" t="nextapp.echo.extras.app.MenuBarPane">
+		<p n="background" t="Color">#7288ad</p>
+		<p n="foreground" t="Color">#FFFFFF</p>
+		<p n="border" t="Border">0px none #000000</p>
+	</s>
+
+	<!-- Is not rendering window pane's styles -->
+
+	<s n="EWindowPane" t="com.minotauro.echo.util.EWindowPane">
+		<p n="background" t="Color">#f4fafa</p>
+		<p n="iconInsets" t="Insets">7px 3px 0px 0px</p>
+		<p n="insets" t="Insets">0px</p>
+
+		<p n="titleFont" t="Font">
+			<f bo="1" sz="50px">
+				<tf n="Verdana" />
+			</f>
+		</p>
+		<p n="titleHeight" t="Extent">58px</p>
+		<p n="titleInsets" t="Insets">25px 5px 0px 0px</p>
+		<p n="titleInsets" t="Insets">25px 5px 0px 0px</p>
+
+	</s>
+
+	<s n="XXX" t="com.minotauro.echo.util.EWindowPane">
+		<p n="background" t="Color">#f4fafa</p>
+		<p n="iconInsets" t="Insets">7px 3px 0px 0px</p>
+		<p n="insets" t="Insets">0px</p>
+
+		<p n="titleFont" t="Font">
+			<f bo="1" sz="50px">
+				<tf n="Verdana" />
+			</f>
+		</p>
+		<p n="titleHeight" t="Extent">28px</p>
+		<p n="titleInsets" t="Insets">25px 5px 0px 0px</p>
+		<p n="titleInsets" t="Insets">25px 5px 0px 0px</p>
+
+		<p n="titleBackgroundImage" t="FillImage">
+			<fi r="x" t="r">
+				<i r="/images/border/TitleBackground.png" />
+			</fi>
+		</p>
+
+		<p n="border" t="FillImageBorder">
+			<fib bi="17px 23px 23px 17px" ci="8px 14px 14px 8px">
+				<fi t="r">
+					<i r="/images/border/BorderTopLeft.png" />
+				</fi>
+				<fi t="r">
+					<i r="/images/border/BorderTop.png" />
+				</fi>
+				<fi t="r">
+					<i r="/images/border/BorderTopRight.png" />
+				</fi>
+				<fi t="r">
+					<i r="/images/border/BorderLeft.png" />
+				</fi>
+				<fi t="r">
+					<i r="/images/border/BorderRight.png" />
+				</fi>
+				<fi t="r">
+					<i r="/images/border/BorderBottomLeft.png" />
+				</fi>
+				<fi t="r">
+					<i r="/images/border/BorderBottom.png" />
+				</fi>
+				<fi t="r">
+					<i r="/images/border/BorderBottomRight.png" />
+				</fi>
+			</fib>
+		</p>
+	</s>
+
+</ss>
+ 
