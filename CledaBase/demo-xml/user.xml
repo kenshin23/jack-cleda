@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<user-list>
+	<user login="..." password="..." language="..." country="..." variant="...">
+		<prof name="..." />
+		<prof name="..." />
+		...
+	</user>
+	<user login="..." password="..." language="..." country="..." variant="...">
+		<prof name="..." />
+		<prof name="..." />
+		...
+	</user>
+	...
+</user-list>

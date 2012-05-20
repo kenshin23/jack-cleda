@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<role-list>
+	<role name="...">
+		<description>desc</description>
+
+		<privilege name="..." />
+		<privilege name="..." />
+		...
+	</role>
+	<role name="...">
+		<description>desc</description>
+
+		<privilege name="..." />
+		<privilege name="..." />
+		...
+	</role>
+	...
+</role-list>

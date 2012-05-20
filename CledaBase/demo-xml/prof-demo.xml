@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<prof-list>
+	<prof name="prof1">
+		<description>desc1</description>
+
+		<priv name="priv1" />
+		<priv name="priv2" />
+		<priv name="priv3" />
+
+		<role name="role1" />
+		<role name="role2" />
+		<role name="role3" />
+	</prof>
+	<prof name="prof2">
+		<description>desc2</description>
+
+		<priv name="priv1" />
+		<priv name="priv2" />
+		<priv name="priv3" />
+
+		<role name="role1" />
+		<role name="role2" />
+		<role name="role3" />
+	</prof>
+	<prof name="prof3">
+		<description>desc3</description>
+
+		<priv name="priv1" />
+		<priv name="priv2" />
+		<priv name="priv3" />
+
+		<role name="role1" />
+		<role name="role2" />
+		<role name="role3" />
+	</prof>
+</prof-list>

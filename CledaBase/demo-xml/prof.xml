@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<prof-list>
+	<prof name="...">
+		<description>desc</description>
+
+		<priv name="..." />
+		<priv name="..." />
+		...
+
+		<role name="..." />
+		<role name="..." />
+		...
+	</prof>
+	<prof name="...">
+		<description>desc</description>
+
+		<priv name="..." />
+		<priv name="..." />
+		...
+
+		<role name="..." />
+		<role name="..." />
+		...
+	</prof>
+	...
+</prof-list>
