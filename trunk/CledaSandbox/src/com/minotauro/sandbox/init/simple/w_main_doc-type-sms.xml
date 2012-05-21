@@ -4,7 +4,7 @@
 
 	<doc-section name="remitente" />
 	<doc-section name="destinatario" />
-	<doc-section name="tiposms" />
+	<doc-section name="tipo-sms" />
 	<doc-section name="contenido" />
 
 </doc-type>

@@ -34,6 +34,9 @@ public class LoadData {
     DocTypeLoader.loadDocType(LoadData.class.getResourceAsStream("w_main_doc-type.xml"));
     NetPetriLoader.loadNetPetri(LoadData.class.getResourceAsStream("w_main_net-petri-def.xml"));
 
+    //DocTypeLoader.loadDocType(LoadData.class.getResourceAsStream("w_main_doc-type-sms.xml"));
+    //NetPetriLoader.loadNetPetri(LoadData.class.getResourceAsStream("w_main_net-petri-sms-def.xml"));
+    
     RoleLoader.loadRole(LoadData.class.getResourceAsStream("w_user_reg_role.xml"));
     ProfLoader.loadProf(LoadData.class.getResourceAsStream("w_user_reg_prof.xml"));
     UserLoader.loadUser(LoadData.class.getResourceAsStream("w_user_reg_user.xml"));

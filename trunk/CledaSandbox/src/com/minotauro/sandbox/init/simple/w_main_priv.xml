@@ -25,4 +25,9 @@
 	<priv name="flujo.flujolist2">
 		<description>flujo.flujolist2</description>
 	</priv>
+	
+	<priv name="flujo.main.list">
+		<description>flujo.main.list</description>
+	</priv>
+	
 </priv-list>

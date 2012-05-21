@@ -10,4 +10,7 @@
 	<role name="check2nd">
 		<description>check2nd</description>
 	</role>
-</role-list>
+	<role name="recibir-sms">
+		<description>recibir-sms</description>
+	</role>
+	</role-list>
