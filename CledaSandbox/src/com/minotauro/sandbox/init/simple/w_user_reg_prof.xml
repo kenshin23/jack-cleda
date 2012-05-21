@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<prof-list xmlns="http://www.cleda.org/prof.xsd">
+
+	<prof name="check_user_reg">
+		<description>check_user_reg</description>
+
+		<priv name="work.worklist1" />
+
+		<role name="check_user_reg" />
+	</prof>
+
+</prof-list>

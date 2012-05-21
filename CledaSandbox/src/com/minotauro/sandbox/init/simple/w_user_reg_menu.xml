@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<menu-list xmlns="http://www.cleda.org/menu.xsd">
+
+	<i18nCls key="demo" cls="com.minotauro.sandbox.app._I18NMenu" />
+
+	<!-- **************************************** -->
+	<!-- work menu -->
+	<!-- **************************************** -->
+
+	<event route="nauth/regis" order="1" i18nCls="demo" i18nKey="regis"
+		handler="com.minotauro.echo.desktop.event.WizardEvent" scope="external">
+		<meta-data key="frm"
+			val="com.minotauro.sandbox.gui.duserreg.FrmWizardDUserReg" />
+	</event>
+
+</menu-list>

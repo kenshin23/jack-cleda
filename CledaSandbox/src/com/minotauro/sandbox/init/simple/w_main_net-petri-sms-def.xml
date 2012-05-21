@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- **************************************** -->
+<!-- net-petri definition -->
+<!-- **************************************** -->
+
+<net-petri-def xmlns="http://www.cleda.org/net-petri-def.xsd"
+	name="sms-net" doc-type="sms-doc">
+
+	<!-- **************************************** -->
+	<!-- The global MetaData -->
+	<!-- **************************************** -->
+
+	<meta-data key="java.echo.doc.editor"
+		val="com.minotauro.sandbox.gui.dmaina.FrmDMainAEdit" />
+	<meta-data key="java.echo.doc.i18n.cls"
+		val="com.minotauro.sandbox.gui.dmaina._I18NFrmDMainAEdit" />
+
+	<!-- **************************************** -->
+	<!-- The role list and delegators -->
+	<!-- **************************************** -->
+
+	<roles-list>
+		<role name="recibir-sms" delegator="com.minotauro.workflow.impl.WorkflowDelegatorImpl" />
+		<role name="procesandosms" delegator="com.minotauro.workflow.impl.WorkflowDelegatorImpl" />
+		<role name="procesandosms2" delegator="com.minotauro.workflow.impl.WorkflowDelegatorImpl" />
+		<role name="sms-enviado" delegator="com.minotauro.workflow.impl.WorkflowDelegatorImpl" />
+	</roles-list>
+
+	<!-- **************************************** -->
+	<!-- The list of places in the net-petri -->
+	<!-- **************************************** -->
+
+	<place-list>
+		<place name="p0" /> <!-- estado inicial  -->
+		<place name="p1" /> <!-- sms recibido -->
+		<place name="p2" /> <!-- inscrito -->
+		<place name="p3" /> <!-- consultado -->
+		<place name="p4" /> <!-- suspendido -->
+		<place name="p5" /> <!-- dato del día recolectado-->
+		<place name="p6" /> <!-- usuario eliminado -->
+		<place name="p7" /> <!-- mensaje enviado -->
+		<place name="p8" /> <!-- estado final -->
+	</place-list>
+
+	<!-- **************************************** -->
+	<!-- The list of trans-set and trans -->
+	<!-- **************************************** -->
+
+	<trans-list>
+		<trans-set name="recibir-sms" init="true">
+			<role name="recibirsms" />
+			<work name="flujolist1" />
+
+			<doc-section-state name="remitente" state="readonly" />
+			<doc-section-state name="destinatario" state="editable" />
+			<doc-section-state name="tiposms" state="editable" />
+			<doc-section-state name="contenido" state="editable" />
+
+			<trans name="smsrecibido">
+				<meta-data key="java.echo.doc.i18n.key" val="smsrecibido" />
+
+				<pre-place name="p0" />
+				<pos-place name="p1" />
+			</trans>
+		</trans-set>
+
+		<trans-set name="procesandosms">
+			<role name="procesandosms" />
+			<work name="flujolist1" />
+
+			<doc-section-state name="remitente" state="readonly" />
+			<doc-section-state name="destinatario" state="readonly" />
+			<doc-section-state name="tiposms" state="readonly" />
+			<doc-section-state name="contenido" state="readonly" />
+
+
+			<trans name="inscribir">
+				<meta-data key="java.echo.doc.i18n.key" val="inscribir" />
+
+				
+				<pre-place name="p1" />
+				<pos-place name="p2" />
+			</trans>
+			
+			<trans name="consultar">
+				<meta-data key="java.echo.doc.i18n.key" val="consultar" />
+
+			
+				<pre-place name="p1" />
+				<pos-place name="p3" />
+			</trans>
+			<trans name="suspender">
+				<meta-data key="java.echo.doc.i18n.key" val="suspender" />
+
+				<pre-place name="p1" />
+				<pos-place name="p4" />
+			</trans>
+		</trans-set>
+
+		<trans-set name="procesando2">
+			<role name="procesando2" />
+			<work name="fluolist1" />
+
+			<doc-section-state name="remitente" state="readonly" />
+			<doc-section-state name="destinatario" state="readonly" />
+			<doc-section-state name="tiposms" state="readonly" />
+			<doc-section-state name="contenido" state="readonly" />
+
+
+			<trans name="recolectar-dato">
+				<meta-data key="java.echo.doc.i18n.key" val="recolectar-dato" />
+
+				<pre-place name="p3" />
+				<pos-place name="p5" />
+			</trans>
+			<trans name="eliminar-usuario">
+				<meta-data key="java.echo.doc.i18n.key" val="eliminar-usuario" />
+
+			
+				<pre-place name="p4" />
+				<pos-place name="p6" />
+			</trans>
+		</trans-set>
+
+		
+		<trans-set name="sms-enviado">
+			<role name="sms-enviado" />
+			<work name="flujolist2" />
+
+			<doc-section-state name="remitente" state="readonly" />
+			<doc-section-state name="destinatario" state="readonly" />
+			<doc-section-state name="tiposms" state="readonly" />
+			<doc-section-state name="contenido" state="readonly" />
+
+			<trans name="enviar-sms">
+				<meta-data key="java.echo.doc.i18n.key" val="enviar-sms" />
+
+				<pre-place name="p2" />
+				<pos-place name="p7" />
+			</trans>
+			
+			<trans name="enviar-sms">
+				<meta-data key="java.echo.doc.i18n.key" val="enviar-sms" />
+
+				<pre-place name="p5" />
+				<pos-place name="p7" />
+			</trans>
+			
+			<trans name="enviar-sms">
+				<meta-data key="java.echo.doc.i18n.key" val="enviar-sms" />
+
+				<pre-place name="p6" />
+				<pos-place name="p7" />
+			</trans>
+		</trans-set>
+
+	</trans-list>
+
+	<!-- **************************************** -->
+	<!-- The list of states in the net-petri -->
+	<!-- **************************************** -->
+
+	<state-list>
+		<state-grp name="recibir-sms" terminal="false">
+			<state-set name="enterdoc">
+				<place name="p0" tokens="1" />
+			</state-set>
+		</state-grp>
+		<state-grp name="wait-for-1st" terminal="false">
+			<doc-section-state name="frstName" state="visible" />
+			<doc-section-state name="lastName" state="visible" />
+			<doc-section-state name="note1" state="visible" />
+			<doc-section-state name="note2" state="hidden" />
+
+			<state-set name="wait-for-1st">
+				<place name="p1" tokens="1" />
+			</state-set>
+		</state-grp>
+		<state-grp name="wait-for-2nd" terminal="false">
+			<doc-section-state name="frstName" state="visible" />
+			<doc-section-state name="lastName" state="visible" />
+			<doc-section-state name="note1" state="visible" />
+			<doc-section-state name="note2" state="visible" />
+
+			<state-set name="wait-for-2nd">
+				<place name="p3" tokens="1" />
+			</state-set>
+		</state-grp>
+		<state-grp name="deny-mail-1" terminal="false">
+			<state-set name="deny-mail-1">
+				<place name="p2" tokens="1" />
+			</state-set>
+		</state-grp>
+		<state-grp name="deny-mail-2" terminal="false">
+			<state-set name="deny-mail-2">
+				<place name="p5" tokens="1" />
+			</state-set>
+		</state-grp>
+		<state-grp name="deny" terminal="true">
+			<doc-section-state name="frstName" state="visible" />
+			<doc-section-state name="lastName" state="visible" />
+			<doc-section-state name="note1" state="visible" />
+			<doc-section-state name="note2" state="visible" />
+
+			<state-set name="deny">
+				<place name="p4" tokens="1" />
+			</state-set>
+		</state-grp>
+		<state-grp name="accept-mail" terminal="false">
+			<doc-section-state name="frstName" state="visible" />
+			<doc-section-state name="lastName" state="visible" />
+			<doc-section-state name="note1" state="hidden" />
+			<doc-section-state name="note2" state="hidden" />
+
+			<state-set name="accept-mail">
+				<place name="p6" tokens="1" />
+			</state-set>
+		</state-grp>
+		<state-grp name="accept" terminal="true">
+			<state-set name="accept">
+				<place name="p7" tokens="1" />
+			</state-set>
+		</state-grp>
+		<state-grp name="cancel" terminal="true">
+			<state-set name="cancel">
+				<place name="p8" tokens="1" />
+			</state-set>
+		</state-grp>
+	</state-list>
+
+</net-petri-def>

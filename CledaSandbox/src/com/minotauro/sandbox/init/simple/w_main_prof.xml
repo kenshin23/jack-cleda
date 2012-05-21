@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<prof-list xmlns="http://www.cleda.org/prof.xsd">
+
+	<prof name="enterdoc">
+		<description>enterdoc</description>
+
+		<role name="enterdoc" />
+	</prof>
+
+	<prof name="check1st">
+		<description>check1st</description>
+
+		<role name="check1st" />
+	</prof>
+
+	<prof name="check2nd">
+		<description>check2nd</description>
+
+		<role name="check2nd" />
+	</prof>
+
+	<prof name="worklists_dmainlist">
+		<description>worklists_dmainlist</description>
+
+		<priv name="work.worklist1" />
+		<priv name="work.worklist2" />
+		<priv name="work.worklist3" />
+		<priv name="work.main.list" />
+	</prof>
+
+</prof-list>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<prof-list xmlns="http://www.cleda.org/prof.xsd">
+
+	<prof name="admin">
+		<description>admin</description>
+		<priv name="main.admin.user" />
+		<priv name="main.admin.prof" />
+	</prof>
+
+	<prof name="cruds">
+		<description>cruds</description>
+		<priv name="crud.crudA" />
+		<priv name="crud.crudB" />
+		<priv name="crud.crudC" />
+		<priv name="crud.crudD" />
+		<priv name="crud.crudPost" />
+	</prof>
+
+	<prof name="dummy">
+		<description>dummy</description>
+		<priv name="dummy" />
+	</prof>
+
+</prof-list>

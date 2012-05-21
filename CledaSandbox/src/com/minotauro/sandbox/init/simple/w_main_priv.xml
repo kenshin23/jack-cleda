@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<priv-list xmlns="http://www.cleda.org/priv.xsd">
+
+	<priv name="work.worklist1">
+		<description>work.worklist1</description>
+	</priv>
+
+	<priv name="work.worklist2">
+		<description>work.worklist2</description>
+	</priv>
+
+	<priv name="work.worklist3">
+		<description>work.worklist1</description>
+	</priv>
+	
+	<priv name="work.main.list">
+		<description>work.main.list</description>
+	</priv>
+	
+	<priv name="flujo.flujolist1">
+		<description>flujo.flujolist1</description>
+	</priv>
+	
+	<priv name="flujo.flujolist2">
+		<description>flujo.flujolist2</description>
+	</priv>
+</priv-list>
