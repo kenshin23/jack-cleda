@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<doc-type xmlns="http://www.cleda.org/doc-type.xsd" name="sms-doc">
+
+	<doc-section name="remitente" />
+	<doc-section name="destinatario" />
+	<doc-section name="tiposms" />
+	<doc-section name="contenido" />
+
+</doc-type>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<doc-type xmlns="http://www.cleda.org/doc-type.xsd" name="user_reg-doc">
+
+	<doc-section name="user" />
+	<doc-section name="pass" />
+	<doc-section name="prof" />
+
+</doc-type>

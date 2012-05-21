@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<user-list xmlns="http://www.cleda.org/user.xsd">
+
+	<user user="admin" pass="1" language="en" country="US" variant="">
+		<prof name="admin" />
+		<prof name="cruds" />
+		<prof name="dummy" />
+	</user>
+
+	<user user="cruds" pass="1" language="en" country="US" variant="">
+		<prof name="cruds" />
+	</user>
+
+	<user user="dummy" pass="1" language="en" country="US" variant="">
+		<prof name="dummy" />
+	</user>
+
+</user-list>

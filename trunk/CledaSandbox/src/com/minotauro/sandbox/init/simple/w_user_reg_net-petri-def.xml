@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- **************************************** -->
+<!-- net-petri definition -->
+<!-- **************************************** -->
+
+<net-petri-def xmlns="http://www.cleda.org/net-petri-def.xsd"
+	name="user_reg-net" doc-type="user_reg-doc">
+
+	<!-- **************************************** -->
+	<!-- The global MetaData -->
+	<!-- **************************************** -->
+
+	<meta-data key="java.echo.doc.editor"
+		val="com.minotauro.sandbox.gui.duserreg.FrmDUserRegEdit" />
+	<meta-data key="java.echo.doc.i18n.cls"
+		val="com.minotauro.sandbox.gui.duserreg._I18NFrmDUserRegEdit" />
+
+	<!-- **************************************** -->
+	<!-- The role list and delegators -->
+	<!-- **************************************** -->
+
+	<roles-list>
+		<role name="check_user_reg" delegator="com.minotauro.workflow.impl.WorkflowDelegatorImpl" />
+	</roles-list>
+
+	<!-- **************************************** -->
+	<!-- The list of places in the net-petri -->
+	<!-- **************************************** -->
+
+	<place-list>
+		<place name="p0" /> <!-- begin -->
+		<place name="p1" /> <!-- accept -->
+		<place name="p2" /> <!-- deny -->
+		<place name="p3" /> <!-- done -->
+	</place-list>
+
+	<!-- **************************************** -->
+	<!-- The list of trans-set and trans -->
+	<!-- **************************************** -->
+
+	<trans-list>
+		<trans-set name="check">
+			<role name="check_user_reg" />
+			<work name="worklist1" />
+
+			<doc-section-state name="user" state="readonly" />
+			<doc-section-state name="pass" state="hidden" />
+			<doc-section-state name="prof" state="editable" />
+
+			<trans name="accept">
+				<meta-data key="java.echo.doc.i18n.key" val="accept" />
+
+				<pre-place name="p0" />
+				<pos-place name="p1" />
+			</trans>
+			<trans name="deny">
+				<meta-data key="java.echo.doc.i18n.key" val="deny" />
+
+				<pre-place name="p0" />
+				<pos-place name="p2" />
+			</trans>
+		</trans-set>
+
+		<trans-set name="create-user">
+			<auto type="com.minotauro.sandbox.gui.duserreg.CreateUserAgent"
+				time="0" />
+
+			<trans name="create-user">
+				<pre-place name="p1" />
+				<pos-place name="p3" />
+			</trans>
+		</trans-set>
+	</trans-list>
+
+	<!-- **************************************** -->
+	<!-- The list of states in the net-petri -->
+	<!-- **************************************** -->
+
+	<state-list>
+		<state-grp name="begin" terminal="false">
+			<state-set name="begin">
+				<place name="p0" tokens="1" />
+			</state-set>
+		</state-grp>
+		<state-grp name="accept" terminal="false">
+			<state-set name="accept">
+				<place name="p1" tokens="1" />
+			</state-set>
+		</state-grp>
+		<state-grp name="deny" terminal="true">
+			<state-set name="deny">
+				<place name="p2" tokens="1" />
+			</state-set>
+		</state-grp>
+		<state-grp name="done" terminal="true">
+			<state-set name="done">
+				<place name="p3" tokens="1" />
+			</state-set>
+		</state-grp>
+	</state-list>
+
+</net-petri-def>

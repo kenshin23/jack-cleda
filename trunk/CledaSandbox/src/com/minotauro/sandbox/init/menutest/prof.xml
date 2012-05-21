@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<prof-list xmlns="http://www.cleda.org/prof.xsd">
+
+	<prof name="test.prof1">
+		<description>test.prof1</description>
+
+		<priv name="test.priv1" />
+		<role name="test.role1" />
+	</prof>
+
+	<prof name="test.profOnlyPriv1">
+		<description>test.profOnlyPriv1</description>
+
+		<priv name="test.priv1" />
+	</prof>
+
+	<prof name="test.prof2">
+		<description>test.prof2</description>
+
+		<priv name="test.priv2" />
+		<role name="test.role2" />
+	</prof>
+
+	<prof name="test.profOnlyPriv2">
+		<description>test.profOnlyPriv2</description>
+
+		<priv name="test.priv2" />
+	</prof>
+
+</prof-list>

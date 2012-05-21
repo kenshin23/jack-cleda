@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<worklist-list xmlns="http://www.cleda.org/worklist.xsd">
+
+	<worklist name="worklist1" />
+	<worklist name="worklist2" />
+
+</worklist-list>

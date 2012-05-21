@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<user-list xmlns="http://www.cleda.org/user.xsd">
+
+	<user user="init" pass="1" language="en" country="US" variant="">
+		<prof name="enterdoc" />
+		<prof name="worklists_dmainlist" />
+	</user>
+
+	<user user="sup1" pass="1" language="en" country="US" variant="">
+		<prof name="check1st" />
+		<prof name="worklists_dmainlist" />
+	</user>
+
+	<user user="sup2" pass="1" language="en" country="US" variant="">
+		<prof name="check2nd" />
+		<prof name="worklists_dmainlist" />
+	</user>
+
+</user-list>
