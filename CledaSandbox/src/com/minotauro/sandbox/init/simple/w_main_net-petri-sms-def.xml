@@ -12,9 +12,9 @@
 	<!-- **************************************** -->
 
 	<meta-data key="java.echo.doc.editor"
-		val="com.minotauro.sandbox.gui.dmaina.FrmDMainAEdit" />
+		val="com.minotauro.sandbox.gui.dmainSMS.FrmDMainSmsEdit" />
 	<meta-data key="java.echo.doc.i18n.cls"
-		val="com.minotauro.sandbox.gui.dmaina._I18NFrmDMainAEdit" />
+		val="com.minotauro.sandbox.gui.dmainsms._I18NFrmDMainSmsEdit" />
 
 	<!-- **************************************** -->
 	<!-- The role list and delegators -->
@@ -22,9 +22,11 @@
 
 	<roles-list>
 		<role name="recibir-sms" delegator="com.minotauro.workflow.impl.WorkflowDelegatorImpl" />
-		<role name="procesandosms" delegator="com.minotauro.workflow.impl.WorkflowDelegatorImpl" />
-		<role name="procesandosms2" delegator="com.minotauro.workflow.impl.WorkflowDelegatorImpl" />
+		<role name="procesando-sms" delegator="com.minotauro.workflow.impl.WorkflowDelegatorImpl" />
+		<role name="procesando-sms2" delegator="com.minotauro.workflow.impl.WorkflowDelegatorImpl" />
 		<role name="sms-enviado" delegator="com.minotauro.workflow.impl.WorkflowDelegatorImpl" />
+		<role name="edo-final	" delegator="com.minotauro.workflow.impl.WorkflowDelegatorImpl" />
+		
 	</roles-list>
 
 	<!-- **************************************** -->
@@ -54,24 +56,24 @@
 
 			<doc-section-state name="remitente" state="readonly" />
 			<doc-section-state name="destinatario" state="editable" />
-			<doc-section-state name="tiposms" state="editable" />
+			<doc-section-state name="tipo-sms" state="editable" />
 			<doc-section-state name="contenido" state="editable" />
 
-			<trans name="smsrecibido">
-				<meta-data key="java.echo.doc.i18n.key" val="smsrecibido" />
+			<trans name="sms-recibido">
+				<meta-data key="java.echo.doc.i18n.key" val="sms-recibido" />
 
 				<pre-place name="p0" />
 				<pos-place name="p1" />
 			</trans>
 		</trans-set>
 
-		<trans-set name="procesandosms">
-			<role name="procesandosms" />
+		<trans-set name="procesando-sms">
+			<role name="procesando-sms" />
 			<work name="flujolist1" />
 
 			<doc-section-state name="remitente" state="readonly" />
 			<doc-section-state name="destinatario" state="readonly" />
-			<doc-section-state name="tiposms" state="readonly" />
+			<doc-section-state name="tipo-sms" state="readonly" />
 			<doc-section-state name="contenido" state="readonly" />
 
 
@@ -98,13 +100,13 @@
 			</trans>
 		</trans-set>
 
-		<trans-set name="procesando2">
-			<role name="procesando2" />
+		<trans-set name="procesando-sms2">
+			<role name="procesando-sms2" />
 			<work name="fluolist1" />
 
 			<doc-section-state name="remitente" state="readonly" />
 			<doc-section-state name="destinatario" state="readonly" />
-			<doc-section-state name="tiposms" state="readonly" />
+			<doc-section-state name="tipo-sms" state="readonly" />
 			<doc-section-state name="contenido" state="readonly" />
 
 
@@ -130,7 +132,7 @@
 
 			<doc-section-state name="remitente" state="readonly" />
 			<doc-section-state name="destinatario" state="readonly" />
-			<doc-section-state name="tiposms" state="readonly" />
+			<doc-section-state name="tipo-sms" state="readonly" />
 			<doc-section-state name="contenido" state="readonly" />
 
 			<trans name="enviar-sms">
@@ -154,6 +156,23 @@
 				<pos-place name="p7" />
 			</trans>
 		</trans-set>
+		
+		<trans-set name="edo-final" init="true">
+			<role name="edo-final" />
+			<work name="flujolist1" />
+
+			<doc-section-state name="remitente" state="readonly" />
+			<doc-section-state name="destinatario" state="readonly" />
+			<doc-section-state name="tipo-sms" state="readonly" />
+			<doc-section-state name="contenido" state="readonly" />
+
+			<trans name="proce-end">
+				<meta-data key="java.echo.doc.i18n.key" val="proce-end" />
+
+				<pre-place name="p7" />
+				<pos-place name="p8" />
+			</trans>
+		</trans-set>
 
 	</trans-list>
 
@@ -163,70 +182,91 @@
 
 	<state-list>
 		<state-grp name="recibir-sms" terminal="false">
-			<state-set name="enterdoc">
+			<state-set name="recibir-sms">
 				<place name="p0" tokens="1" />
 			</state-set>
 		</state-grp>
-		<state-grp name="wait-for-1st" terminal="false">
-			<doc-section-state name="frstName" state="visible" />
-			<doc-section-state name="lastName" state="visible" />
-			<doc-section-state name="note1" state="visible" />
-			<doc-section-state name="note2" state="hidden" />
-
-			<state-set name="wait-for-1st">
+		
+		<state-grp name="procesar-sms" terminal="false">
+			<state-set name="procesar-sms">
 				<place name="p1" tokens="1" />
 			</state-set>
 		</state-grp>
-		<state-grp name="wait-for-2nd" terminal="false">
-			<doc-section-state name="frstName" state="visible" />
-			<doc-section-state name="lastName" state="visible" />
-			<doc-section-state name="note1" state="visible" />
-			<doc-section-state name="note2" state="visible" />
-
-			<state-set name="wait-for-2nd">
-				<place name="p3" tokens="1" />
-			</state-set>
-		</state-grp>
-		<state-grp name="deny-mail-1" terminal="false">
-			<state-set name="deny-mail-1">
+		
+			<state-grp name="inscribir-sms" terminal="false">
+			<doc-section-state name="remitente" state="visible" />
+			<doc-section-state name="destinatario" state="visible" />
+			<doc-section-state name="tipo-sms" state="visible" />
+			<doc-section-state name="contenido" state="visible" />
+			
+			<state-set name="inscribir-sms">
 				<place name="p2" tokens="1" />
 			</state-set>
 		</state-grp>
-		<state-grp name="deny-mail-2" terminal="false">
-			<state-set name="deny-mail-2">
-				<place name="p5" tokens="1" />
+		
+		<state-grp name="consultar-sms" terminal="false">
+			
+			<doc-section-state name="remitente" state="visible" />
+			<doc-section-state name="destinatario" state="visible" />
+			<doc-section-state name="tipo-sms" state="visible" />
+			<doc-section-state name="contenido" state="visible" />
+			<state-set name="consultar-sms">
+				<place name="p3" tokens="1" />
 			</state-set>
 		</state-grp>
-		<state-grp name="deny" terminal="true">
-			<doc-section-state name="frstName" state="visible" />
-			<doc-section-state name="lastName" state="visible" />
-			<doc-section-state name="note1" state="visible" />
-			<doc-section-state name="note2" state="visible" />
-
-			<state-set name="deny">
+		
+		<state-grp name="suspender-sms" terminal="false">
+		
+			<doc-section-state name="remitente" state="visible" />
+			<doc-section-state name="destinatario" state="visible" />
+			<doc-section-state name="tipo-sms" state="visible" />
+			<doc-section-state name="contenido" state="visible" />
+			<state-set name="suspender-sms">
 				<place name="p4" tokens="1" />
 			</state-set>
 		</state-grp>
-		<state-grp name="accept-mail" terminal="false">
-			<doc-section-state name="frstName" state="visible" />
-			<doc-section-state name="lastName" state="visible" />
-			<doc-section-state name="note1" state="hidden" />
-			<doc-section-state name="note2" state="hidden" />
-
-			<state-set name="accept-mail">
+		
+		<state-grp name="wait-dato" terminal="false">
+			
+			<doc-section-state name="remitente" state="visible" />
+			<doc-section-state name="destinatario" state="visible" />
+			<doc-section-state name="tipo-sms" state="visible" />
+			<doc-section-state name="contenido" state="visible" />
+			
+			<state-set name="wait-dato">
+				<place name="p5" tokens="1" />
+			</state-set>
+		</state-grp>
+		
+			<state-grp name="wait-usuario" terminal="false">
+			
+			<doc-section-state name="remitente" state="visible" />
+			<doc-section-state name="destinatario" state="visible" />
+			<doc-section-state name="tipo-sms" state="visible" />
+			<doc-section-state name="contenido" state="visible" />
+			
+			<state-set name="wait-usuario">
 				<place name="p6" tokens="1" />
 			</state-set>
 		</state-grp>
-		<state-grp name="accept" terminal="true">
-			<state-set name="accept">
+		
+		<state-grp name="no-enviado" terminal="true">
+			<doc-section-state name="remitente" state="visible" />
+			<doc-section-state name="destinatario" state="visible" />
+			<doc-section-state name="tipo-sms" state="visible" />
+			<doc-section-state name="contenido" state="visible" />
+
+			<state-set name="no-enviado">
 				<place name="p7" tokens="1" />
 			</state-set>
 		</state-grp>
-		<state-grp name="cancel" terminal="true">
-			<state-set name="cancel">
+		
+		<state-grp name="sms-enviado" terminal="true">
+			<state-set name="sms-enviado">
 				<place name="p8" tokens="1" />
 			</state-set>
 		</state-grp>
+	
 	</state-list>
 
 </net-petri-def>
