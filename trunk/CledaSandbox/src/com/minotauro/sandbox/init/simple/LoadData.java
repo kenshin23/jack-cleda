@@ -25,6 +25,7 @@ public class LoadData {
     UserLoader.loadUser(LoadData.class.getResourceAsStream("user.xml"));
 
     WorklistLoader.loadWorklist(LoadData.class.getResourceAsStream("worklist.xml"));
+//    WorklistLoader.loadWorklist(LoadData.class.getResourceAsStream("flujolist.xml"));
 
     PrivLoader.loadPriv(LoadData.class.getResourceAsStream("w_main_priv.xml"));
     RoleLoader.loadRole(LoadData.class.getResourceAsStream("w_main_role.xml"));
@@ -34,8 +35,8 @@ public class LoadData {
     DocTypeLoader.loadDocType(LoadData.class.getResourceAsStream("w_main_doc-type.xml"));
     NetPetriLoader.loadNetPetri(LoadData.class.getResourceAsStream("w_main_net-petri-def.xml"));
 
-    //DocTypeLoader.loadDocType(LoadData.class.getResourceAsStream("w_main_doc-type-sms.xml"));
-    //NetPetriLoader.loadNetPetri(LoadData.class.getResourceAsStream("w_main_net-petri-sms-def.xml"));
+    DocTypeLoader.loadDocType(LoadData.class.getResourceAsStream("w_main_doc-type-sms.xml"));
+    NetPetriLoader.loadNetPetri(LoadData.class.getResourceAsStream("w_main_net-petri-sms-def.xml"));
     
     RoleLoader.loadRole(LoadData.class.getResourceAsStream("w_user_reg_role.xml"));
     ProfLoader.loadProf(LoadData.class.getResourceAsStream("w_user_reg_prof.xml"));

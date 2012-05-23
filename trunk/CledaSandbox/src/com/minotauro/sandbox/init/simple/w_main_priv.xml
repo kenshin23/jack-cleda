@@ -11,21 +11,19 @@
 	</priv>
 
 	<priv name="work.worklist3">
-		<description>work.worklist1</description>
+		<description>work.worklist3</description>
 	</priv>
-	
+
+
+<!-- 	<priv name="flujo.flujolist1"> -->
+<!-- 		<description>flujo.flujolist1</description> -->
+<!-- 	</priv> -->
+
 	<priv name="work.main.list">
 		<description>work.main.list</description>
 	</priv>
 	
-	<priv name="flujo.flujolist1">
-		<description>flujo.flujolist1</description>
-	</priv>
-	
-	<priv name="flujo.flujolist2">
-		<description>flujo.flujolist2</description>
-	</priv>
-	
+x
 	<priv name="flujo.main.list">
 		<description>flujo.main.list</description>
 	</priv>

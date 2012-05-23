@@ -7,7 +7,7 @@
 
 		<role name="enterdoc" />
 	</prof>
-
+	
 	<prof name="check1st">
 		<description>check1st</description>
 
@@ -26,6 +26,7 @@
 		<priv name="work.worklist1" />
 		<priv name="work.worklist2" />
 		<priv name="work.worklist3" />
+<!-- 		<priv name="flujo.flujolist1" /> -->
 		<priv name="work.main.list" />
 		<priv name="flujo.main.list" />
 	</prof>

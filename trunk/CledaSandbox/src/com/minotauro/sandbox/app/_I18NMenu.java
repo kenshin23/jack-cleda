@@ -62,14 +62,6 @@ public class _I18NMenu {
     return MessageBase.getInstance().locateValue(locale, RES_NAME, "flujo", new Object[]{});
   }
 
-  public static String flujolist1() throws MessageException {
-    return MessageBase.getInstance().locateValue(locale, RES_NAME, "flujolist1", new Object[]{});
-  }
-
-  public static String flujolist2() throws MessageException {
-    return MessageBase.getInstance().locateValue(locale, RES_NAME, "flujolist2", new Object[]{});
-  }
-
   public static String flujomainedit() throws MessageException {
     return MessageBase.getInstance().locateValue(locale, RES_NAME, "flujomainedit", new Object[]{});
   }
@@ -120,6 +112,10 @@ public class _I18NMenu {
 
   public static String worklist2() throws MessageException {
     return MessageBase.getInstance().locateValue(locale, RES_NAME, "worklist2", new Object[]{});
+  }
+
+  public static String worklist3() throws MessageException {
+    return MessageBase.getInstance().locateValue(locale, RES_NAME, "worklist3", new Object[]{});
   }
 
   public static String workmainedit() throws MessageException {

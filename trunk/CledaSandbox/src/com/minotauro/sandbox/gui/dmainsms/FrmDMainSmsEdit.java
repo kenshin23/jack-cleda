@@ -34,21 +34,15 @@ import com.minotauro.sandbox.model._PropDSingJointAC;
 
 /**
  * @author Karla Moreno
+ * 
  */
 public class FrmDMainSmsEdit extends FrmEditWrk {
 
   protected FieldModel fmName;
   protected FieldModel fmDesc;
-  protected FieldModel fmTiposms;
-  protected FieldModel fmContenido;
+  protected FieldModel fmTipo;
 
-  protected FieldModel fmMultJointAB;
-  protected FieldModel fmMultJointAC;
-  protected FieldModel fmSingJointAB;
-  protected FieldModel fmSingJointAC;
-
-  protected FieldModel fmInnerAC;
-
+ 
   // --------------------------------------------------------------------------------
 
   public FrmDMainSmsEdit() {
@@ -103,45 +97,23 @@ public class FrmDMainSmsEdit extends FrmEditWrk {
     // --------------------------------------------------------------------------------
     
     
-    ETextAreaEx txtTiposms = new ETextAreaEx();
-    txtTiposms.setWidth(new Extent(204));
+    ETextAreaEx txtTipo = new ETextAreaEx();
+    txtTipo.setWidth(new Extent(204));
 
-    fmTiposms = new FieldModel();
-    fmTiposms.setLabelCmp(new EFieldLabel(_I18NFrmDMainSmsEdit.tiposms()));
-    fmTiposms.setFieldCmp(txtTiposms);
-    fmTiposms.setKey(_PropDMainSms.TIPOSMS);
-    fmTiposms.setProperty(_PropDMainSms.TIPOSMS);
+    fmTipo = new FieldModel();
+    fmTipo.setLabelCmp(new EFieldLabel(_I18NFrmDMainSmsEdit.tipo()));
+    fmTipo.setFieldCmp(txtTipo);
+    fmTipo.setKey(_PropDMainSms.TIPO);
+    fmTipo.setProperty(_PropDMainSms.TIPO);
 
-    fmTiposms.getValidatorList().add( //
-        new NotEmptyValidator(_I18NFrmDMainSmsEdit.tiposms(), txtTiposms));
+    fmTipo.getValidatorList().add( //
+        new NotEmptyValidator(_I18NFrmDMainSmsEdit.tipo(), txtTipo));
 
-    sectionModel.addChild(fmTiposms);
+    sectionModel.addChild(fmTipo);
 
     // --------------------------------------------------------------------------------
     
-    ETextAreaEx txtContenido = new ETextAreaEx();
-    txtContenido.setWidth(new Extent(204));
-
-    fmContenido = new FieldModel();
-    fmContenido.setLabelCmp(new EFieldLabel(_I18NFrmDMainSmsEdit.contenido()));
-    fmContenido.setFieldCmp(txtContenido);
-    fmContenido.setKey(_PropDMainSms.CONTENIDO);
-    fmContenido.setProperty(_PropDMainSms.CONTENIDO);
-
-    fmContenido.getValidatorList().add( //
-        new NotEmptyValidator(_I18NFrmDMainSmsEdit.tiposms(), txtContenido));
-
-    sectionModel.addChild(fmContenido);
-
-    // --------------------------------------------------------------------------------
-
-//    sectionModel.addChild(fmMultJointAB = initMultJointAB());
-//    sectionModel.addChild(fmMultJointAC = initMultJointAC());
-//    sectionModel.addChild(fmSingJointAB = initSingJointAB());
-//    sectionModel.addChild(fmSingJointAC = initSingJointAC());
-
-//    sectionModel.addChild(fmInnerAC/* */= initInnerAC());
-  }
+    }
 
   // --------------------------------------------------------------------------------
 /*
