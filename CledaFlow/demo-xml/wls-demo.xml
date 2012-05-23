@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<worklist-list>
+	<worklist name="name1">
+		<meta-data key="bun" val="val1" />
+		<meta-data key="cap" val="val2" />
+		<meta-data key="key" val="val3" />
+	</worklist>
+	<worklist name="name2">
+		<meta-data key="bun" val="val1" />
+		<meta-data key="cap" val="val2" />
+		<meta-data key="key" val="val3" />
+	</worklist>
+	<worklist name="name3">
+		<meta-data key="bun" val="val1" />
+		<meta-data key="cap" val="val2" />
+		<meta-data key="key" val="val3" />
+	</worklist>
+</worklist-list>

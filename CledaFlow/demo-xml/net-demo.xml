@@ -1,0 +1,139 @@
+<!-- **************************************** -->
+<!-- net-petri definition                     -->
+<!-- **************************************** -->
+
+<net-petri-def name="name" doc-type="name">
+
+	<meta-data key="bun" val="val1" />
+	<meta-data key="cap" val="val2" />
+	<meta-data key="key" val="val3" />
+
+	<!-- **************************************** -->
+	<!-- The list of places in the net-petri      -->
+	<!-- **************************************** -->
+
+	<place-list>
+		<place name="p1" />
+		<place name="p2" />
+		<place name="p3" />
+		<place name="p4" />
+	</place-list>
+
+	<!-- **************************************** -->
+	<!-- The list of trans-set and trans          -->
+	<!-- **************************************** -->
+
+	<trans-list>
+		<trans-set name="name" type="norm"> <!-- TODO: Type no hace falta -->
+
+			<!-- **************************************** -->
+			<!-- Opt 1 : Allowed Opt1 or Opt2             -->
+			<!-- **************************************** -->
+
+			<!--
+				<agent-def time="10" class="class" method="method" />
+			-->
+
+			<!-- **************************************** -->
+			<!-- Opt 2 : Allowed Opt1 or Opt2             -->
+			<!-- **************************************** -->
+
+			<privilege name="priv1" /> <!-- TODO: Change to role -->
+			<work-list name="name1" />
+
+			<!-- **************************************** -->
+			<!-- Meta Data                                -->
+			<!-- **************************************** -->
+
+			<meta-data key="bun" val="val1" />
+			<meta-data key="cap" val="val2" />
+			<meta-data key="key" val="val3" />
+
+			<!-- **************************************** -->
+			<!-- Doc Section State                        -->
+			<!-- **************************************** -->
+
+			<doc-section-state name="name1" state="editbl" />
+			<doc-section-state name="name2" state="hidden" />
+			<doc-section-state name="name3" state="rdonly" />
+
+			<!-- **************************************** -->
+			<!-- Trans List                               -->
+			<!-- **************************************** -->
+
+			<trans name="name1">
+				<meta-data key="bun" val="val1" />
+				<meta-data key="cap" val="val2" />
+				<meta-data key="key" val="val3" />
+
+				<pre-place name="p1" />
+				<pre-place name="p2" />
+
+				<pos-place name="p3" />
+				<pos-place name="p4" />
+			</trans>
+		</trans-set>
+	</trans-list>
+
+	<!-- **************************************** -->
+	<!-- The list of states in the net-petri      -->
+	<!-- **************************************** -->
+
+	<state-list>
+		<state-grp name="name1" terminal="false">
+
+			<!-- **************************************** -->
+			<!-- Meta Data                                -->
+			<!-- **************************************** -->
+
+			<meta-data key="bun" val="val1" />
+			<meta-data key="cap" val="val2" />
+			<meta-data key="key" val="val3" />
+
+			<!-- **************************************** -->
+			<!-- Doc Section State                        -->
+			<!-- **************************************** -->
+
+			<doc-section-state name="name1" state="visibl" />
+			<doc-section-state name="name2" state="hidden" />
+
+			<!-- **************************************** -->
+			<!-- State Set List                           -->
+			<!-- **************************************** -->
+
+			<state-set name="name1">
+				<place name="p1" tokens="1" />
+				<place name="p2" tokens="1" />
+			</state-set>
+		</state-grp>
+	</state-list>
+	<state-list>
+		<state-grp name="name2" terminal="true">
+
+			<!-- **************************************** -->
+			<!-- Meta Data                                -->
+			<!-- **************************************** -->
+
+			<meta-data key="bun" val="val1" />
+			<meta-data key="cap" val="val2" />
+			<meta-data key="key" val="val3" />
+
+			<!-- **************************************** -->
+			<!-- Doc Section State                        -->
+			<!-- **************************************** -->
+
+			<doc-section-state name="name1" state="visibl" />
+			<doc-section-state name="name2" state="hidden" />
+
+			<!-- **************************************** -->
+			<!-- State Set List                           -->
+			<!-- **************************************** -->
+
+			<state-set name="name2">
+				<place name="p3" tokens="1" />
+				<place name="p4" tokens="1" />
+			</state-set>
+		</state-grp>
+	</state-list>
+
+</net-petri-def>

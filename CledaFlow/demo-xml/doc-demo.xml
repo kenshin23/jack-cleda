@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<doc-type name="name">
+	<meta-data key="bun" val="val1" />
+	<meta-data key="cap" val="val2" />
+	<meta-data key="key" val="val3" />
+
+	<doc-section name="name1" />
+	<doc-section name="name2" />
+	<doc-section name="name3" />
+</doc-type>

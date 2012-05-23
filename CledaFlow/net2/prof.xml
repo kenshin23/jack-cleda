@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<prof-list>
+	<prof name="init">
+		<description>init</description>
+
+		<role name="init" />
+	</prof>
+</prof-list>

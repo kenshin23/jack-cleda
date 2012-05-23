@@ -1,0 +1,219 @@
+<!-- **************************************** -->
+<!-- net-petri definition                     -->
+<!-- **************************************** -->
+
+<net-petri-def name="test-net" doc-type="test-doc">
+
+    <!-- **************************************** -->
+    <!-- The global MetaData                      -->
+    <!-- **************************************** -->
+
+	<meta-data key="java.echo.doc.editor"     val="com.minotauro.memo.doc.FrmUserRegistration"  />
+	<meta-data key="java.echo.doc.i18n.class" val="com.minotauro.memo.doc.UserRegistrationI18N" />
+
+	<!-- **************************************** -->
+	<!-- The role list and delegators             -->
+	<!-- **************************************** -->
+
+	<roles-list>
+		<role name="init" delegator="com.minotauro.workflow.impl.WorkflowDelegatorImpl"/>
+	</roles-list>
+
+	<!-- **************************************** -->
+	<!-- The list of places in the net-petri      -->
+	<!-- **************************************** -->
+
+	<place-list>
+		<place name="p0" />
+		<place name="p1" />
+		<place name="p2" />
+		<place name="p3" />
+		<place name="p4" />
+		<place name="p5" />
+		<place name="p6" />
+		<place name="p7" />
+		<place name="p8" />
+		<place name="p9" />
+	</place-list>
+
+	<!-- **************************************** -->
+	<!-- The list of trans-set and trans          -->
+	<!-- **************************************** -->
+
+	<trans-list>
+		<trans-set name="ts1">
+			<work name="worklist" />
+			<role name="init"     />
+
+			<trans name="t1">
+				<pre-place name="p0" />
+				<pos-place name="p1" />
+			</trans>
+		</trans-set>
+
+		<trans-set name="ts2">
+			<auto type="com.minotauro.workflow.test.net3.Ts2TransAgent" time="1" />
+
+			<trans name="t2">
+				<pre-place name="p1" />
+				<pos-place name="p2" />
+			</trans>
+
+			<trans name="t3">
+				<pre-place name="p1" />
+				<pos-place name="p3" />
+			</trans>
+		</trans-set>
+
+		<trans-set name="ts3">
+			<auto type="com.minotauro.workflow.test.net3.Ts3TransAgent" time="0" />
+
+			<trans name="t4">
+				<pre-place name="p2" />
+				<pos-place name="p4" />
+				<pos-place name="p5" />
+			</trans>
+
+			<trans name="t5">
+				<pre-place name="p2" />
+				<pos-place name="p4" />
+				<pos-place name="p5" />
+				<pos-place name="p6" />
+			</trans>
+
+			<trans name="t6">
+				<pre-place name="p2" />
+				<pos-place name="p5" />
+				<pos-place name="p6" />
+			</trans>
+		</trans-set>
+
+		<trans-set name="ts4">
+			<auto type="com.minotauro.workflow.test.net3.Ts4TransAgent" time="100" />
+
+			<trans name="t7">
+				<pre-place name="p4" />
+				<pre-place name="p5" />
+				<pos-place name="p7" />
+			</trans>
+		</trans-set>
+
+		<trans-set name="ts5">
+			<auto type="com.minotauro.workflow.test.net3.Ts5TransAgent" time="100" />
+
+			<trans name="t8">
+				<pre-place name="p5" />
+				<pre-place name="p6" />
+				<pos-place name="p8" />
+			</trans>
+		</trans-set>
+
+		<trans-set name="ts6">
+			<auto type="com.minotauro.workflow.test.net3.Ts6TransAgent" time="1" />
+
+			<trans name="t9">
+				<pre-place name="p7" />
+				<pos-place name="p1" />
+			</trans>
+		</trans-set>
+
+		<trans-set name="ts7">
+			<auto type="com.minotauro.workflow.test.net3.Ts7TransAgent" time="1" />
+
+			<trans name="t10">
+				<pre-place name="p8" />
+				<pos-place name="p1" />
+			</trans>
+		</trans-set>
+
+		<trans-set name="ts8">
+			<auto type="com.minotauro.workflow.test.net3.Ts8TransAgent" time="1" />
+
+			<trans name="t11">
+				<pre-place name="p3" />
+				<pos-place name="p8" />
+			</trans>
+		</trans-set>
+
+		<trans-set name="ts9">
+			<auto time="0" />
+
+			<trans name="t12">
+				<pre-place name="p4" />
+				<pre-place name="p5" inhibitor="true" />
+				<pre-place name="p6" inhibitor="true" />
+			</trans>
+		</trans-set>
+
+		<trans-set name="ts10">
+			<auto time="0" />
+
+			<trans name="t13">
+				<pre-place name="p4" inhibitor="true" />
+				<pre-place name="p5" inhibitor="true" />
+				<pre-place name="p6" />
+			</trans>
+		</trans-set>
+	</trans-list>
+
+	<!-- **************************************** -->
+	<!-- The list of states in the net-petri      -->
+	<!-- **************************************** -->
+
+	<state-list>
+		<state-grp name="sg1">
+			<state-set name="ss1">
+				<place name="p0" tokens="1" />
+			</state-set>
+		</state-grp>
+		<state-grp name="sg2">
+			<state-set name="ss2">
+				<place name="p1" tokens="1" />
+			</state-set>
+		</state-grp>
+		<state-grp name="sg3">
+			<state-set name="ss3">
+				<place name="p2" tokens="1" />
+			</state-set>
+		</state-grp>
+		<state-grp name="sg4">
+			<state-set name="ss4">
+				<place name="p3" tokens="1" />
+			</state-set>
+		</state-grp>
+
+		<state-grp name="sg5">
+			<state-set name="ss5">
+				<place name="p4" tokens="1" />
+				<place name="p5" tokens="1" />
+			</state-set>
+			<state-set name="ss6">
+				<place name="p4" tokens="1" />
+				<place name="p5" tokens="1" />
+				<place name="p6" tokens="1" />
+			</state-set>
+			<state-set name="ss7">
+				<place name="p5" tokens="1" />
+				<place name="p6" tokens="1" />
+			</state-set>
+		</state-grp>
+
+		<state-grp name="sg6">
+			<state-set name="ss6">
+				<place name="p7" tokens="1" />
+			</state-set>
+		</state-grp>
+		<state-grp name="sg7">
+			<state-set name="ss9">
+				<place name="p8" tokens="1" />
+			</state-set>
+		</state-grp>
+
+		<state-grp name="sg8" terminal="true">
+			<state-set name="ss10">
+				<place name="p9" tokens="1" />
+			</state-set>
+		</state-grp>
+	</state-list>
+
+</net-petri-def>

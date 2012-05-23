@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<user-list>
+	<user login="dummy1" password="foo123" language="es" country="VE" variant="">
+		<prof name="check1st" />
+	</user>
+	<user login="dummy2" password="foo123" language="es" country="VE" variant="">
+		<prof name="check2nd" />
+	</user>
+</user-list>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.cleda.org/worklist.xsd" xmlns="http://www.cleda.org/worklist.xsd">
+
+	<!-- **************************************** -->
+	<!-- meta-data -->
+	<!-- **************************************** -->
+
+	<xs:element name="meta-data">
+		<xs:complexType>
+			<xs:attribute name="key" type="xs:string" use="required" />
+			<xs:attribute name="val" type="xs:string" use="required" />
+		</xs:complexType>
+	</xs:element>
+
+	<!-- **************************************** -->
+	<!-- worklist -->
+	<!-- **************************************** -->
+
+	<xs:element name="worklist">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="meta-data" minOccurs="0" maxOccurs="unbounded" />
+			</xs:sequence>
+
+			<xs:attribute name="name" type="xs:string" use="required" />
+		</xs:complexType>
+	</xs:element>
+
+	<!-- **************************************** -->
+	<!-- worklist-list -->
+	<!-- **************************************** -->
+
+	<xs:element name="worklist-list">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="worklist" maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+</xs:schema>
