@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.cleda.org/doc-type.xsd" xmlns="http://www.cleda.org/doc-type.xsd">
+
+	<!-- **************************************** -->
+	<!-- meta-data -->
+	<!-- **************************************** -->
+
+	<xs:element name="meta-data">
+		<xs:complexType>
+			<xs:attribute name="key" type="xs:string" use="required" />
+			<xs:attribute name="val" type="xs:string" use="required" />
+		</xs:complexType>
+	</xs:element>
+
+	<!-- **************************************** -->
+	<!-- doc-section -->
+	<!-- **************************************** -->
+
+	<xs:element name="doc-section">
+		<xs:complexType>
+			<xs:attribute name="name" type="xs:string" use="required" />
+		</xs:complexType>
+	</xs:element>
+
+	<!-- **************************************** -->
+	<!-- doc-type -->
+	<!-- **************************************** -->
+
+	<xs:element name="doc-type">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="meta-data" minOccurs="0" maxOccurs="unbounded" />
+				<xs:element ref="doc-section" maxOccurs="unbounded" />
+			</xs:sequence>
+
+			<xs:attribute name="name" type="xs:NMTOKEN" use="required" />
+		</xs:complexType>
+	</xs:element>
+
+</xs:schema>

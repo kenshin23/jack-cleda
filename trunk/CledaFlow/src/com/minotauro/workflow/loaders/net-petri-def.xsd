@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.cleda.org/net-petri-def.xsd" xmlns="http://www.cleda.org/net-petri-def.xsd">
+
+	<!-- **************************************** -->
+	<!-- meta-data -->
+	<!-- **************************************** -->
+
+	<xs:element name="meta-data">
+		<xs:complexType>
+			<xs:attribute name="key" type="xs:string" use="required" />
+			<xs:attribute name="val" type="xs:string" use="required" />
+		</xs:complexType>
+	</xs:element>
+
+	<!-- **************************************** -->
+	<!-- default-doc-section-state -->
+	<!-- **************************************** -->
+
+	<xs:element name="default-doc-section-state">
+		<xs:complexType>
+			<xs:attribute name="state" type="xs:string" use="required" />
+		</xs:complexType>
+	</xs:element>
+
+	<!-- **************************************** -->
+	<!-- doc-section-state -->
+	<!-- **************************************** -->
+
+	<xs:element name="doc-section-state">
+		<xs:complexType>
+			<xs:attribute name="name" type="xs:string" use="required" />
+			<xs:attribute name="state" type="xs:string" use="required" />
+		</xs:complexType>
+	</xs:element>
+
+	<!-- **************************************** -->
+	<!-- net-petri-def -->
+	<!-- **************************************** -->
+
+	<xs:element name="net-petri-def">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="meta-data" minOccurs="0" maxOccurs="unbounded" />
+
+				<xs:element ref="default-doc-section-validate-state"
+					minOccurs="0" />
+
+				<xs:element ref="default-doc-section-edit-state"
+					minOccurs="0" />
+				<xs:element ref="default-doc-section-view-state"
+					minOccurs="0" />
+
+				<xs:element ref="roles-list" />
+				<xs:element ref="place-list" />
+				<xs:element ref="trans-list" />
+				<xs:element ref="state-list" />
+			</xs:sequence>
+
+			<xs:attribute name="name" type="xs:string" use="required" />
+			<xs:attribute name="doc-type" type="xs:string" use="required" />
+		</xs:complexType>
+	</xs:element>
+
+	<!-- **************************************** -->
+	<!-- default-doc-section-validate-state -->
+	<!-- **************************************** -->
+
+	<xs:element name="default-doc-section-validate-state">
+		<xs:complexType>
+			<xs:attribute name="state" type="xs:string" use="required" />
+		</xs:complexType>
+	</xs:element>
+
+	<!-- **************************************** -->
+	<!-- default-doc-section-edit-state -->
+	<!-- **************************************** -->
+
+	<xs:element name="default-doc-section-edit-state">
+		<xs:complexType>
+			<xs:attribute name="state" type="xs:string" use="required" />
+		</xs:complexType>
+	</xs:element>
+
+	<!-- **************************************** -->
+	<!-- default-doc-section-view-state -->
+	<!-- **************************************** -->
+
+	<xs:element name="default-doc-section-view-state">
+		<xs:complexType>
+			<xs:attribute name="state" type="xs:string" use="required" />
+		</xs:complexType>
+	</xs:element>
+
+	<!-- **************************************** -->
+	<!-- roles-list -->
+	<!-- **************************************** -->
+
+	<xs:element name="roles-list">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="role" maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<!-- **************************************** -->
+	<!-- role -->
+	<!-- **************************************** -->
+
+	<xs:element name="role">
+		<xs:complexType>
+			<xs:attribute name="name" type="xs:string" use="required" />
+			<xs:attribute name="delegator" type="xs:string" use="optional" />
+		</xs:complexType>
+	</xs:element>
+
+	<!-- **************************************** -->
+	<!-- place-list -->
+	<!-- **************************************** -->
+
+	<xs:element name="place-list">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="place" maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<!-- **************************************** -->
+	<!-- place -->
+	<!-- **************************************** -->
+
+	<xs:element name="place">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="meta-data" minOccurs="0" maxOccurs="unbounded" />
+			</xs:sequence>
+
+			<xs:attribute name="name" type="xs:string" use="required" />
+			<xs:attribute name="tokens" type="xs:int" use="optional" />
+		</xs:complexType>
+	</xs:element>
+
+	<!-- **************************************** -->
+	<!-- trans-list -->
+	<!-- **************************************** -->
+
+	<xs:element name="trans-list">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="trans-set" maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<!-- **************************************** -->
+	<!-- trans-set -->
+	<!-- **************************************** -->
+
+	<xs:element name="trans-set">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="auto" minOccurs="0" />
+				<xs:element ref="role" minOccurs="0" />
+				<xs:element ref="work" minOccurs="0" />
+
+				<xs:element ref="default-doc-section-state" minOccurs="0" />
+
+				<xs:element ref="doc-section-state" minOccurs="0"
+					maxOccurs="unbounded" />
+
+				<xs:element ref="meta-data" minOccurs="0" maxOccurs="unbounded" />
+
+				<xs:element ref="trans" maxOccurs="unbounded" />
+			</xs:sequence>
+
+			<xs:attribute name="name" type="xs:string" use="required" />
+			<xs:attribute name="init" type="xs:boolean" use="optional"
+				default="false" />
+		</xs:complexType>
+	</xs:element>
+
+	<!-- **************************************** -->
+	<!-- agent-def -->
+	<!-- **************************************** -->
+
+	<xs:element name="auto">
+		<xs:complexType>
+			<xs:attribute name="type" type="xs:string" use="optional" />
+			<xs:attribute name="time" type="xs:int" use="optional" />
+		</xs:complexType>
+	</xs:element>
+
+	<!-- **************************************** -->
+	<!-- trans -->
+	<!-- **************************************** -->
+
+	<xs:element name="trans">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="meta-data" minOccurs="0" maxOccurs="unbounded" />
+
+				<xs:element ref="default-doc-section-state" minOccurs="0" />
+
+				<xs:element ref="doc-section-state" minOccurs="0"
+					maxOccurs="unbounded" />
+
+				<xs:element ref="pre-place" maxOccurs="unbounded" />
+				<xs:element ref="pos-place" maxOccurs="unbounded" />
+			</xs:sequence>
+
+			<xs:attribute name="name" type="xs:string" use="required" />
+		</xs:complexType>
+	</xs:element>
+
+	<!-- **************************************** -->
+	<!-- work-list -->
+	<!-- **************************************** -->
+
+	<xs:element name="work">
+		<xs:complexType>
+			<xs:attribute name="name" type="xs:string" use="required" />
+		</xs:complexType>
+	</xs:element>
+
+	<!-- **************************************** -->
+	<!-- pre-place -->
+	<!-- **************************************** -->
+
+	<xs:element name="pre-place">
+		<xs:complexType>
+			<xs:attribute name="name" type="xs:string" use="required" />
+			<xs:attribute name="inhibitor" type="xs:boolean" use="optional"
+				fixed="false" />
+		</xs:complexType>
+	</xs:element>
+
+	<!-- **************************************** -->
+	<!-- pos-place -->
+	<!-- **************************************** -->
+
+	<xs:element name="pos-place">
+		<xs:complexType>
+			<xs:attribute name="name" type="xs:string" use="required" />
+		</xs:complexType>
+	</xs:element>
+
+	<!-- **************************************** -->
+	<!-- state-list -->
+	<!-- **************************************** -->
+
+	<xs:element name="state-list">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="state-grp" maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<!-- **************************************** -->
+	<!-- state-grp -->
+	<!-- **************************************** -->
+
+	<xs:element name="state-grp">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="default-doc-section-state" minOccurs="0" />
+
+				<xs:element ref="doc-section-state" minOccurs="0"
+					maxOccurs="unbounded" />
+
+				<xs:element ref="meta-data" minOccurs="0" maxOccurs="unbounded" />
+				<xs:element ref="state-set" minOccurs="1" maxOccurs="unbounded" />
+			</xs:sequence>
+
+			<xs:attribute name="name" type="xs:string" use="required" />
+			<xs:attribute name="terminal" type="xs:boolean" use="optional"
+				default="false" />
+		</xs:complexType>
+	</xs:element>
+
+	<!-- **************************************** -->
+	<!-- state-set -->
+	<!-- **************************************** -->
+
+	<xs:element name="state-set">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="place" maxOccurs="unbounded" />
+			</xs:sequence>
+
+			<xs:attribute name="name" type="xs:string" use="required" />
+		</xs:complexType>
+	</xs:element>
+
+</xs:schema>
