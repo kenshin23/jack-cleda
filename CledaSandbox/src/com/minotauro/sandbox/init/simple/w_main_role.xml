@@ -10,7 +10,7 @@
 	<role name="check2nd">
 		<description>check2nd</description>
 	</role>
-	<role name="recibir-sms">
-		<description>recibir-sms</description>
-	</role>
-	</role-list>
+<!-- 	<role name="enterdoc1"> -->
+<!-- 		<description>enterdoc1</description> -->
+<!-- 	</role> -->
+</role-list>

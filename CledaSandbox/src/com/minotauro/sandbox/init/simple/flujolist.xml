@@ -2,9 +2,6 @@
 
 <worklist-list xmlns="http://www.cleda.org/worklist.xsd">
 
-	<worklist name="worklist1" />
-	<worklist name="worklist2" />
-	<worklist name="worklist3" />
-	
+	<worklist name="flujolist1" />
 
 </worklist-list>

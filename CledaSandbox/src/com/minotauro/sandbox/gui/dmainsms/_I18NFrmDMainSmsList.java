@@ -18,10 +18,6 @@ public class _I18NFrmDMainSmsList {
     // Empty
   }
 
-  public static String contenido() throws MessageException {
-    return MessageBase.getInstance().locateValue(locale, RES_NAME, "contenido", new Object[]{});
-  }
-
   public static String desc() throws MessageException {
     return MessageBase.getInstance().locateValue(locale, RES_NAME, "desc", new Object[]{});
   }
@@ -30,8 +26,8 @@ public class _I18NFrmDMainSmsList {
     return MessageBase.getInstance().locateValue(locale, RES_NAME, "name", new Object[]{});
   }
 
-  public static String tiposms() throws MessageException {
-    return MessageBase.getInstance().locateValue(locale, RES_NAME, "tiposms", new Object[]{});
+  public static String tipo() throws MessageException {
+    return MessageBase.getInstance().locateValue(locale, RES_NAME, "tipo", new Object[]{});
   }
 
   public static String title() throws MessageException {
