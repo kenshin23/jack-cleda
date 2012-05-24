@@ -34,6 +34,10 @@ public class _I18NFrmDMainSmsEdit {
     return MessageBase.getInstance().locateValue(locale, RES_NAME, "cancel2", new Object[]{});
   }
 
+  public static String delete() throws MessageException {
+    return MessageBase.getInstance().locateValue(locale, RES_NAME, "delete", new Object[]{});
+  }
+
   public static String deny1st() throws MessageException {
     return MessageBase.getInstance().locateValue(locale, RES_NAME, "deny1st", new Object[]{});
   }

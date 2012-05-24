@@ -146,7 +146,7 @@
 			
 			
 			<trans name="eliminando">
-			<meta-data key="java.echo.doc.i18n.key" val="deny2nd" />
+			<meta-data key="java.echo.doc.i18n.key" val="delete" />
 				<pre-place name="p4" />
 				<pos-place name="p6" />
 			</trans>
