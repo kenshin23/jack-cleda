@@ -18,32 +18,8 @@ public class _I18NFrmDMainSmsEdit {
     // Empty
   }
 
-  public static String accept1st() throws MessageException {
-    return MessageBase.getInstance().locateValue(locale, RES_NAME, "accept1st", new Object[]{});
-  }
-
-  public static String accept2nd() throws MessageException {
-    return MessageBase.getInstance().locateValue(locale, RES_NAME, "accept2nd", new Object[]{});
-  }
-
-  public static String cancel1() throws MessageException {
-    return MessageBase.getInstance().locateValue(locale, RES_NAME, "cancel1", new Object[]{});
-  }
-
-  public static String cancel2() throws MessageException {
-    return MessageBase.getInstance().locateValue(locale, RES_NAME, "cancel2", new Object[]{});
-  }
-
   public static String delete() throws MessageException {
     return MessageBase.getInstance().locateValue(locale, RES_NAME, "delete", new Object[]{});
-  }
-
-  public static String deny1st() throws MessageException {
-    return MessageBase.getInstance().locateValue(locale, RES_NAME, "deny1st", new Object[]{});
-  }
-
-  public static String deny2nd() throws MessageException {
-    return MessageBase.getInstance().locateValue(locale, RES_NAME, "deny2nd", new Object[]{});
   }
 
   public static String desc() throws MessageException {
@@ -62,8 +38,16 @@ public class _I18NFrmDMainSmsEdit {
     return MessageBase.getInstance().locateValue(locale, RES_NAME, "name", new Object[]{});
   }
 
-  public static String saveTmp() throws MessageException {
-    return MessageBase.getInstance().locateValue(locale, RES_NAME, "saveTmp", new Object[]{});
+  public static String query() throws MessageException {
+    return MessageBase.getInstance().locateValue(locale, RES_NAME, "query", new Object[]{});
+  }
+
+  public static String queryCommit() throws MessageException {
+    return MessageBase.getInstance().locateValue(locale, RES_NAME, "queryCommit", new Object[]{});
+  }
+
+  public static String register() throws MessageException {
+    return MessageBase.getInstance().locateValue(locale, RES_NAME, "register", new Object[]{});
   }
 
   public static String tipo() throws MessageException {
@@ -72,6 +56,10 @@ public class _I18NFrmDMainSmsEdit {
 
   public static String title(Object arg0) throws MessageException {
     return MessageBase.getInstance().locateValue(locale, RES_NAME, "title", new Object[]{arg0});
+  }
+
+  public static String unregister() throws MessageException {
+    return MessageBase.getInstance().locateValue(locale, RES_NAME, "unregister", new Object[]{});
   }
 
 }
