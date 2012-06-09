@@ -102,6 +102,8 @@
 		<mapping class="com.minotauro.sandbox.model.DMultJointAC" />
 		<mapping class="com.minotauro.sandbox.model.DSingJointAB" />
 		<mapping class="com.minotauro.sandbox.model.DSingJointAC" />
+		<mapping class="com.minotauro.sandbox.model.DUserReg" />
+        <mapping class="com.minotauro.sandbox.model.DUserRegProf" />
 
 		<mapping class="com.minotauro.user.model.MUser" />
 		<mapping class="com.minotauro.user.model.MUserProf" />
