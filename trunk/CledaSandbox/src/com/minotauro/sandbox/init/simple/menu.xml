@@ -95,6 +95,23 @@
 			val="com.minotauro.sandbox.gui.wizmcruda.FrmWizardMCrudA" />
 	</event>
 
+
+	<group route="wizard/post" order="5" />
+
+	<event route="wizard/post/!" order="1" i18nCls="demo" i18nKey="wizardPost"
+		handler="com.minotauro.echo.desktop.event.WizardEvent">
+		<meta-data key="frm"
+			val="com.jack.sandbox.gui.wizpost.FrmWizardMPost" />
+	</event>
+	
+	
+	<event route="wizard/post/list" order="2" i18nCls="demo"
+		i18nKey="wizardList" handler="com.minotauro.echo.desktop.event.CrudListEvent"
+		priv="crud.crudPost">
+		<meta-data key="frm"
+			val="com.minotauro.sandbox.gui.mcrudpost.FrmMCrudPostList" />
+	</event>
+	
 	<!-- **************************************** -->
 	<!-- dummy menu -->
 	<!-- **************************************** -->
