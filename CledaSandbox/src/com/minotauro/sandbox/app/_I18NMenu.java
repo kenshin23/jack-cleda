@@ -102,6 +102,14 @@ public class _I18NMenu {
     return MessageBase.getInstance().locateValue(locale, RES_NAME, "wizardA", new Object[]{});
   }
 
+  public static String wizardList() throws MessageException {
+    return MessageBase.getInstance().locateValue(locale, RES_NAME, "wizardList", new Object[]{});
+  }
+
+  public static String wizardPost() throws MessageException {
+    return MessageBase.getInstance().locateValue(locale, RES_NAME, "wizardPost", new Object[]{});
+  }
+
   public static String work() throws MessageException {
     return MessageBase.getInstance().locateValue(locale, RES_NAME, "work", new Object[]{});
   }

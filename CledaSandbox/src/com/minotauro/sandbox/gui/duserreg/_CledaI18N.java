@@ -15,5 +15,6 @@ public class _CledaI18N extends BaseI18NMain {
     m.i18n(FrmDUserRegEdit.class.getSimpleName());
     m.i18n(FrmDUserRegList.class.getSimpleName());
     m.i18n(FrmWizardDUserReg.class.getSimpleName());
+ 
   }
 }
