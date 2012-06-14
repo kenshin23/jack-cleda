@@ -1,0 +1,107 @@
+<?xml version="1.0"?>
+<!-- Generated using Flame-Ware Solutions XML-2-XSD v2.0 at http://www.flame-ware.com/Products/XML-2-XSD/ -->
+<xs:schema id="NewDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+  <xs:element name="CRUD">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="attributes" minOccurs="1" maxOccurs="1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="att" minOccurs="1" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="validator" minOccurs="0" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:attribute name="name" type="xs:string" />
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute name="name"             type="xs:string" />
+                  <xs:attribute name="type"             type="xs:string" />
+                  <xs:attribute name="visibleOnList"    type="xs:string" />
+                  <xs:attribute name="editabletiOnList" type="xs:string" />
+                  <xs:attribute name="filterByThis"     type="xs:string" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="list" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="target"           type="xs:string" />
+                  <xs:attribute name="type"             type="xs:string" />
+                  <xs:attribute name="visibleOnList"    type="xs:string" />
+                  <xs:attribute name="editabletiOnList" type="xs:string" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="editForm" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:attribute name="title"  type="xs:string" />
+            <xs:attribute name="width"  type="xs:string" />
+            <xs:attribute name="height" type="xs:string" />
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="listForm" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="column" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="name"         type="xs:string" />
+                  <xs:attribute name="width"        type="xs:string" />
+                  <xs:attribute name="targetField"  type="xs:string" />
+                  <xs:attribute name="renderer"     type="xs:string" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="paging" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="opt1" type="xs:string" />
+                  <xs:attribute name="opt2" type="xs:string" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="title"  type="xs:string" />
+            <xs:attribute name="width"  type="xs:string" />
+            <xs:attribute name="height" type="xs:string" />
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="profile" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="create" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="status" type="xs:string" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="update" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="status" type="xs:string" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="delete" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="status" type="xs:string" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="view" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="status" type="xs:string" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="name" type="xs:string" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="name"     type="xs:string" />
+      <xs:attribute name="desc"     type="xs:string" />
+      <xs:attribute name="group"    type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="NewDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="CRUD" />
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
