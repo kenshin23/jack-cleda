@@ -4,18 +4,18 @@
 	<!-- Lista de Atributos del CRUD -->
 	<!-- **************************************** -->
 	<attributes>
-		<att name="nombre_atributo1" type="<tipo_dato>" visibleOnList="TRUE/FALSE" editabletiOnList="TRUE/FALSE" filterByThis="True/False">
+		<att name="nombre_atributo1" type="tipo_dato" visibleOnList="TRUE/FALSE" editabletiOnList="TRUE/FALSE" filterByThis="True/False">
 			<validator name="nombreValidador1" />
 			<validator name="nombreValidador2" />
 			<!-- ... -->
 			
 		</att>
-		<att name="nombre_atributo2" type="<tipo_dato>" visibleOnList="TRUE/FALSE" editabletiOnList="TRUE/FALSE" filterByThis="True/False" >
+		<att name="nombre_atributo2" type="tipo_dato" visibleOnList="TRUE/FALSE" editabletiOnList="TRUE/FALSE" filterByThis="True/False" >
 			<validator name="nombreValidador1" />
 			<validator name="nombreValidador2" />
 			<!-- ... -->
 		</att>
-		<att name="nombre_atributo3" type="<tipo_dato>" visibleOnList="TRUE/FALSE" editabletiOnList="TRUE/FALSE" filterByThis="True/False">
+		<att name="nombre_atributo3" type="tipo_dato" visibleOnList="TRUE/FALSE" editabletiOnList="TRUE/FALSE" filterByThis="True/False">
 			<validator name="nombreValidador1" />
 			<validator name="nombreValidador2" />
 			<!-- ... -->
@@ -23,9 +23,9 @@
 		<!-- ... -->
 		
 		<!-- Relaciones con otros CRUDS -->
-		<list target="Nombre_CRUD_relacion1" type="<tipo_relacion>" visibleOnList="TRUE/FALSE" editabletiOnList="TRUE/FALSE" />
-		<list target="Nombre_CRUD_relacion2" type="<tipo_relacion>" visibleOnList="TRUE/FALSE" editabletiOnList="TRUE/FALSE" />
-		<list target="Nombre_CRUD_relacion3" type="<tipo_relacion>" visibleOnList="TRUE/FALSE" editabletiOnList="TRUE/FALSE" />
+		<list target="Nombre_CRUD_relacion1" type="tipo_relacion" visibleOnList="TRUE/FALSE" editabletiOnList="TRUE/FALSE" />
+		<list target="Nombre_CRUD_relacion2" type="tipo_relacion" visibleOnList="TRUE/FALSE" editabletiOnList="TRUE/FALSE" />
+		<list target="Nombre_CRUD_relacion3" type="tipo_relacion" visibleOnList="TRUE/FALSE" editabletiOnList="TRUE/FALSE" />
 		<!-- ... -->
 	
 	</attributes>
@@ -67,17 +67,17 @@
 	<!-- **************************************** -->
 	
 	<profile name="nombrePerfil">
-		<create status=BOOL />
-		<update status=BOOL />
-		<delete status=BOOL />
-		<view status=BOOL />
+		<create status="bool" />
+		<update status="bool" />
+		<delete status="bool" />
+		<view status="bool" />
 	</profile>
 	
 	<profile name="nombrePerfil2" >
-		<create status=BOOL />
-		<update status=BOOL />
-		<delete status=BOOL />
-		<view status=BOOL />
+		<create status="bool" />
+		<update status="bool" />
+		<delete status="bool" />
+		<view status="bool" />
 	</profile>
 	<!-- ... -->
 </CRUD>
