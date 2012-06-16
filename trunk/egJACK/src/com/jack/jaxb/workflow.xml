@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<workflow name="nombreWorkflow" desc="descripcionoWorkflow">
+	<!-- **************************************** -->
+	<!-- Lista de Atributos del documento del Workflow -->
+	<!-- **************************************** -->
+	<attributes>
+	<!-- Recordar que la visibilidad de los campos en un flujo de trabajo se controla a nivel de roles -->
+		<att name="nombre_atributo1" type="tipo_dato" filterByThis="True/False">
+			<validator name="nombreValidador1" />
+			<validator name="nombreValidador2" />
+			<!-- ... -->
+			
+		</att>
+		<att name="nombre_atributo2" type="tipo_dato" filterByThis="True/False" >
+			<validator name="nombreValidador1" />
+			<validator name="nombreValidador2" />
+			<!-- ... -->
+		</att>
+		<att name="nombre_atributo3" type="tipo_dato" filterByThis="True/False">
+			<validator name="nombreValidador1" />
+			<validator name="nombreValidador2" />
+			<!-- ... -->
+		</att>
+		<!-- ... -->
+		
+		<!-- Relaciones -->
+		<list target="Nombre_DOC_relacion1" type="tipo_relacion" />
+		<list target="Nombre_DOC_relacion2" type="tipo_relacion" />
+		<list target="Nombre_DOC_relacion3" type="tipo_relacion"  />
+		<!-- ... -->
+	
+	</attributes>
+	
+	
+	
+	<!-- **************************************** -->
+	<!-- Opciones de Menú  -->
+	<!--  cHECk THISSSSS!!! -->
+	<!-- **************************************** -->
+	
+	<menuEntry name="nombreEntradaMenu" type="TipoMenu" group="nombreGrupoMenu"/>
+	
+	
+	<!-- **************************************** -->
+	<!-- Configuración del Formulario de edición  -->
+	<!-- **************************************** -->
+	<editForm title="tituloFormulario" width="anchoDelFormulario" height="altoDelFormulario">
+		
+	</editForm>
+	
+	
+	<!-- **************************************** -->
+	<!-- Configuración del Formulario de Listado  -->
+	<!-- **************************************** -->
+	<listForm title="tituloFormulario" width="anchoDelFormulario" height="altoDelFormulario">
+		<!-- Columnas del form -->
+		<column name="nombreColumna1" width="anchoCampoEdicion" targetField="CampoObjetivoDelCrud" />
+		<column name="nombreColumna2" width="anchoCampoEdicion" targetField="CampoObjetivoDelCrud" />
+		<column name="nombreColumna3" width="anchoCampoEdicion" targetField="CampoObjetivoDelCrud" />
+		<!-- ... -->
+		
+		<!-- Filtros de busqueda -->
+		<filter name="nombreFiltro1" />
+		<filter name="nombreFiltro2" />
+		
+		
+		<!-- Opciones de paginado: REVISAR posibilidades!!!**** -->
+		<paging opt1="" opt2=""></paging>
+	</listForm>
+	
+	<!-- **************************************** -->
+	<!-- Configuracion de Perfiles  -->
+	<!-- **************************************** -->
+	
+	<profile name="nombrePerfil">
+		<create status="bool" />
+		<update status="bool" />
+		<delete status="bool" />
+		<view status="bool" />
+	</profile>
+	
+	<profile name="nombrePerfil2">
+		<create status="bool" />
+		<update status="bool" />
+		<delete status="bool" />
+		<view status="bool" />
+	</profile>
+	
+	<!-- **************************************** -->
+	<!-- DEfinicion de la red de petri  -->
+	<!-- **************************************** -->
+	<petrinet name="nombreRed" doc-type="NombreDelTipoDocumento" />
+	
+	<places>
+		<place name="nombreLugar1" /> 
+		<place name="nombreLugar2" /> 
+		<place name="nombreLugar3" />
+		<!-- ... --> 
+	</places>
+	
+	<states>
+		<!--  El docstate es el atributo q especifica si un campo es visible en este estado -->
+		<state name="nombreEstado1" >
+			<docstate field="CampoObjetivo1" state="estado"></docstate>
+			<docstate field="CampoObjetivo2" state="estado"></docstate>
+			<docstate field="CampoObjetivo3" state="estado"></docstate>
+			<!-- ... -->
+		</state> 
+		<state name="nombreEstado2" >
+			<docstate field="CampoObjetivo1" state="estado"></docstate>
+			<docstate field="CampoObjetivo2" state="estado"></docstate>
+			<docstate field="CampoObjetivo3" state="estado"></docstate>
+			<!-- ... -->
+		</state>
+		<state name="nombreEstado3" >
+			<docstate field="CampoObjetivo1" state="estado"></docstate>
+			<docstate field="CampoObjetivo2" state="estado"></docstate>
+			<docstate field="CampoObjetivo3" state="estado"></docstate>
+			<!-- ... -->
+		</state>
+		<!-- ... --> 
+	</states>
+	
+	
+	
+	<!-- **************************************** -->
+	<!-- Definicion de ROLES para el workflow, revisar si tiene mucho sentido esto,-->
+	<!-- porque los roles se pueden crear desde el editor de Perfiles    -->
+	<!-- **************************************** -->
+	<roles>
+		<role name="nombreRol1" /> 
+		<role name="nombreRol2" /> 
+		<role name="nombreRol3" />
+		<!-- ... --> 
+	</roles>
+	
+	<transets>
+		<transet name="nombreTranset1" role="NombreRolAsociado" workname="NombreTrabajo" >
+			<transitions>
+				<transition name="nombreTransicion1" preplace="PosicionPrevia" postplace="posicionPosterior" /> 
+				<transition name="nombreTransicion2" preplace="PosicionPrevia" postplace="posicionPosterior" /> 
+				<transition name="nombreTransicion3" preplace="PosicionPrevia" postplace="posicionPosterior" />
+				<!-- ... --> 
+			</transitions>
+		</transet> 
+		<transet name="nombreTranset2" role="NombreRolAsociado" workname="NombreTrabajo" >
+			<transitions>
+				<transition name="nombreTransicion1" preplace="PosicionPrevia" postplace="posicionPosterior" /> 
+				<transition name="nombreTransicion2" preplace="PosicionPrevia" postplace="posicionPosterior" /> 
+				<transition name="nombreTransicion3" preplace="PosicionPrevia" postplace="posicionPosterior" />
+				<!-- ... --> 
+			</transitions>
+		</transet>
+	</transets>
+	
+	
+	
+</workflow>
