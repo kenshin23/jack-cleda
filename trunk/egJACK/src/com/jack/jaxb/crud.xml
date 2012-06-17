@@ -53,9 +53,9 @@
 	<!-- **************************************** -->
 	<listForm title="tituloFormulario" width="anchoDelFormulario" height="altoDelFormulario">
 		<!-- Columnas del form -->
-		<column name="nombreColumna1" width="anchoCampoEdicion" targetField="CampoObjetivoDelCrud" renderer="rendererType" />
-		<column name="nombreColumna2" width="anchoCampoEdicion" targetField="CampoObjetivoDelCrud" renderer="rendererType" />
-		<column name="nombreColumna3" width="anchoCampoEdicion" targetField="CampoObjetivoDelCrud" renderer="rendererType" />
+		<column name="nombreColumna1" width="anchoCampoEdicion" renderer="rendererType" />
+		<column name="nombreColumna2" width="anchoCampoEdicion" renderer="rendererType" />
+		<column name="nombreColumna3" width="anchoCampoEdicion" renderer="rendererType" />
 		<!-- ... -->
 		<!-- Opciones de paginado: REVISAR posibilidades!!!**** -->
 		<paging opt1="" opt2=""></paging>
