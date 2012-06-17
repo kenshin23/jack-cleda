@@ -37,7 +37,7 @@
 	<xs:element name="attributes">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element ref="att"/>
+				<xs:element ref="att" minOccurs="1" maxOccurs="unbounded"/>
 				<xs:element ref="list"/>
 			</xs:sequence>
 			
