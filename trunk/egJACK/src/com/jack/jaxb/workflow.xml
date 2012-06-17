@@ -38,7 +38,7 @@
 	<!--  cHECk THISSSSS!!! -->
 	<!-- **************************************** -->
 	
-	<menuEntry name="nombreEntradaMenu" type="TipoMenu" group="nombreGrupoMenu"/>
+	<!-- <menuEntry name="nombreEntradaMenu" type="TipoMenu" group="nombreGrupoMenu"/> -->
 	
 	
 	<!-- **************************************** -->
@@ -58,11 +58,6 @@
 		<column name="nombreColumna2" width="anchoCampoEdicion" targetField="CampoObjetivoDelCrud" />
 		<column name="nombreColumna3" width="anchoCampoEdicion" targetField="CampoObjetivoDelCrud" />
 		<!-- ... -->
-		
-		<!-- Filtros de busqueda -->
-		<filter name="nombreFiltro1" />
-		<filter name="nombreFiltro2" />
-		
 		
 		<!-- Opciones de paginado: REVISAR posibilidades!!!**** -->
 		<paging opt1="" opt2=""></paging>
