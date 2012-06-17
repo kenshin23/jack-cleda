@@ -1,0 +1,201 @@
+<?xml version="1.0"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.factura.org/workflow.xsd" xmlns="http://www.factura.org/workflow.xsd" >
+	
+	<xs:element name="validator">
+		<xs:complexType>
+			<xs:attribute name="name" type="xs:string" use="required" />
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="att">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="validator" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			
+			<xs:attribute name="name" type="xs:string" use="required" />
+			<xs:attribute name="type" type="xs:string" use="required" />
+			<xs:attribute name="filterByThis" type="xs:boolean"/>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="list">
+		<xs:complexType>
+			<xs:attribute name="target" type="xs:string" use="required" />
+			<xs:attribute name="type" type="xs:string" use="required" />
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="attributes">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="att"/>
+				<xs:element ref="list"/>
+			</xs:sequence>
+			
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="editForm">
+		<xs:complexType>
+			<xs:attribute name="title" type="xs:string" use="required" />
+			<xs:attribute name="width" type="xs:int" use="required" />
+			<xs:attribute name="height" type="xs:int" use="required" />
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="column">
+			<xs:complexType>
+			<xs:attribute name="name" type="xs:string" use="required" />
+			<xs:attribute name="width" type="xs:int" use="required" />
+			<xs:attribute name="renderer" type="xs:string" use="required" />
+		</xs:complexType>
+		
+	</xs:element>
+		<xs:element name="paging">
+		<xs:complexType>
+			<xs:attribute name="opt1" type="xs:string" use="required" />
+			<xs:attribute name="opt2" type="xs:string" use="required" />
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="listForm">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="column" />
+				<xs:element ref="paging" />
+			</xs:sequence>
+			<xs:attribute name="title" type="xs:string" use="required" />
+			<xs:attribute name="width" type="xs:int" use="required" />
+			<xs:attribute name="height" type="xs:int" use="required" />
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="create">
+		<xs:complexType>
+			<xs:attribute name="status" type="xs:string" use="required" />
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="update">
+		<xs:complexType>
+			<xs:attribute name="status" type="xs:string" use="required" />
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="delete">
+		<xs:complexType>
+			<xs:attribute name="status" type="xs:string" use="required" />
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="view">
+		<xs:complexType>
+			<xs:attribute name="status" type="xs:string" use="required" />
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="profile">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="create" />
+				<xs:element ref="update" />
+				<xs:element ref="delete" />
+				<xs:element ref="view" />
+			</xs:sequence>
+			
+			<xs:attribute name="name" type="xs:string" use="required" />	
+		</xs:complexType>
+	
+	</xs:element>
+	
+	<xs:element name="place">
+		<xs:complexType>
+			<xs:attribute name="name" type="xs:string" use="required" />
+		</xs:complexType>
+	</xs:element>
+	
+  	<xs:element name="places">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="place" minOccurs="1" maxOccurs="unbounded"/>
+			</xs:sequence>
+			
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="docstate">
+		<xs:complexType>
+			<xs:attribute name="field" type="xs:string" use="required" />
+			<xs:attribute name="state" type="xs:string" use="required" />
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="state">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="docstate" minOccurs="1" maxOccurs="unbounded"/>
+			</xs:sequence>
+			
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="states">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="state" minOccurs="1" maxOccurs="unbounded"/>
+			</xs:sequence>		
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="role">
+		<xs:complexType>
+			<xs:attribute name="name" type="xs:string" use="required" />
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="roles">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="role" minOccurs="1" maxOccurs="unbounded"/>
+			</xs:sequence>		
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="transition">
+		<xs:complexType>
+			<xs:attribute name="name" type="xs:string" use="required" />
+			<xs:attribute name="preplace" type="xs:string" use="required" />
+			<xs:attribute name="postplace" type="xs:string" use="required" />
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="transitions">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="transition" minOccurs="1" maxOccurs="unbounded"/>
+			</xs:sequence>		
+		</xs:complexType>
+	</xs:element>
+  
+  	<xs:element name="transet">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="transitions" minOccurs="1" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:attribute name="name" type="xs:string" use="required" />
+			<xs:attribute name="role" type="xs:string" use="required" />
+			<xs:attribute name="workname" type="xs:string" use="required" />
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="transets">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="transet" minOccurs="1" maxOccurs="unbounded"/>
+			</xs:sequence>		
+		</xs:complexType>
+	</xs:element>
+	
+</xs:schema>
