@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?><factura xmlns="http://www.factura.org/factura.xsd" numero="13"><cliente cedula="14556789"/><item descripcion="pizza" monto="45.0"/><item descripcion="refresco" monto="15.0"/><total monto="60.0"/></factura>
