@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<CRUD name="NOMBRE_CRUD" desc="DESCRIPCION_CRUD" group="NombreGrupoCruds">
+<CRUD xmlns="http://www.cledaCrud.org/crud.s" name="NOMBRE_CRUD" desc="DESCRIPCION_CRUD" group="NombreGrupoCruds">
 	<!-- **************************************** -->
 	<!-- Lista de Atributos del CRUD -->
 	<!-- **************************************** -->
