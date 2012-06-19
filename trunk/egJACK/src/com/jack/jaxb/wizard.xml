@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<WIZARD name="NombreWizard" desc="DescripcionWizard" bean-Class="ClaseObjetivo" >
+<WIZARD xmlns="http://www.cledaCrud.org/wizard.xsd" name="NombreWizard" desc="DescripcionWizard" bean-Class="ClaseObjetivo" >
 	<!-- **************************************** -->
 	<!-- Lista de Pantallas del Wizard -->
 	<!-- **************************************** -->
