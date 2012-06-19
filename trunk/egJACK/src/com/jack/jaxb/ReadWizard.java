@@ -30,7 +30,7 @@ public class ReadWizard {
 
     WIZARD xmlWizard = (WIZARD) unmarshaller.unmarshal(is);
     
-    System.err.println("Nombre del Wizard: " + xml.getName());
+    System.err.println("Nombre del Wizard: " + xmlWizard.getName());
     
         
   }
