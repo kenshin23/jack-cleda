@@ -5,7 +5,7 @@ import java.io.InputStream;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Unmarshaller;
 
-import com.jack.crud.xml.*;
+import com.jack.wizard.xml.*;
 
 
 
