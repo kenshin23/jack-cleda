@@ -5,7 +5,6 @@ import java.io.InputStream;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Unmarshaller;
 
-import com.jack.workflow.xml.Workflow;
 import com.jack.workflow.xml.*;
 
 public class WorkflowRead {
@@ -15,17 +14,14 @@ public class WorkflowRead {
     // ----------------------------------------
     // Obtener el InputStream
     // ----------------------------------------
-
-    InputStream is = //
-    ClassLoader.getSystemResourceAsStream( //
-        "com/jack/jaxb/WorkflowPrueba.xml");
+	
+    InputStream is = ClassLoader.getSystemResourceAsStream("com/jack/XMLObjectsTest/workflowTest.xml");
 
     // ----------------------------------------
     // Inicializar JAXB y leer el XML
     // ----------------------------------------
 
-    JAXBContext jc = JAXBContext.newInstance( //
-        ObjectFactory.class.getPackage().getName());
+    JAXBContext jc = JAXBContext.newInstance(ObjectFactory.class.getPackage().getName());
 
     Unmarshaller unmarshaller = jc.createUnmarshaller();
 
@@ -37,7 +33,7 @@ public class WorkflowRead {
 
     System.err.println("Nombre Workflow: " + xmlWorkflow.getName());
     System.err.println( //
-        "Descripcion: " + xmlWorkflow.getDescripcion());
+        "Descripcion: " + xmlWorkflow.getDesc());
 
   }
 }

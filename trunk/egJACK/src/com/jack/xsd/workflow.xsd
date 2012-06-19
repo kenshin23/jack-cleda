@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.cledaWorkflow.org/workflow.xsd" xmlns="http://www.cledaWorkflow.org/workflow.xsd">
 
 	<xs:element name="validator">
 		<xs:complexType>
@@ -225,7 +225,7 @@
 			</xs:sequence>
 			
 			<xs:attribute name="name" type="xs:string" use="required" />
-			<xs:attribute name="descripcion" type="xs:string" />
+			<xs:attribute name="desc" type="xs:string" />
 		</xs:complexType>
 	</xs:element>
 </xs:schema>
