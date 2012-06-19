@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	
+	<xs:element name="validator">
+		<xs:complexType>
+			<xs:attribute name="name" type="xs:string" use="required" />
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="att">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="validator" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			
+			<xs:attribute name="name" type="xs:string" use="required" />
+			<xs:attribute name="type" type="xs:string" use="required" />
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="screen">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="validator" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="att" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			
+			<xs:attribute name="width" type="xs:string" use="required" />
+			<xs:attribute name="height" type="xs:string" use="required" />
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="WIZARD">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="att" />
+				<xs:element ref="validator" />
+				<xs:element ref="screen" />
+			</xs:sequence>
+			<xs:attribute name="name" type="xs:string" use="required" />
+			<xs:attribute name="desc" type="xs:string" use="required" />
+			<xs:attribute name="bean-class" type="xs:string" use="required" />
+			
+		</xs:complexType>
+	</xs:element>
+		
+</xs:schema>
