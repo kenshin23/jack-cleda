@@ -4,35 +4,35 @@
 	<!-- Lista de Pantallas del Wizard -->
 	<!-- **************************************** -->
 	<screen width="ancho" height="alto">
-		<targetField name="nombre_atributo1" type="<tipo_dato>" > <!-- type? -->
+		<att name="nombre_atributo1" type="<tipo_dato>" > <!-- type? -->
 			<validator name="nombreValidador1" />
 			<validator name="nombreValidador2" />
 			<!-- ... -->
 			
-		</targetfield>
+		</att>
 		
-		<targetField name="nombre_atributo2" type="<tipo_dato>" >
+		<att name="nombre_atributo2" type="<tipo_dato>" >
 			<validator name="nombreValidador1" />
 			<validator name="nombreValidador2" />
 			<!-- ... -->
 			
-		</targetfield>
+		</att>
 		<!-- ... -->
 	</screen>
 	<screen width="ancho" height="alto">
-		<targetField name="nombre_atributo1" type="<tipo_dato>" >
+		<att name="nombre_atributo1" type="<tipo_dato>" >
 			<validator name="nombreValidador1" />
 			<validator name="nombreValidador2" />
 			<!-- ... -->
 			
-		</targetfield>
+		</att>
 		
-		<targetField name="nombre_atributo2" type="<tipo_dato>" >
+		<att name="nombre_atributo2" type="<tipo_dato>" >
 			<validator name="nombreValidador1" />
 			<validator name="nombreValidador2" />
 			<!-- ... -->
 			
-		</targetfield>
+		</att>
 	</screen>
 	
 	<finalScreen finalMsg="MensajeFinalWizard" width="ancho" height="alto"></finalScreen>
