@@ -9,7 +9,7 @@ import com.jack.crud.xml.*;
 
 
 
-public class ReadCrud {
+public class CrudRead {
 
   public static void main(String[] args) throws Exception {
 
@@ -17,7 +17,7 @@ public class ReadCrud {
     // Obtener el InputStream
     // ----------------------------------------
 
-    InputStream is = ClassLoader.getSystemResourceAsStream("com/jack/jaxb/crudTest.xml");
+    InputStream is = ClassLoader.getSystemResourceAsStream("com/jack/XMLObjectsTest/crudTest.xml");
 
     // ----------------------------------------
     // Inicializar JAXB y leer el XML
