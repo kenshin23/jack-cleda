@@ -19,15 +19,26 @@ public class Crudgenerator extends URLTemplateLoader {
     Configuration configuration = new Configuration();
     configuration.setObjectWrapper(new BeansWrapper());
     configuration.setTemplateLoader(this);
+    
+    Configuration configuration2 = new Configuration();
+    configuration2.setObjectWrapper(new BeansWrapper());
+    configuration2.setTemplateLoader(this);
+    
+    Configuration configuration3 = new Configuration();
+    configuration3.setObjectWrapper(new BeansWrapper());
+    configuration3.setTemplateLoader(this);
 
-    FileWriter fileWriter = new FileWriter( //
-        "src/com/jack/generador/Salida.java");
+    FileWriter fileWriter = new FileWriter("src/com/jack/generador/Salida.java");
+    FileWriter fileWriter2 = new FileWriter("src/com/jack/generador/Salida2.java");
+    FileWriter fileWriter3 = new FileWriter("src/com/jack/generador/Salida3.java");
 
     CRUD crud = leerXML();
 
-    configuration.getTemplate( //
-        "/com/jack/generador/main.ftl").process( //
-        crud, fileWriter);
+    configuration.getTemplate("/com/jack/generador/CledaI18N-template.ftl").process(crud, fileWriter);
+    
+    configuration2.getTemplate("/com/jack/generador/FrmCrudList.ftl").process(crud, fileWriter);
+    
+    configuration3.getTemplate("/com/jack/generador/FrmCrudList.ftl").process(crud, fileWriter);
 
     fileWriter.close();
   }
@@ -38,8 +49,7 @@ public class Crudgenerator extends URLTemplateLoader {
     // ----------------------------------------
 
     InputStream is = //
-    ClassLoader.getSystemResourceAsStream( //
-        "/com/jack/XMLObjectsTest/crudTest.xml");
+    ClassLoader.getSystemResourceAsStream("com/jack/XMLObjectsTest/CrudPost.xml");
 
     // ----------------------------------------
     // Inicializar JAXB y leer el XML
