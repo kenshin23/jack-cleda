@@ -14,13 +14,10 @@ public class Salida {
 
 	   
 
-  [#list attributes as currentattribute]
-		    
-		  [#list att as currentatt]  
-		  System.out.println("item: ${currentatt.name}");
+  [#list attributes.att as currentAttribute]
+		  System.out.println("item: ${currentAttribute.name}");
 		    
   [/#list]
-[/#list]
     System.out.println("monto");
         
     
