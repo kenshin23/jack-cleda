@@ -41,7 +41,7 @@
 			<xs:sequence>
 
 				<xs:element ref="att" minOccurs="1" maxOccurs="unbounded"/>
-				<xs:element ref="list" minOccurs="1" maxOccurs="unbounded"/>
+				<xs:element ref="list" minOccurs="0" maxOccurs="unbounded"/>
 			</xs:sequence>
 			
 		</xs:complexType>
@@ -121,9 +121,9 @@
 	<xs:element name="crud">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element ref="attributes" minOccurs="1" maxOccurs="unbounded"/>
-				<xs:element ref="editForm" minOccurs="1" maxOccurs="unbounded"/>
-				<xs:element ref="listForm" minOccurs="1" maxOccurs="unbounded"/>
+				<xs:element ref="attributes" />
+				<xs:element ref="editForm" />
+				<xs:element ref="listForm" />
 				<xs:element ref="profile" minOccurs="1" maxOccurs="unbounded"/>
 				
 			</xs:sequence>

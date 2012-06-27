@@ -1,116 +1,109 @@
-// ----------------------------------------
-// Generated code, do not edit
-// ----------------------------------------
-
 
 package com.minotauro.sandbox.gui.mcrudpost;
 
 import nextapp.echo.app.Extent;
+import nextapp.echo.app.TextField;
 
-import com.minotauro.echo.base.EnumEditMode;
-import com.minotauro.echo.cleda.list.var.FrmListCrudBase;
-import com.minotauro.echo.filter.base.FrmFilterEditor;
-import com.minotauro.echo.table.base.ETable;
-import com.minotauro.echo.table.base.TableColModel;
-import com.minotauro.echo.table.base.TableColumn;
-import com.minotauro.echo.table.renderer.LabelCellRenderer;
-import com.minotauro.query.QueryCreator;
-import com.minotauro.query.bean.gui.TextFilterBean;
-import com.minotauro.sandbox.model.MCrudPost;
-import com.minotauro.sandbox.model._PropMCrudPost;
-// parametrizar paquetes con xml y xsd
+import com.minotauro.echo.beans.EFieldLabel;
+import com.minotauro.echo.beans.ETextAreaEx;
+import com.minotauro.echo.cleda.edit.FrmEditBase;
+import com.minotauro.echo.grid.FieldModel;
+import com.minotauro.echo.grid.SectionModel;
+import com.minotauro.echo.validator.impl.DuplicatedValidator;
+import com.minotauro.echo.validator.impl.NotEmptyValidator;
 
-/**
- * @author E.G Jack™
- */
-public class FrmMCrudPostList extends FrmListCrudBase {
+import com.minotauro.sandbox.model.MCrudpost;
 
-  public FrmMCrudPostList() {
-    frmEditDtaClass = FrmMCrudPostEdit.class;
-    setTitle(_I18NFrmMCrudPostList.title());
+import com.minotauro.sandbox.model._PropMCrudpost;
+
+
+public class FrmMCrudpostEdit extends FrmEditBase {
+
+
+
+  private FieldModel fmNname;
+
+
+  private FieldModel fmNdesc;
+
+
+  private FieldModel fmNbody;
+
+
+  // --------------------------------------------------------------------------------
+
+  public FrmMpostEdit() {
+    // Empty
   }
 
   // --------------------------------------------------------------------------------
 
   @Override
-  protected TableColModel initTableColModel() {
-    TableColModel tableColModel = new TableColModel();
+  protected void initGUI() {
+    String name = ((MCrudpost) data).getName(); //*** pregunta getName
+    setTitle(_I18NFrmMpostEdit.title(name == null ? "-" : name)); // preguntar "name"
 
-    TableColumn tableColumn;
+    // --------------------------------------------------------------------------------
 
-    // ----------------------------------------
-    // CheckBox
-    // ----------------------------------------
+    SectionModel sectionModel = formModel.initSingleSectionModel();
 
-    tableColModel.getTableColumnList().add( //
-        initTableSelColumn(editMode != EnumEditMode.SELECT, //
-            true, new Extent(5, Extent.PERCENT)));
+    // --------------------------------------------------------------------------------
 
-    // ----------------------------------------
-    // Name
-    // ----------------------------------------
 
-    tableColumn = new TableColumn() {
-      public Object getValue(ETable table, Object element) {
-        return ((MCrudPost) element).getName();
-      }
-    };
-    tableColumn.setWidth(new Extent(85, Extent.PERCENT));
-    tableColumn.setDataCellRenderer(new LabelCellRenderer());
-    tableColumn.setHeadCellRenderer(new LabelCellRenderer());
-    tableColumn.setHeadValue("Name");
-    tableColModel.getTableColumnList().add(tableColumn);
 
-    // ----------------------------------------
-    // Action
-    // ----------------------------------------
 
-    tableColModel.getTableColumnList().add( //
-        initTableCommandColumn(new Extent(10, Extent.PERCENT)));
+	TextField txtname = new TextField();
+    txtname.setWidth(new Extent(204));
 
-    // ----------------------------------------
+    fmNname = new FieldModel();
+    fmNname.setLabelCmp(new EFieldLabel(_I18NFrmMCrudPostEdit.name()));
+    fmNname.setFieldCmp(txtname);
+    fmNname.setKey(_PropMCrudPost.NAME);
+    fmNname.setProperty(_PropMCrudPost.NAME);
 
-    return tableColModel;
-  }
+	
+    fmNname.getValidatorList().add(new NotEmptyValidator(_I18NFrmMCrudPostEdit.name(), txtname); //investigar especificaciones de validadores
 
-  // --------------------------------------------------------------------------------
+	
+    sectionModel.addChild(fmNname);
+	
 
-  @Override
-  protected void initFrmFilterEditor() {
-    frmFilterEditor = new FrmFilterEditor();
-    frmFilterEditor.addFilterListener(this);
 
-    frmFilterEditor.addFilter(_PropMCrudPost.NAME, //
-        _I18NFrmMCrudPostList.name(), //
-        TextFilterBean.class);
+	ETextAreaEx txtdesc = new ETextAreaEx();
+    txtdesc.setWidth(new Extent(204));
 
-    // ------------------------------------
-    // TODO: It's using sql column name :(
-    // ------------------------------------
+    fmNdesc = new FieldModel();
+    fmNdesc.setLabelCmp(new EFieldLabel(_I18NFrmMCrudPostEdit.name()));
+    fmNdesc.setFieldCmp(txtdesc);
+    fmNdesc.setKey(_PropMCrudPost.NAME);
+    fmNdesc.setProperty(_PropMCrudPost.NAME);
 
-    frmFilterEditor.addFilter("odesc", //
-        _I18NFrmMCrudPostList.desc(), //
-        TextFilterBean.class);
-  }
+	
+    fmNdesc.getValidatorList().add(new NotEmptyValidator(_I18NFrmMCrudPostEdit.desc(), txtdesc); //investigar especificaciones de validadores
 
-  // --------------------------------------------------------------------------------
+	
+    sectionModel.addChild(fmNdesc);
+	
 
-  @Override
-  protected void initQueryCreator() {
-    queryCreator = new QueryCreator(MCrudPost.class, true);
 
-    // ----------------------------------------
-    // TODO: improve ordering
-    // ----------------------------------------
+	ETextAreaEx txtbody = new ETextAreaEx();
+    txtbody.setWidth(new Extent(204));
 
-    queryCreator.setOrderBy(_PropMCrudPost.NAME);
-  }
+    fmNbody = new FieldModel();
+    fmNbody.setLabelCmp(new EFieldLabel(_I18NFrmMCrudPostEdit.name()));
+    fmNbody.setFieldCmp(txtbody);
+    fmNbody.setKey(_PropMCrudPost.NAME);
+    fmNbody.setProperty(_PropMCrudPost.NAME);
 
-  // --------------------------------------------------------------------------------
+	
+    fmNbody.getValidatorList().add(new NotEmptyValidator(_I18NFrmMCrudPostEdit.body(), txtbody); //investigar especificaciones de validadores
 
-  @Override
-  protected MCrudPost initMBase() {
-    return new MCrudPost();
+	
+    sectionModel.addChild(fmNbody);
+	
+
+
+    
+    
   }
 }
-

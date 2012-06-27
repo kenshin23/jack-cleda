@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<crud xmlns="http://www.cledaCrud.org/crud.xsd" name="post" desc="este_es_un_crud_post" group="NombreGrupoCruds">
+<crud xmlns="http://www.cledaCrud.org/crud.xsd" name="post" desc="este_es_un_crud_post" group="NombreGrupoCruds" >
 	<!-- **************************************** -->
 	<!-- Lista de Atributos del CRUD POST -->
 	<!-- **************************************** -->
 	<attributes>
-		<att name="name" type="string" visibleOnList="true" editabletiOnList="true" filterByThis="true">
+		<att name="name" type="string" visibleOnList="true" editabletiOnList="true" filterByThis="true" editFieldType="TextField">
 			<validator name="NotEmptyValidator" />
 			<!-- ... -->
 			
 		</att>
-		<att name="desc" type="string" visibleOnList="true" editabletiOnList="true" filterByThis="true" >
+		<att name="desc" type="string" visibleOnList="true" editabletiOnList="true" filterByThis="true" editFieldType="ETextAreaEx">
 			<validator name="NotEmptyValidator" />
 			<!-- ... -->
 		</att>
-		<att name="body" type="string" visibleOnList="true" editabletiOnList="true" filterByThis="true">
+		<att name="body" type="string" visibleOnList="true" editabletiOnList="true" filterByThis="true" editFieldType="ETextAreaEx">
 			<validator name="NotEmptyValidator" />
 			<!-- ... -->
 		</att>
