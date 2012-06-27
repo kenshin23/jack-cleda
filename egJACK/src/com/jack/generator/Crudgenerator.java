@@ -8,6 +8,7 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Unmarshaller;
 
 import com.jack.crud.*;
+import com.jack.generator.*;
 
 import freemarker.cache.URLTemplateLoader;
 import freemarker.ext.beans.BeansWrapper;
@@ -76,5 +77,6 @@ public class Crudgenerator extends URLTemplateLoader {
 
 	public static void main(String[] args) throws Exception {
 		new Crudgenerator().run();
+		new _CledaI18N().run();
 	}
 }
