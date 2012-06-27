@@ -1,4 +1,9 @@
-package com.minotauro.sandbox.gui.Mpost;
+// ----------------------------------------
+// Generated code, do not edit
+// ----------------------------------------
+
+
+package com.minotauro.sandbox.gui.mcrudpost;
 
 import nextapp.echo.app.Extent;
 
@@ -11,18 +16,18 @@ import com.minotauro.echo.table.base.TableColumn;
 import com.minotauro.echo.table.renderer.LabelCellRenderer;
 import com.minotauro.query.QueryCreator;
 import com.minotauro.query.bean.gui.TextFilterBean;
-import com.minotauro.sandbox.model.Mpost;
-import com.minotauro.sandbox.model._PropMpost;
+import com.minotauro.sandbox.model.MCrudPost;
+import com.minotauro.sandbox.model._PropMCrudPost;
 // parametrizar paquetes con xml y xsd
 
 /**
- * @author Por Ejemplo Jack Bauer
+ * @author E.G Jack™
  */
-public class FrmpostList extends FrmListCrudBase {
+public class FrmMCrudPostList extends FrmListCrudBase {
 
-  public FrmMpostList() {
-    frmEditDtaClass = FrmMpostEdit.class;
-    setTitle(_I18NFrmMpostList.title());
+  public FrmMCrudPostList() {
+    frmEditDtaClass = FrmMCrudPostEdit.class;
+    setTitle(_I18NFrmMCrudPostList.title());
   }
 
   // --------------------------------------------------------------------------------
@@ -47,7 +52,7 @@ public class FrmpostList extends FrmListCrudBase {
 
     tableColumn = new TableColumn() {
       public Object getValue(ETable table, Object element) {
-        return ((Mpost) element).getName();
+        return ((MCrudPost) element).getName();
       }
     };
     tableColumn.setWidth(new Extent(85, Extent.PERCENT));
@@ -75,8 +80,8 @@ public class FrmpostList extends FrmListCrudBase {
     frmFilterEditor = new FrmFilterEditor();
     frmFilterEditor.addFilterListener(this);
 
-    frmFilterEditor.addFilter(_PropMpost.NAME, //
-        _I18NFrmMpostList.name(), //
+    frmFilterEditor.addFilter(_PropMCrudPost.NAME, //
+        _I18NFrmMCrudPostList.name(), //
         TextFilterBean.class);
 
     // ------------------------------------
@@ -84,7 +89,7 @@ public class FrmpostList extends FrmListCrudBase {
     // ------------------------------------
 
     frmFilterEditor.addFilter("odesc", //
-        _I18NFrmMpostList.desc(), //
+        _I18NFrmMCrudPostList.desc(), //
         TextFilterBean.class);
   }
 
@@ -92,20 +97,20 @@ public class FrmpostList extends FrmListCrudBase {
 
   @Override
   protected void initQueryCreator() {
-    queryCreator = new QueryCreator(Mpost.class, true);
+    queryCreator = new QueryCreator(MCrudPost.class, true);
 
     // ----------------------------------------
     // TODO: improve ordering
     // ----------------------------------------
 
-    queryCreator.setOrderBy(_PropMpost.NAME);
+    queryCreator.setOrderBy(_PropMCrudPost.NAME);
   }
 
   // --------------------------------------------------------------------------------
 
   @Override
-  protected Mpost initMBase() {
-    return new Mpost();
+  protected MCrudPost initMBase() {
+    return new MCrudPost();
   }
 }
 

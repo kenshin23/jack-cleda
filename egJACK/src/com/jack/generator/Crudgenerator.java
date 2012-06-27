@@ -1,4 +1,5 @@
 package com.jack.generator;
+//import com.minotauro.sandbox.gui.mcrudpost;
 
 import java.io.FileWriter;
 import java.io.InputStream;
@@ -8,7 +9,7 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Unmarshaller;
 
 import com.jack.crud.*;
-import com.jack.generator.*;
+//import com.minotauro.sandbox.gui.mcrudpost._CledaI18N;
 
 import freemarker.cache.URLTemplateLoader;
 import freemarker.ext.beans.BeansWrapper;
@@ -31,12 +32,14 @@ public class Crudgenerator extends URLTemplateLoader {
 		configuration3.setObjectWrapper(new BeansWrapper());
 		configuration3.setTemplateLoader(this);
 
-		FileWriter fileWriter = new FileWriter("src/com/jack/generator/_CledaI18N.java");
+		FileWriter fileWriter = new FileWriter("../CledaSandbox/src/com/minotauro/sandbox/gui/mcrudpost/_CledaI18N.java");
+		
+		//FileWriter fileWriter = new FileWriter("src/com/jack/generator/_CledaI18N.java");
 		FileWriter fileWriter2 = new FileWriter("src/com/jack/generator/FrmMCrudPostEdit.java");
-		FileWriter fileWriter3 = new FileWriter("src/com/jack/generator/FrmMCrudPostList.java");
+		FileWriter fileWriter3 = new FileWriter("../CledaSandbox/src/com/minotauro/sandbox/gui/mcrudpost/FrmMCrudPostList.java");
 
 		configuration.getTemplate("/com/jack/templates/CledaI18N-template.ftl").process(crudInput, fileWriter);
-		configuration2.getTemplate("/com/jack/templates/FrmCrudEdit.ftl").process(crudInput, fileWriter2);
+		configuration2.getTemplate("/com/jack/templates/FrmCrudList.ftl").process(crudInput, fileWriter2);
 		configuration3.getTemplate("/com/jack/templates/FrmCrudList.ftl").process(crudInput, fileWriter3);
 
 		fileWriter.close();
@@ -77,6 +80,6 @@ public class Crudgenerator extends URLTemplateLoader {
 
 	public static void main(String[] args) throws Exception {
 		new Crudgenerator().run();
-		new _CledaI18N().run();
+	//	new _CledaI18N().main();
 	}
 }

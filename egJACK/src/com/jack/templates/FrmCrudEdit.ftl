@@ -1,3 +1,9 @@
+[#ftl]	
+// ----------------------------------------
+// Generated code, do not edit
+// ----------------------------------------
+
+
 package com.minotauro.sandbox.gui.mcrudpost;
 
 import nextapp.echo.app.Extent;
@@ -11,12 +17,18 @@ import com.minotauro.echo.grid.SectionModel;
 import com.minotauro.echo.validator.impl.DuplicatedValidator;
 import com.minotauro.echo.validator.impl.NotEmptyValidator;
 
-import com.minotauro.sandbox.model.${name};
+${name?cap_first}
 
-import com.minotauro.sandbox.model._Prop${name};
+import com.minotauro.sandbox.model.MCrud${name?cap_first};
+
+import com.minotauro.sandbox.model._PropMCrud${name?cap_first};
+
+/**
+ * @author E.G JACK™
+ */
 
 
-public class Frm${name}Edit extends FrmEditBase {
+public class FrmMCrud${name?cap_first}Edit extends FrmEditBase {
 
 
 [#list attributes.att as currentAtt]
