@@ -31,7 +31,7 @@
 		</xs:complexType>
 	</xs:element>
 	
-	<xs:element name="WIZARD">
+	<xs:element name="wizard">
 		<xs:complexType>
 			<xs:sequence>
 				<xs:element ref="att" />

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CRUD xmlns="http://www.cledaCrud.org/crud.xsd" name="NOMBRE_CRUD" desc="DESCRIPCION_CRUD" group="NombreGrupoCruds">
+	<!-- **************************************** -->
+	<!-- Lista de Atributos del CRUD POST -->
+	<!-- **************************************** -->
+	<attributes>
+		<att name="name" type="string" visibleOnList="true" editabletiOnList="true" filterByThis="true">
+			<validator name="NotEmptyValidator" />
+			<!-- ... -->
+			
+		</att>
+		<att name="desc" type="string" visibleOnList="true" editabletiOnList="true" filterByThis="true" >
+			<validator name="NotEmptyValidator" />
+			<!-- ... -->
+		</att>
+		<att name="body" type="string" visibleOnList="true" editabletiOnList="true" filterByThis="true">
+			<validator name="NotEmptyValidator" />
+			<!-- ... -->
+		</att>
+		<!-- ... -->
+		
+	</attributes>
+
+	
+	<!-- **************************************** -->
+	<!-- Opciones de Menú, esto era para permitir especificar la ubicacion del nuevo CRUD POST (se hará con una plantilla) -->
+	<!-- En nuevo menu aparte e todos los Cruds existentes.  -->
+	<!-- ****REVISAR/CONSULTAR****  -->
+	<!-- **************************************** -->
+	
+	<!--  <menuEntry name="nombreEntradaMenu" type="TipoMenu" group="nombreGrupoMenu"/> -->
+	
+	
+	<!-- **************************************** -->
+	<!-- Configuración del Formulario de edición  -->
+	<!-- **************************************** -->
+	<editForm title="FrmMCrudPostEdit" width="2" height="32">
+		
+	</editForm>
+	
+	
+	<!-- **************************************** -->
+	<!-- Configuración del Formulario de Listado  -->
+	<!-- **************************************** -->
+	<listForm title="FrmMCrudPostList" width="4" height="5">
+	
+		<!-- Columnas del form -->
+		<column name="name" width="4" renderer="rendererType" />
+		<!-- ... -->
+		
+		<!-- Opciones de paginado: REVISAR posibilidades!!!**** -->
+		<paging opt1="" opt2=""></paging>
+		
+	</listForm>
+	
+	<!-- **************************************** -->
+	<!-- Configuracion de Perfiles  -->
+	<!-- **************************************** -->
+	
+	<profile name="cruds">
+		<create status="true" />
+		<update status="true" />
+		<delete status="true" />
+		<view status="true" />
+	</profile>
+		
+	<!-- ... -->
+</CRUD>

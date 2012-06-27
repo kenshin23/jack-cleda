@@ -5,7 +5,7 @@ import java.io.InputStream;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Unmarshaller;
 
-import com.jack.wizard.xml.*;
+import com.jack.wizard.*;
 
 
 
@@ -17,7 +17,7 @@ public class WizardRead {
     // Obtener el InputStream
     // ----------------------------------------
 
-    InputStream is = ClassLoader.getSystemResourceAsStream("com/jack/jaxb/wizardTest.xml");
+    InputStream is = ClassLoader.getSystemResourceAsStream("com/jack/XMLobjects/wizardTest.xml");
 
     // ----------------------------------------
     // Inicializar JAXB y leer el XML
@@ -28,9 +28,10 @@ public class WizardRead {
 
     Unmarshaller unmarshaller = jc.createUnmarshaller();
 
-    WIZARD xmlWizard = (WIZARD) unmarshaller.unmarshal(is);
+    Wizard xmlWizard = (Wizard) unmarshaller.unmarshal(is);
     
     System.err.println("Nombre del Wizard: " + xmlWizard.getName());
+    System.err.println("Descripcion: " + xmlWizard.getDesc());
     
         
   }
