@@ -1,6 +1,6 @@
 [#ftl]	
 
-package com.minotauro.sandbox.gui.mcrudpost;
+package com.minotauro.sandbox.gui.mcrud${name};
 
 import nextapp.echo.app.Extent;
 import nextapp.echo.app.TextField;
@@ -13,12 +13,12 @@ import com.minotauro.echo.grid.SectionModel;
 import com.minotauro.echo.validator.impl.DuplicatedValidator;
 import com.minotauro.echo.validator.impl.NotEmptyValidator;
 
-import com.minotauro.sandbox.model.MCrud${name};
+import com.minotauro.sandbox.model.MCrud${name?cap_first};
 
-import com.minotauro.sandbox.model._PropMCrud${name};
+import com.minotauro.sandbox.model._PropMCrud${name?cap_first};
 
 
-public class FrmMCrud${name}Edit extends FrmEditBase {
+public class FrmMCrud${name?cap_first}Edit extends FrmEditBase {
 
 
 [#list attributes.att as currentAtt]
@@ -29,7 +29,7 @@ public class FrmMCrud${name}Edit extends FrmEditBase {
 
   // --------------------------------------------------------------------------------
 
-  public FrmM${name}Edit() {
+  public FrmMCrud${name?cap_first}Edit() {
     // Empty
   }
 
@@ -37,8 +37,8 @@ public class FrmMCrud${name}Edit extends FrmEditBase {
 
   @Override
   protected void initGUI() {
-    String name = ((MCrud${name}) data).getName(); //*** pregunta getName
-    setTitle(_I18NFrmM${name}Edit.title(name == null ? "-" : name)); // preguntar "name"
+    String name = ((MCrud${name?cap_first}) data).getName(); //*** pregunta getName
+    setTitle(_I18NFrmMCrud${name?cap_first}Edit.title(name == null ? "-" : name)); // preguntar "name"
 
     // --------------------------------------------------------------------------------
 
@@ -61,7 +61,7 @@ public class FrmMCrud${name}Edit extends FrmEditBase {
 
 	[#list currentAtt.validator as currentValidator]
 	
-    fmN${currentAtt.name}.getValidatorList().add(new ${currentValidator.name}(_I18NFrmMCrudPostEdit.${currentAtt.name}(), txt${currentAtt.name}); //investigar especificaciones de validadores
+    fmN${currentAtt.name}.getValidatorList().add(new ${currentValidator.name}(_I18NFrmMCrudPostEdit.${currentAtt.name}(), txt${currentAtt.name})); //investigar especificaciones de validadores
 
 	[/#list]    
 	
@@ -71,8 +71,6 @@ public class FrmMCrud${name}Edit extends FrmEditBase {
 [/#list]
 
     
-    DuplicatedValidator duplicatedValidator = new DuplicatedValidator(data);
-    duplicatedValidator.add(fmN${currentAtt.name});
-    formModel.getValidatorList().add(duplicatedValidator);
+    
   }
 }
