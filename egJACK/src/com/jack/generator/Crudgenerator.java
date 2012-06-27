@@ -15,68 +15,66 @@ import freemarker.template.Configuration;
 
 public class Crudgenerator extends URLTemplateLoader {
 
-  public void run() throws Exception {
-    Configuration configuration = new Configuration();
-    configuration.setObjectWrapper(new BeansWrapper());
-    configuration.setTemplateLoader(this);
-    
-    Configuration configuration2 = new Configuration();
-    configuration2.setObjectWrapper(new BeansWrapper());
-    configuration2.setTemplateLoader(this);
-    
-    Configuration configuration3 = new Configuration();
-    configuration3.setObjectWrapper(new BeansWrapper());
-    configuration3.setTemplateLoader(this);
+	public void run() throws Exception {
+		Crud crudInput = leerXML();
 
-    FileWriter fileWriter = new FileWriter("src/com/jack/generator/Salida.java");
-    FileWriter fileWriter2 = new FileWriter("src/com/jack/generator/Salida2.java");
-    FileWriter fileWriter3 = new FileWriter("src/com/jack/generator/Salida3.java");
+		Configuration configuration = new Configuration();
+		configuration.setObjectWrapper(new BeansWrapper());
+		configuration.setTemplateLoader(this);
 
-    Crud crudInput = leerXML();
+		Configuration configuration2 = new Configuration();
+		configuration2.setObjectWrapper(new BeansWrapper());
+		configuration2.setTemplateLoader(this);
 
-    configuration.getTemplate("/com/jack/templates/CledaI18N-template.ftl").process(crudInput, fileWriter);
-    
-    configuration2.getTemplate("/com/jack/templates/FrmCrudList.ftl").process(crudInput, fileWriter);
-    
-    configuration3.getTemplate("/com/jack/templates/FrmCrudList.ftl").process(crudInput, fileWriter);
+		Configuration configuration3 = new Configuration();
+		configuration3.setObjectWrapper(new BeansWrapper());
+		configuration3.setTemplateLoader(this);
 
-    fileWriter.close();fileWriter2.close();fileWriter3.close();
-  }
+		FileWriter fileWriter = new FileWriter("src/com/jack/generator/_CledaI18N.java");
+		FileWriter fileWriter2 = new FileWriter("src/com/jack/generator/FrmMCrudPostEdit.java");
+		FileWriter fileWriter3 = new FileWriter("src/com/jack/generator/FrmMCrudPostList.java");
 
-  private Crud leerXML() throws Exception {
-    // ----------------------------------------
-    // Obtener el InputStream
-    // ----------------------------------------
+		configuration.getTemplate("/com/jack/templates/CledaI18N-template.ftl").process(crudInput, fileWriter);
+		configuration2.getTemplate("/com/jack/templates/FrmCrudEdit.ftl").process(crudInput, fileWriter2);
+		configuration3.getTemplate("/com/jack/templates/FrmCrudList.ftl").process(crudInput, fileWriter3);
 
-    InputStream is = //
-    ClassLoader.getSystemResourceAsStream("com/jack/XMLobjects/CrudPost.xml");
+		fileWriter.close();
+		fileWriter2.close();
+		fileWriter3.close();
+	}
 
-    // ----------------------------------------
-    // Inicializar JAXB y leer el XML
-    // ----------------------------------------
+	private Crud leerXML() throws Exception {
+		// ----------------------------------------
+		// Obtener el InputStream
+		// ----------------------------------------
 
-    JAXBContext jc = JAXBContext.newInstance( //
-        ObjectFactory.class.getPackage().getName());
+		InputStream is = ClassLoader.getSystemResourceAsStream("com/jack/XMLobjects/CrudPost.xml");
 
-    Unmarshaller unmarshaller = jc.createUnmarshaller();
+		// ----------------------------------------
+		// Inicializar JAXB y leer el XML
+		// ----------------------------------------
 
-    Crud xmlcrud = (Crud) unmarshaller.unmarshal(is);
+		JAXBContext jc = JAXBContext.newInstance(ObjectFactory.class.getPackage().getName());
 
-    return xmlcrud;
-  }
+		Unmarshaller unmarshaller = jc.createUnmarshaller();
 
-  // ----------------------------------------
-  // URLTemplateLoader
-  // ----------------------------------------
+		Crud xmlcrud = (Crud) unmarshaller.unmarshal(is);
 
-  @Override
-  protected URL getURL(String name) {
-    return getClass().getClassLoader().getResource(name);
-  }
+		return xmlcrud;
+	}
 
-  // ----------------------------------------
+	// ----------------------------------------
+	// URLTemplateLoader
+	// ----------------------------------------
 
-  public static void main(String[] args) throws Exception {
-    new Crudgenerator().run();
-  }
+	@Override
+	protected URL getURL(String name) {
+		return getClass().getClassLoader().getResource(name);
+	}
+
+	// ----------------------------------------
+
+	public static void main(String[] args) throws Exception {
+		new Crudgenerator().run();
+	}
 }
