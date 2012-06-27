@@ -5,7 +5,7 @@ import java.io.InputStream;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Unmarshaller;
 
-import com.jack.crud.xml.*;
+import com.jack.crud.*;
 
 
 
@@ -17,7 +17,7 @@ public class CrudRead {
     // Obtener el InputStream
     // ----------------------------------------
 
-    InputStream is = ClassLoader.getSystemResourceAsStream("com/jack/XMLObjectsTest/crudTest.xml");
+    InputStream is = ClassLoader.getSystemResourceAsStream("com/jack/XMLObjects/crudPost.xml");
 
     // ----------------------------------------
     // Inicializar JAXB y leer el XML
@@ -28,9 +28,9 @@ public class CrudRead {
 
     Unmarshaller unmarshaller = jc.createUnmarshaller();
 
-    CRUD xmlCrud = (CRUD) unmarshaller.unmarshal(is);
+    Crud xmlCrud = (Crud) unmarshaller.unmarshal(is);
     
-    System.err.println("factura numero: " + xmlCrud.getName());
+    System.err.println("Nombre Crud leido: " + xmlCrud.getName());
     
         
   }

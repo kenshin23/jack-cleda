@@ -217,11 +217,11 @@
 	<xs:element name="workflow">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element ref="attributes" minOccurs="1" maxOccurs="unbounded" />
+				<xs:element ref="attributes" minOccurs="1" maxOccurs="1" />
 				<!-- <xs:element ref="editForm" minOccurs="1" maxOccurs="unbounded"/> -->
-				<xs:element ref="listForm" minOccurs="1" maxOccurs="unbounded" />
+				<xs:element ref="listForm" minOccurs="1" maxOccurs="1" />
 				<xs:element ref="profile" minOccurs="0" maxOccurs="unbounded" />
-				<xs:element ref="petri-net" minOccurs="1" maxOccurs="unbounded" />
+				<xs:element ref="petri-net" minOccurs="1" maxOccurs="1" />
 			</xs:sequence>
 			
 			<xs:attribute name="name" type="xs:string" use="required" />

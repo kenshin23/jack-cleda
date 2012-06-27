@@ -5,7 +5,7 @@ import java.io.InputStream;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Unmarshaller;
 
-import com.jack.workflow.xml.*;
+import com.jack.workflow.*;
 
 public class WorkflowRead {
 
@@ -15,7 +15,7 @@ public class WorkflowRead {
     // Obtener el InputStream
     // ----------------------------------------
 	
-    InputStream is = ClassLoader.getSystemResourceAsStream("com/jack/XMLObjectsTest/workflowTest.xml");
+    InputStream is = ClassLoader.getSystemResourceAsStream("com/jack/XMLobjects/workflowTest.xml");
 
     // ----------------------------------------
     // Inicializar JAXB y leer el XML
@@ -26,14 +26,18 @@ public class WorkflowRead {
     Unmarshaller unmarshaller = jc.createUnmarshaller();
 
     Workflow xmlWorkflow = (Workflow) unmarshaller.unmarshal(is);
+    Attributes xmlAtt = xmlWorkflow.getAttributes();
 
     // ----------------------------------------
     // Procesar el arbol de objetos generado
     // ----------------------------------------
 
     System.err.println("Nombre Workflow: " + xmlWorkflow.getName());
-    System.err.println( //
-        "Descripcion: " + xmlWorkflow.getDesc());
+    System.err.println("Descripcion: " + xmlWorkflow.getDesc());
+    
+ 
+    
+    
 
   }
 }
