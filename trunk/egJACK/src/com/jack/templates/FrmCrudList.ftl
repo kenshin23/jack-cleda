@@ -1,4 +1,10 @@
-package com.minotauro.sandbox.gui.M${name};
+[#ftl]	
+// ----------------------------------------
+// Generated code, do not edit
+// ----------------------------------------
+
+
+package com.minotauro.sandbox.gui.mcrud${name};
 
 import nextapp.echo.app.Extent;
 
@@ -11,18 +17,18 @@ import com.minotauro.echo.table.base.TableColumn;
 import com.minotauro.echo.table.renderer.LabelCellRenderer;
 import com.minotauro.query.QueryCreator;
 import com.minotauro.query.bean.gui.TextFilterBean;
-import com.minotauro.sandbox.model.M${name};
-import com.minotauro.sandbox.model._PropM${name};
+import com.minotauro.sandbox.model.MCrud${name?cap_first};
+import com.minotauro.sandbox.model._PropMCrud${name?cap_first};
 // parametrizar paquetes con xml y xsd
 
 /**
- * @author Por Ejemplo Jack Bauer
+ * @author E.G Jack™
  */
-public class Frm${name}List extends FrmListCrudBase {
+public class FrmMCrud${name?cap_first}List extends FrmListCrudBase {
 
-  public FrmM${name}List() {
-    frmEditDtaClass = FrmM${name}Edit.class;
-    setTitle(_I18NFrmM${name}List.title());
+  public FrmMCrud${name?cap_first}List() {
+    frmEditDtaClass = FrmMCrud${name?cap_first}Edit.class;
+    setTitle(_I18NFrmMCrud${name?cap_first}List.title());
   }
 
   // --------------------------------------------------------------------------------
@@ -47,7 +53,7 @@ public class Frm${name}List extends FrmListCrudBase {
 
     tableColumn = new TableColumn() {
       public Object getValue(ETable table, Object element) {
-        return ((M${name}) element).getName();
+        return ((MCrud${name?cap_first}) element).getName();
       }
     };
     tableColumn.setWidth(new Extent(85, Extent.PERCENT));
@@ -75,8 +81,8 @@ public class Frm${name}List extends FrmListCrudBase {
     frmFilterEditor = new FrmFilterEditor();
     frmFilterEditor.addFilterListener(this);
 
-    frmFilterEditor.addFilter(_PropM${name}.NAME, //
-        _I18NFrmM${name}List.name(), //
+    frmFilterEditor.addFilter(_PropMCrud${name?cap_first}.NAME, //
+        _I18NFrmMCrud${name?cap_first}List.name(), //
         TextFilterBean.class);
 
     // ------------------------------------
@@ -84,7 +90,7 @@ public class Frm${name}List extends FrmListCrudBase {
     // ------------------------------------
 
     frmFilterEditor.addFilter("odesc", //
-        _I18NFrmM${name}List.desc(), //
+        _I18NFrmMCrud${name?cap_first}List.desc(), //
         TextFilterBean.class);
   }
 
@@ -92,20 +98,20 @@ public class Frm${name}List extends FrmListCrudBase {
 
   @Override
   protected void initQueryCreator() {
-    queryCreator = new QueryCreator(M${name}.class, true);
+    queryCreator = new QueryCreator(MCrud${name?cap_first}.class, true);
 
     // ----------------------------------------
     // TODO: improve ordering
     // ----------------------------------------
 
-    queryCreator.setOrderBy(_PropM${name}.NAME);
+    queryCreator.setOrderBy(_PropMCrud${name?cap_first}.NAME);
   }
 
   // --------------------------------------------------------------------------------
 
   @Override
-  protected M${name} initMBase() {
-    return new M${name}();
+  protected MCrud${name?cap_first} initMBase() {
+    return new MCrud${name?cap_first}();
   }
 }
 
