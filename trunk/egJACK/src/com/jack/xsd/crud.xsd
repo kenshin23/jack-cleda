@@ -13,7 +13,7 @@
 		<xs:complexType>
 		
 			<xs:sequence>
-				<xs:element ref="validator"/>
+				<xs:element ref="validator" minOccurs="1" maxOccurs="unbounded"/>
 			</xs:sequence>
 			
 			<xs:attribute name="name" type="xs:string" use="required" />
@@ -21,6 +21,8 @@
 			<xs:attribute name="visibleOnList" type="xs:boolean" use="required" />
 			<xs:attribute name="editabletiOnList" type="xs:boolean" use="required" />
 			<xs:attribute name="filterByThis" type="xs:boolean" use="required" />
+			<xs:attribute name="editFieldType" type="xs:string" use="required" />
+			
 			
 		</xs:complexType>
 	</xs:element>
@@ -37,8 +39,9 @@
 	<xs:element name="attributes">
 		<xs:complexType>
 			<xs:sequence>
+
 				<xs:element ref="att" minOccurs="1" maxOccurs="unbounded"/>
-				<xs:element ref="list"/>
+				<xs:element ref="list" minOccurs="1" maxOccurs="unbounded"/>
 			</xs:sequence>
 			
 		</xs:complexType>
@@ -71,8 +74,8 @@
 	<xs:element name="listForm">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element ref="column" />
-				<xs:element ref="paging" />
+				<xs:element ref="column" minOccurs="1" maxOccurs="unbounded"/>
+				<xs:element ref="paging" minOccurs="1" maxOccurs="unbounded"/>
 			</xs:sequence>
 			<xs:attribute name="title" type="xs:string" use="required" />
 			<xs:attribute name="width" type="xs:int" use="required" />
@@ -118,10 +121,10 @@
 	<xs:element name="crud">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element ref="attributes" />
-				<xs:element ref="editForm" />
-				<xs:element ref="listForm" />
-				<xs:element ref="profile" />
+				<xs:element ref="attributes" minOccurs="1" maxOccurs="unbounded"/>
+				<xs:element ref="editForm" minOccurs="1" maxOccurs="unbounded"/>
+				<xs:element ref="listForm" minOccurs="1" maxOccurs="unbounded"/>
+				<xs:element ref="profile" minOccurs="1" maxOccurs="unbounded"/>
 				
 			</xs:sequence>
 			<xs:attribute name="name" type="xs:string" use="required" />
