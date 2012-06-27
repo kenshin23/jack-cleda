@@ -54,10 +54,10 @@ public class FrmMCrud${name?cap_first}Edit extends FrmEditBase {
     txt${currentAtt.name}.setWidth(new Extent(204));
 
     fmN${currentAtt.name} = new FieldModel();
-    fmN${currentAtt.name}.setLabelCmp(new EFieldLabel(_I18NFrmMCrudPostEdit.name()));
+    fmN${currentAtt.name}.setLabelCmp(new EFieldLabel(_I18NFrmMCrudPostEdit.${currentAtt.name}()));
     fmN${currentAtt.name}.setFieldCmp(txt${currentAtt.name});
-    fmN${currentAtt.name}.setKey(_PropMCrudPost.NAME);
-    fmN${currentAtt.name}.setProperty(_PropMCrudPost.NAME);
+    fmN${currentAtt.name}.setKey(_PropMCrudPost.${currentAtt.name?upper_case});
+    fmN${currentAtt.name}.setProperty(_PropMCrudPost.${currentAtt.name?upper_case});
 
 	[#list currentAtt.validator as currentValidator]
 	
