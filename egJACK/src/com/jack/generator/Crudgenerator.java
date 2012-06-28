@@ -33,9 +33,9 @@ public class Crudgenerator extends URLTemplateLoader {
 		configuration3.setObjectWrapper(new BeansWrapper());
 		configuration3.setTemplateLoader(this);
 
-		FileWriter fileWriter = new FileWriter(args[1]+"_CledaI18N.java");
-		FileWriter fileWriter2 = new FileWriter(args[1]+"Frm"+crudInput.getModelName()+"Edit.java");
-		FileWriter fileWriter3 = new FileWriter(args[1]+"FrmM"+crudInput.getModelName()+"List.java");
+		FileWriter fileWriter = new FileWriter(args[1]+crudInput.getPackage().replace('.', '/')+"/_CledaI18N.java");
+		FileWriter fileWriter2 = new FileWriter(args[1]+crudInput.getPackage().replace('.', '/')+"/Frm"+crudInput.getModelName()+"Edit.java");
+		FileWriter fileWriter3 = new FileWriter(args[1]+crudInput.getPackage().replace('.', '/')+"/Frm"+crudInput.getModelName()+"List.java");
 		
 		
 		configuration.getTemplate("/com/jack/templates/CledaI18N-template.ftl").process(crudInput, fileWriter);

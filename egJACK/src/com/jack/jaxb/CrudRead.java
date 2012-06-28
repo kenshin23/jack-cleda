@@ -30,7 +30,8 @@ public class CrudRead {
 
     Crud xmlCrud = (Crud) unmarshaller.unmarshal(is);
     
-    System.err.println("Nombre Crud leido: " + xmlCrud.getName());
+    System.out.println("Nombre Crud leido: " + xmlCrud.getName());
+    System.out.println("Descripcion: " + xmlCrud.getDescription().getValue());
     
         
   }
