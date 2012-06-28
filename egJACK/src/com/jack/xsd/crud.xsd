@@ -8,45 +8,49 @@
 			<xs:attribute name="name" type="xs:string" use="required" />
 		</xs:complexType>
 	</xs:element>
-	
+
 	<xs:element name="att">
 		<xs:complexType>
-		
+
 			<xs:sequence>
-				<xs:element ref="validator" minOccurs="1" maxOccurs="unbounded"/>
+				<xs:element ref="validator" minOccurs="1" maxOccurs="unbounded" />
 			</xs:sequence>
-			
+
 			<xs:attribute name="name" type="xs:string" use="required" />
 			<xs:attribute name="type" type="xs:string" use="required" />
-			<xs:attribute name="visibleOnList" type="xs:boolean" use="required" />
-			<xs:attribute name="editabletiOnList" type="xs:boolean" use="required" />
+			<xs:attribute name="visibleOnList" type="xs:boolean"
+				use="required" />
+			<xs:attribute name="editabletiOnList" type="xs:boolean"
+				use="required" />
 			<xs:attribute name="filterByThis" type="xs:boolean" use="required" />
 			<xs:attribute name="editFieldType" type="xs:string" use="required" />
-			
-			
+
+
 		</xs:complexType>
 	</xs:element>
-	
+
 	<xs:element name="list">
 		<xs:complexType>
 			<xs:attribute name="target" type="xs:string" use="required" />
 			<xs:attribute name="type" type="xs:string" use="required" />
-			<xs:attribute name="visibleOnList" type="xs:boolean" use="required" />
-			<xs:attribute name="editabletiOnList" type="xs:boolean" use="required" />
+			<xs:attribute name="visibleOnList" type="xs:boolean"
+				use="required" />
+			<xs:attribute name="editabletiOnList" type="xs:boolean"
+				use="required" />
 		</xs:complexType>
 	</xs:element>
-	
+
 	<xs:element name="attributes">
 		<xs:complexType>
 			<xs:sequence>
 
-				<xs:element ref="att" minOccurs="1" maxOccurs="unbounded"/>
-				<xs:element ref="list" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="att" minOccurs="1" maxOccurs="unbounded" />
+				<xs:element ref="list" minOccurs="0" maxOccurs="unbounded" />
 			</xs:sequence>
-			
+
 		</xs:complexType>
 	</xs:element>
-	
+
 	<xs:element name="editForm">
 		<xs:complexType>
 			<xs:attribute name="title" type="xs:string" use="required" />
@@ -54,35 +58,35 @@
 			<xs:attribute name="height" type="xs:int" use="required" />
 		</xs:complexType>
 	</xs:element>
-	
+
 	<xs:element name="column">
-	
+
 		<xs:complexType>
 			<xs:attribute name="name" type="xs:string" use="required" />
 			<xs:attribute name="width" type="xs:int" use="required" />
 			<xs:attribute name="renderer" type="xs:string" use="required" />
 		</xs:complexType>
 	</xs:element>
-	
+
 	<xs:element name="paging">
 		<xs:complexType>
 			<xs:attribute name="opt1" type="xs:string" use="required" />
 			<xs:attribute name="opt2" type="xs:string" use="required" />
 		</xs:complexType>
 	</xs:element>
-	
+
 	<xs:element name="listForm">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element ref="column" minOccurs="1" maxOccurs="unbounded"/>
-				<xs:element ref="paging" minOccurs="1" maxOccurs="unbounded"/>
+				<xs:element ref="column" minOccurs="1" maxOccurs="unbounded" />
+				<xs:element ref="paging" minOccurs="1" maxOccurs="unbounded" />
 			</xs:sequence>
 			<xs:attribute name="title" type="xs:string" use="required" />
 			<xs:attribute name="width" type="xs:int" use="required" />
 			<xs:attribute name="height" type="xs:int" use="required" />
 		</xs:complexType>
 	</xs:element>
-	
+
 	<xs:element name="create">
 		<xs:complexType>
 			<xs:attribute name="status" type="xs:string" use="required" />
@@ -103,7 +107,7 @@
 			<xs:attribute name="status" type="xs:string" use="required" />
 		</xs:complexType>
 	</xs:element>
-	
+
 	<xs:element name="profile">
 		<xs:complexType>
 			<xs:sequence>
@@ -111,30 +115,42 @@
 				<xs:element ref="update" />
 				<xs:element ref="delete" />
 				<xs:element ref="view" />
-				
+
 			</xs:sequence>
 			<xs:attribute name="name" type="xs:string" use="required" />
-			
+
 		</xs:complexType>
 	</xs:element>
-	
+
+	<xs:element name="description">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:string">
+					<!-- aqui va el texto de la descripcion -->
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+
 	<xs:element name="crud">
 		<xs:complexType>
 			<xs:sequence>
+				<xs:element ref="description" />
 				<xs:element ref="attributes" />
 				<xs:element ref="editForm" />
 				<xs:element ref="listForm" />
-				<xs:element ref="profile" minOccurs="1" maxOccurs="unbounded"/>
-				
+				<xs:element ref="profile" minOccurs="1" maxOccurs="unbounded" />
+
 			</xs:sequence>
+			<xs:attribute name="package" type="xs:string" use="required" />
 			<xs:attribute name="name" type="xs:string" use="required" />
-			<xs:attribute name="desc" type="xs:string" use="required" />
+			<xs:attribute name="modelName" type="xs:string" use="required" />
 			<xs:attribute name="group" type="xs:string" use="required" />
-			
+
 		</xs:complexType>
 	</xs:element>
-	
-	
+
+
 </xs:schema>
 	
 	
