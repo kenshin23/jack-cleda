@@ -17,8 +17,9 @@ import freemarker.template.Configuration;
 
 public class Crudgenerator extends URLTemplateLoader {
 
-	public void run() throws Exception {
-		Crud crudInput = leerXML();
+	public void run(String[] args) throws Exception {
+		
+		Crud crudInput = leerXML(args[0]);
 
 		Configuration configuration = new Configuration();
 		configuration.setObjectWrapper(new BeansWrapper());
@@ -32,12 +33,11 @@ public class Crudgenerator extends URLTemplateLoader {
 		configuration3.setObjectWrapper(new BeansWrapper());
 		configuration3.setTemplateLoader(this);
 
-		FileWriter fileWriter = new FileWriter("../CledaSandbox/src/com/minotauro/sandbox/gui/mcrudpost/_CledaI18N.java");
+		FileWriter fileWriter = new FileWriter(args[1]+"_CledaI18N.java");
+		FileWriter fileWriter2 = new FileWriter(args[1]+"Frm"+crudInput.getModelName()+"Edit.java");
+		FileWriter fileWriter3 = new FileWriter(args[1]+"FrmM"+crudInput.getModelName()+"List.java");
 		
-		//FileWriter fileWriter = new FileWriter("src/com/jack/generator/_CledaI18N.java");
-		FileWriter fileWriter2 = new FileWriter("../CledaSandbox/src/com/minotauro/sandbox/gui/mcrudpost/FrmMCrudPostEdit.java");
-		FileWriter fileWriter3 = new FileWriter("../CledaSandbox/src/com/minotauro/sandbox/gui/mcrudpost/FrmMCrudPostList.java");
-
+		
 		configuration.getTemplate("/com/jack/templates/CledaI18N-template.ftl").process(crudInput, fileWriter);
 		configuration2.getTemplate("/com/jack/templates/FrmCrudEdit.ftl").process(crudInput, fileWriter2);
 		configuration3.getTemplate("/com/jack/templates/FrmCrudList.ftl").process(crudInput, fileWriter3);
@@ -47,13 +47,14 @@ public class Crudgenerator extends URLTemplateLoader {
 		fileWriter3.close();
 	}
 
-	private Crud leerXML() throws Exception {
+	private Crud leerXML(String XMLpath) throws Exception {
 		// ----------------------------------------
 		// Obtener el InputStream
 		// ----------------------------------------
 
-		InputStream is = ClassLoader.getSystemResourceAsStream("com/jack/XMLobjects/crudPost.xml");
-
+		//InputStream is = ClassLoader.getSystemResourceAsStream("com/jack/XMLobjects/crudPost.xml");
+		InputStream is = ClassLoader.getSystemResourceAsStream(XMLpath);
+		
 		// ----------------------------------------
 		// Inicializar JAXB y leer el XML
 		// ----------------------------------------
@@ -79,7 +80,12 @@ public class Crudgenerator extends URLTemplateLoader {
 	// ----------------------------------------
 
 	public static void main(String[] args) throws Exception {
-		new Crudgenerator().run();
+		if (args.length != 2) {
+            System.out.println("Ha de enviar dos parametros\n"
+                            + "Fuente del XML y Paquete Destino");
+            System.exit(1);
+    }
+			new Crudgenerator().run(args);
 	//	new _CledaI18N().main();
 	}
 }
