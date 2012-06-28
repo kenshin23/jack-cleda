@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<crud xmlns="http://www.cledaCrud.org/crud.xsd" name="post" desc="este_es_un_crud_post" group="NombreGrupoCruds" >
+<crud xmlns="http://www.cledaCrud.org/crud.xsd"
+package="com.minotauro.sandbox.gui.mcrudpost" name="post" modelname="MCrudPost" group="NombreGrupoCruds" >
+
+<description>
+Este crud define un post en un blog.
+</description>
 	<!-- **************************************** -->
 	<!-- Lista de Atributos del CRUD POST -->
 	<!-- **************************************** -->

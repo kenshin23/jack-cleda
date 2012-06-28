@@ -1,12 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<CRUD xmlns="http://www.cledaCrud.org/crud.s" name="NOMBRE_CRUD" desc="DESCRIPCION_CRUD" group="NombreGrupoCruds">
+<crud xmlns="http://www.cledaCrud.org/crud.xsd"
+package="com.minotauro.sandbox.gui.mcrudpost" name="NOMBRE_CRUD" modelName="nombremodelo" group="NombreGrupoCruds">
+	<description>
+	
+	Aqui va la descripcion textual del crud, blah blah blah.
+	
+	
+	</description>
+	
 	<!-- **************************************** -->
 	<!-- Lista de Atributos del CRUD -->
 	<!-- **************************************** -->
 	<attributes>
 		<att name="nombre_atributo1" type="tipo_dato" visibleOnList="TRUE/FALSE" editabletiOnList="TRUE/FALSE" filterByThis="True/False">
 			<validator name="nombreValidador1" />
-			<validator name="nombreValidador2" />
+			<!-- Los validadores pueden ser anidados como en este caso -->
+			<validator name="nombreValidador2" ><validator name="nombreValidador2.1" /></validator>
 			<!-- ... -->
 			
 		</att>
@@ -80,4 +89,4 @@
 		<view status="bool" />
 	</profile>
 	<!-- ... -->
-</CRUD>
+</crud>
