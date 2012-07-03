@@ -30,6 +30,10 @@
 		<description>crud.crudPost</description>
 	</priv>
 	
+	<priv name="crud.crudPrueba">
+		<description>crud.crudPrueba</description>
+	</priv>
+	
 
 	<priv name="dummy">
 		<description>dummy</description>

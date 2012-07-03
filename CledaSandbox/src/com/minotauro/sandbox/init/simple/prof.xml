@@ -15,6 +15,7 @@
 		<priv name="crud.crudC" />
 		<priv name="crud.crudD" />
 		<priv name="crud.crudPost" />
+		<priv name="crud.crudPrueba" />
 	</prof>
 
 	<prof name="dummy">
