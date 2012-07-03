@@ -4,15 +4,19 @@ package com.minotauro.sandbox.model;
 //import java.util.ArrayList;
 //import java.util.List;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
-//import javax.persistence.OneToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
+import org.hibernate.annotations.OrderBy;
 import org.hibernate.annotations.Proxy;
 
 import com.minotauro.base.model.MBase;
@@ -33,7 +37,7 @@ public class MCrudPost extends MBase{
 
 	  // --------------------------------------------------------------------------------
 
-	  //private List<MMultJointAB> multJointABList = new ArrayList<MMultJointAB>();
+	  private List<MMultJointMPostA> multJointMPostAList = new ArrayList<MMultJointMPostA>();
 
 	  //private List<MSingJointAB> singJointABList = new ArrayList<MSingJointAB>();
 
@@ -74,17 +78,17 @@ public class MCrudPost extends MBase{
 		  this.body = body;
 	  }
 
-	  //@OneToMany(mappedBy = _PropMMultJointAB.CRUD_BREF, orphanRemoval = true)
-	  //@LazyCollection(LazyCollectionOption.TRUE)
-	  //@Cascade({CascadeType.ALL})
-	  /*public List<MMultJointAB> getMultJointABList() {
-	    return multJointABList;
+	  @OneToMany(mappedBy = _PropMMultJointMPostA.CRUD_POST_REF, orphanRemoval = true)
+	  @LazyCollection(LazyCollectionOption.TRUE)
+	  @Cascade({CascadeType.ALL})
+	  public List<MMultJointMPostA> getMultJointMPostAList() {
+	    return multJointMPostAList;
 	  }
 
-	  public void setMultJointABList(List<MMultJointAB> multJointABList) {
-	    this.multJointABList = multJointABList;
+	  public void setMultJointMPostAList(List<MMultJointMPostA> multJointMPostAList) {
+	    this.multJointMPostAList = multJointMPostAList;
 	  }
-*/
+
 	  // --------------------------------------------------------------------------------
 
 	/*  @OneToMany(mappedBy = _PropMSingJointAB.CRUD_BREF, orphanRemoval = true)
