@@ -18,48 +18,48 @@ public class _I18NFrmMCrudPruebaList {
     // Empty
   }
 
-  public static String campo1() throws MessageException {
-    return MessageBase.getInstance().locateValue(locale, RES_NAME, "campo1", new Object[]{});
+  public static String conditional() throws MessageException {
+    return MessageBase.getInstance().locateValue(locale, RES_NAME, "conditional", new Object[]{});
   }
 
-  public static String campo2() throws MessageException {
-    return MessageBase.getInstance().locateValue(locale, RES_NAME, "campo2", new Object[]{});
-  }
-
-  public static String campo3() throws MessageException {
-    return MessageBase.getInstance().locateValue(locale, RES_NAME, "campo3", new Object[]{});
-  }
-
-  public static String campo4() throws MessageException {
-    return MessageBase.getInstance().locateValue(locale, RES_NAME, "campo4", new Object[]{});
-  }
-
-  public static String campo5() throws MessageException {
-    return MessageBase.getInstance().locateValue(locale, RES_NAME, "campo5", new Object[]{});
-  }
-
-  public static String campo6() throws MessageException {
-    return MessageBase.getInstance().locateValue(locale, RES_NAME, "campo6", new Object[]{});
-  }
-
-  public static String campo7() throws MessageException {
-    return MessageBase.getInstance().locateValue(locale, RES_NAME, "campo7", new Object[]{});
-  }
-
-  public static String campo8() throws MessageException {
-    return MessageBase.getInstance().locateValue(locale, RES_NAME, "campo8", new Object[]{});
+  public static String duplicatedfield() throws MessageException {
+    return MessageBase.getInstance().locateValue(locale, RES_NAME, "duplicatedfield", new Object[]{});
   }
 
   public static String email() throws MessageException {
     return MessageBase.getInstance().locateValue(locale, RES_NAME, "email", new Object[]{});
   }
 
+  public static String idnumber() throws MessageException {
+    return MessageBase.getInstance().locateValue(locale, RES_NAME, "idnumber", new Object[]{});
+  }
+
+  public static String notblankfield() throws MessageException {
+    return MessageBase.getInstance().locateValue(locale, RES_NAME, "notblankfield", new Object[]{});
+  }
+
+  public static String notempty() throws MessageException {
+    return MessageBase.getInstance().locateValue(locale, RES_NAME, "notempty", new Object[]{});
+  }
+
   public static String numero() throws MessageException {
     return MessageBase.getInstance().locateValue(locale, RES_NAME, "numero", new Object[]{});
   }
 
+  public static String rango() throws MessageException {
+    return MessageBase.getInstance().locateValue(locale, RES_NAME, "rango", new Object[]{});
+  }
+
+  public static String regex() throws MessageException {
+    return MessageBase.getInstance().locateValue(locale, RES_NAME, "regex", new Object[]{});
+  }
+
   public static String title() throws MessageException {
     return MessageBase.getInstance().locateValue(locale, RES_NAME, "title", new Object[]{});
+  }
+
+  public static String truefield() throws MessageException {
+    return MessageBase.getInstance().locateValue(locale, RES_NAME, "truefield", new Object[]{});
   }
 
 }
