@@ -89,6 +89,7 @@
 		<mapping class="com.minotauro.sandbox.model.MCrudC" />
 		<mapping class="com.minotauro.sandbox.model.MCrudD" />
 		<mapping class="com.minotauro.sandbox.model.MCrudPost" />
+		<mapping class="com.minotauro.sandbox.model.MCrudPrueba" />
 		<mapping class="com.minotauro.sandbox.model.MInnerA" />
 		<mapping class="com.minotauro.sandbox.model.MMultJointAB" />
 		<mapping class="com.minotauro.sandbox.model.MMultJointAC" />
@@ -102,8 +103,10 @@
 		<mapping class="com.minotauro.sandbox.model.DMultJointAC" />
 		<mapping class="com.minotauro.sandbox.model.DSingJointAB" />
 		<mapping class="com.minotauro.sandbox.model.DSingJointAC" />
+		
 		<mapping class="com.minotauro.sandbox.model.DUserReg" />
-        <mapping class="com.minotauro.sandbox.model.DUserRegProf" />
+		<mapping class="com.minotauro.sandbox.model.DUserRegProf" />
+		
 
 		<mapping class="com.minotauro.user.model.MUser" />
 		<mapping class="com.minotauro.user.model.MUserProf" />
