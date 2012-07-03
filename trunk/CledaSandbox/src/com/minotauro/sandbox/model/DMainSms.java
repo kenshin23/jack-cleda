@@ -19,7 +19,7 @@ import org.hibernate.annotations.Proxy;
 import com.minotauro.workflow.model.MDocument;
 
 /**
- * @author Karla Moreno
+ * @author Karla "azucar" Moreno
  */
 @Entity
 @Table(name = "t_doc_main_sms")
