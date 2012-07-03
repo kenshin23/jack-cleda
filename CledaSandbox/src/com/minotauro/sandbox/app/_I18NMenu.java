@@ -42,6 +42,10 @@ public class _I18NMenu {
     return MessageBase.getInstance().locateValue(locale, RES_NAME, "crudPostlist", new Object[]{});
   }
 
+  public static String crudPruebalist() throws MessageException {
+    return MessageBase.getInstance().locateValue(locale, RES_NAME, "crudPruebalist", new Object[]{});
+  }
+
   public static String dummy() throws MessageException {
     return MessageBase.getInstance().locateValue(locale, RES_NAME, "dummy", new Object[]{});
   }
