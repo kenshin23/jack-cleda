@@ -29,26 +29,24 @@ public class MCrudPrueba extends MBase{
 	
 	  private String numero;
 	  private String email;
-	  private String campo1;
-	  private String campo2;
-	  private String campo3;
-	  private String campo4;
-	  private String campo5;
-	  private String campo6;
-	  private String campo7;
-	  private String campo8;
+	  private String notblankfield;
+	  private String duplicatedfield;
+	  private String idnumber;
+	  private String conditional;
+	  private String regex;
+	  private String truefield;
+	  private String notempty;
+	  private String rango;
 	  
-
 	  public MCrudPrueba() {
-	    // Empty
-	  }
-
+		    // Empty
+		  }
 	// --------------------------------------------------------------------------------
-	public String getNumero() {
+	  public String getNumero() {
 		return numero;
 	}
 
-	
+
 	public void setNumero(String numero) {
 		this.numero = numero;
 	}
@@ -58,90 +56,92 @@ public class MCrudPrueba extends MBase{
 		return email;
 	}
 
-	
+
 	public void setEmail(String email) {
 		this.email = email;
 	}
 
 	// --------------------------------------------------------------------------------
-	public String getCampo1() {
-		return campo1;
+	public String getNotblankfield() {
+		return notblankfield;
 	}
 
 
-	public void setCampo1(String campo1) {
-		this.campo1 = campo1;
-	}
-
-	// --------------------------------------------------------------------------------
-	public String getCampo2() {
-		return campo2;
-	}
-
-
-	public void setCampo2(String campo2) {
-		this.campo2 = campo2;
+	public void setNotblankfield(String notblankfield) {
+		this.notblankfield = notblankfield;
 	}
 
 	// --------------------------------------------------------------------------------
-	public String getCampo3() {
-		return campo3;
+	public String getDuplicatedfield() {
+		return duplicatedfield;
 	}
 
 
-	public void setCampo3(String campo3) {
-		this.campo3 = campo3;
+	public void setDuplicatedfield(String duplicatedfield) {
+		this.duplicatedfield = duplicatedfield;
 	}
 
-	// --------------------------------------------------------------------------------
-	public String getCampo4() {
-		return campo4;
-	}
-
-
-	public void setCampo4(String campo4) {
-		this.campo4 = campo4;
-	}
-
-	// --------------------------------------------------------------------------------
-	public String getCampo5() {
-		return campo5;
+    // --------------------------------------------------------------------------------
+	public String getIdnumber() {
+		return idnumber;
 	}
 
 
-	public void setCampo5(String campo5) {
-		this.campo5 = campo5;
+	public void setIdnumber(String idnumber) {
+		this.idnumber = idnumber;
 	}
 
 	// --------------------------------------------------------------------------------
-	public String getCampo6() {
-		return campo6;
+	public String getConditional() {
+		return conditional;
 	}
 
 
-	public void setCampo6(String campo6) {
-		this.campo6 = campo6;
+	public void setConditional(String conditional) {
+		this.conditional = conditional;
 	}
+
+   // --------------------------------------------------------------------------------
+	public String getRegex() {
+		return regex;
+	}
+
+
+	public void setRegex(String regex) {
+		this.regex = regex;
+	}
+
 	// --------------------------------------------------------------------------------
-	public String getCampo7() {
-		return campo7;
+	public String getTruefield() {
+		return truefield;
 	}
 
 
-	public void setCampo7(String campo7) {
-		this.campo7 = campo7;
-	}	 
+	public void setTruefield(String truefield) {
+		this.truefield = truefield;
+	}
+
 	// --------------------------------------------------------------------------------
-	public String getCampo8() {
-		return campo8;
-	}	
-	public void setCampo8(String campo8) {
-		this.campo8 = campo8;
-	}	
-	
+	public String getNotempty() {
+		return notempty;
+	}
 
 
-	 
+	public void setNotempty(String notempty) {
+		this.notempty = notempty;
+	}
+
+	// --------------------------------------------------------------------------------
+	public String getRango() {
+		return rango;
+	}
+
+
+	public void setRango(String rango) {
+		this.rango = rango;
+	}
+
+ 
 }
 
 

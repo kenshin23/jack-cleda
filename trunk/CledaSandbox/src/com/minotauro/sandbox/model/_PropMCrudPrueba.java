@@ -9,16 +9,16 @@ public class _PropMCrudPrueba {
     // Empty
   }
 
-  public static final String CAMPO1 = "campo1";
-  public static final String CAMPO2 = "campo2";
-  public static final String CAMPO3 = "campo3";
-  public static final String CAMPO4 = "campo4";
-  public static final String CAMPO5 = "campo5";
-  public static final String CAMPO6 = "campo6";
-  public static final String CAMPO7 = "campo7";
-  public static final String CAMPO8 = "campo8";
+  public static final String CONDITIONAL = "conditional";
+  public static final String DUPLICATEDFIELD = "duplicatedfield";
   public static final String EMAIL = "email";
   public static final String ID = "id";
+  public static final String IDNUMBER = "idnumber";
+  public static final String NOTBLANKFIELD = "notblankfield";
+  public static final String NOTEMPTY = "notempty";
   public static final String NUMERO = "numero";
+  public static final String RANGO = "rango";
+  public static final String REGEX = "regex";
   public static final String SYST_ENTRY = "systEntry";
+  public static final String TRUEFIELD = "truefield";
 }
