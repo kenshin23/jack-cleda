@@ -1,9 +1,14 @@
+// ----------------------------------------
+// Generated code, do not edit
+// ----------------------------------------
+
+
 package com.minotauro.sandbox.gui.mcrudpost;
 
 import com.minotauro.i18n.base.BaseI18NMain;
 
 /**
- * @author Karla Moreno
+ * @author E.G JACK™
  */
 public class _CledaI18N extends BaseI18NMain {
 

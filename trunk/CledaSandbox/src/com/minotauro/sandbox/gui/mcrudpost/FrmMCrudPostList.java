@@ -1,3 +1,8 @@
+// ----------------------------------------
+// Generated code, do not edit
+// ----------------------------------------
+
+
 package com.minotauro.sandbox.gui.mcrudpost;
 
 import nextapp.echo.app.Extent;
@@ -13,9 +18,10 @@ import com.minotauro.query.QueryCreator;
 import com.minotauro.query.bean.gui.TextFilterBean;
 import com.minotauro.sandbox.model.MCrudPost;
 import com.minotauro.sandbox.model._PropMCrudPost;
+// parametrizar paquetes con xml y xsd
 
 /**
- * @author Karla Moreno
+ * @author E.G Jack™
  */
 public class FrmMCrudPostList extends FrmListCrudBase {
 
@@ -107,3 +113,4 @@ public class FrmMCrudPostList extends FrmListCrudBase {
     return new MCrudPost();
   }
 }
+
