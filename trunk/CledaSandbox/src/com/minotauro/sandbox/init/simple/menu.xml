@@ -89,7 +89,7 @@
 		i18nKey="crudPruebalist" handler="com.minotauro.echo.desktop.event.CrudListEvent"
 		priv="crud.crudPrueba">
 		<meta-data key="frm"
-			val="com.jack.sandbox.gui.mcrudprueba" />
+			val="com.jack.sandbox.gui.mcrudprueba.FrmMCrudPruebaList" />
 	</event>
 
 	<!-- **************************************** -->
