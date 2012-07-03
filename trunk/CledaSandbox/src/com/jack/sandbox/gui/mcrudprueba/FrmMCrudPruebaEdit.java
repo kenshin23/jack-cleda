@@ -23,14 +23,14 @@ public class FrmMCrudPruebaEdit extends FrmEditBase {
 
   private FieldModel fmNumero;
   private FieldModel fmEmail;
-  private FieldModel fmCampo1;
-  private FieldModel fmCampo2;
-  private FieldModel fmCampo3;
-  private FieldModel fmCampo4;
-  private FieldModel fmCampo5;
-  private FieldModel fmCampo6;
-  private FieldModel fmCampo7;
-  private FieldModel fmCampo8;
+  private FieldModel fmNotblankfield;
+  private FieldModel fmDuplicatedfield;
+  private FieldModel fmIdnumber;
+  private FieldModel fmConditional;
+  private FieldModel fmRegex;
+  private FieldModel fmTruefield;
+  private FieldModel fmNotempty;
+  private FieldModel fmRango;
 
   // --------------------------------------------------------------------------------
 
@@ -84,129 +84,129 @@ public class FrmMCrudPruebaEdit extends FrmEditBase {
 
     // --------------------------------------------------------------------------------
 
-    ETextAreaEx txtCampo1 = new ETextAreaEx();
-    txtCampo1.setWidth(new Extent(204));
+    ETextAreaEx txtNotblankfield = new ETextAreaEx();
+    txtNotblankfield.setWidth(new Extent(204));
 
-    fmCampo1 = new FieldModel();
-    fmCampo1.setLabelCmp(new EFieldLabel(_I18NFrmMCrudPruebaEdit.campo1()));
-    fmCampo1.setFieldCmp(txtCampo1);
-    fmCampo1.setKey(_PropMCrudPrueba.CAMPO1);
-    fmCampo1.setProperty(_PropMCrudPrueba.CAMPO1);
+    fmNotblankfield = new FieldModel();
+    fmNotblankfield.setLabelCmp(new EFieldLabel(_I18NFrmMCrudPruebaEdit.notblankfield()));
+    fmNotblankfield.setFieldCmp(txtNotblankfield);
+    fmNotblankfield.setKey(_PropMCrudPrueba.NOTBLANKFIELD);
+    fmNotblankfield.setProperty(_PropMCrudPrueba.NOTBLANKFIELD);
 
-    fmCampo1.getValidatorList().add( //
-            new NotBlankValidator(_I18NFrmMCrudPruebaEdit.campo1(), txtCampo1, "prueba"));
+    fmNotblankfield.getValidatorList().add( //
+            new NotBlankValidator(_I18NFrmMCrudPruebaEdit.notblankfield(), txtNotblankfield, "prueba"));
     
-    sectionModel.addChild(fmCampo1);
+    sectionModel.addChild(fmNotblankfield);
     
     // --------------------------------------------------------------------------------
     
-    ETextAreaEx txtCampo2 = new ETextAreaEx();
-    txtCampo2.setWidth(new Extent(204));
+    ETextAreaEx txtDuplicatedfield = new ETextAreaEx();
+    txtDuplicatedfield.setWidth(new Extent(204));
 
-    fmCampo2 = new FieldModel();
-    fmCampo2.setLabelCmp(new EFieldLabel(_I18NFrmMCrudPruebaEdit.campo2()));
-    fmCampo2.setFieldCmp(txtCampo2);
-    fmCampo2.setKey(_PropMCrudPrueba.CAMPO2);
-    fmCampo2.setProperty(_PropMCrudPrueba.CAMPO2);
+    fmDuplicatedfield = new FieldModel();
+    fmDuplicatedfield.setLabelCmp(new EFieldLabel(_I18NFrmMCrudPruebaEdit.duplicatedfield()));
+    fmDuplicatedfield.setFieldCmp(txtDuplicatedfield);
+    fmDuplicatedfield.setKey(_PropMCrudPrueba.DUPLICATEDFIELD);
+    fmDuplicatedfield.setProperty(_PropMCrudPrueba.DUPLICATEDFIELD);
 
     
      
-    sectionModel.addChild(fmCampo2);
+    sectionModel.addChild(fmDuplicatedfield);
     
     // --------------------------------------------------------------------------------
 
-    ETextAreaEx txtCampo3 = new ETextAreaEx();
-    txtCampo3.setWidth(new Extent(204));
+    ETextAreaEx txtIdnumber = new ETextAreaEx();
+    txtIdnumber.setWidth(new Extent(204));
 
-    fmCampo3 = new FieldModel();
-    fmCampo3.setLabelCmp(new EFieldLabel(_I18NFrmMCrudPruebaEdit.campo3()));
-    fmCampo3.setFieldCmp(txtCampo3);
-    fmCampo3.setKey(_PropMCrudPrueba.CAMPO3);
-    fmCampo3.setProperty(_PropMCrudPrueba.CAMPO3);
+    fmIdnumber = new FieldModel();
+    fmIdnumber.setLabelCmp(new EFieldLabel(_I18NFrmMCrudPruebaEdit.idnumber()));
+    fmIdnumber.setFieldCmp(txtIdnumber);
+    fmIdnumber.setKey(_PropMCrudPrueba.IDNUMBER);
+    fmIdnumber.setProperty(_PropMCrudPrueba.IDNUMBER);
 
     
      
-    sectionModel.addChild(fmCampo3);
+    sectionModel.addChild(fmIdnumber);
     
       
     // --------------------------------------------------------------------------------
 
-    ETextAreaEx txtCampo4 = new ETextAreaEx();
-    txtCampo4.setWidth(new Extent(204));
+    ETextAreaEx txtConditional = new ETextAreaEx();
+    txtConditional.setWidth(new Extent(204));
 
-    fmCampo4 = new FieldModel();
-    fmCampo4.setLabelCmp(new EFieldLabel(_I18NFrmMCrudPruebaEdit.campo4()));
-    fmCampo4.setFieldCmp(txtCampo4);
-    fmCampo4.setKey(_PropMCrudPrueba.CAMPO4);
-    fmCampo4.setProperty(_PropMCrudPrueba.CAMPO4);
+    fmConditional = new FieldModel();
+    fmConditional.setLabelCmp(new EFieldLabel(_I18NFrmMCrudPruebaEdit.conditional()));
+    fmConditional.setFieldCmp(txtConditional);
+    fmConditional.setKey(_PropMCrudPrueba.CONDITIONAL);
+    fmConditional.setProperty(_PropMCrudPrueba.CONDITIONAL);
 
       
-    sectionModel.addChild(fmCampo4);
+    sectionModel.addChild(fmConditional);
     
     // --------------------------------------------------------------------------------
     
-    ETextAreaEx txtCampo5 = new ETextAreaEx();
-    txtCampo5.setWidth(new Extent(204));
+    ETextAreaEx txtRegex = new ETextAreaEx();
+    txtRegex.setWidth(new Extent(204));
 
-    fmCampo5 = new FieldModel();
-    fmCampo5.setLabelCmp(new EFieldLabel(_I18NFrmMCrudPruebaEdit.campo5()));
-    fmCampo5.setFieldCmp(txtCampo5);
-    fmCampo5.setKey(_PropMCrudPrueba.CAMPO5);
-    fmCampo5.setProperty(_PropMCrudPrueba.CAMPO5);
+    fmRegex = new FieldModel();
+    fmRegex.setLabelCmp(new EFieldLabel(_I18NFrmMCrudPruebaEdit.regex()));
+    fmRegex.setFieldCmp(txtRegex);
+    fmRegex.setKey(_PropMCrudPrueba.REGEX);
+    fmRegex.setProperty(_PropMCrudPrueba.REGEX);
 
 
      
-    sectionModel.addChild(fmCampo5);
+    sectionModel.addChild(fmRegex);
     
     // --------------------------------------------------------------------------------
     
-    ETextAreaEx txtCampo6 = new ETextAreaEx();
-    txtCampo6.setWidth(new Extent(204));
+    ETextAreaEx txtTruefield = new ETextAreaEx();
+    txtTruefield.setWidth(new Extent(204));
 
-    fmCampo6 = new FieldModel();
-    fmCampo6.setLabelCmp(new EFieldLabel(_I18NFrmMCrudPruebaEdit.campo6()));
-    fmCampo6.setFieldCmp(txtCampo6);
-    fmCampo6.setKey(_PropMCrudPrueba.CAMPO6);
-    fmCampo6.setProperty(_PropMCrudPrueba.CAMPO6);
+    fmTruefield = new FieldModel();
+    fmTruefield.setLabelCmp(new EFieldLabel(_I18NFrmMCrudPruebaEdit.truefield()));
+    fmTruefield.setFieldCmp(txtTruefield);
+    fmTruefield.setKey(_PropMCrudPrueba.TRUEFIELD);
+    fmTruefield.setProperty(_PropMCrudPrueba.TRUEFIELD);
 
    
      
-    sectionModel.addChild(fmCampo6);
+    sectionModel.addChild(fmTruefield);
     
     // --------------------------------------------------------------------------------
     
-    ETextAreaEx txtCampo7 = new ETextAreaEx();
-    txtCampo7.setWidth(new Extent(204));
+    ETextAreaEx txtNotempty = new ETextAreaEx();
+    txtNotempty.setWidth(new Extent(204));
 
-    fmCampo7 = new FieldModel();
-    fmCampo7.setLabelCmp(new EFieldLabel(_I18NFrmMCrudPruebaEdit.campo7()));
-    fmCampo7.setFieldCmp(txtCampo7);
-    fmCampo7.setKey(_PropMCrudPrueba.CAMPO7);
-    fmCampo7.setProperty(_PropMCrudPrueba.CAMPO7);
+    fmNotempty = new FieldModel();
+    fmNotempty.setLabelCmp(new EFieldLabel(_I18NFrmMCrudPruebaEdit.notempty()));
+    fmNotempty.setFieldCmp(txtNotempty);
+    fmNotempty.setKey(_PropMCrudPrueba.NOTEMPTY);
+    fmNotempty.setProperty(_PropMCrudPrueba.NOTEMPTY);
 
-    fmCampo7.getValidatorList().add( //
-        new NotEmptyValidator(_I18NFrmMCrudPruebaEdit.campo6(), txtCampo7));
+    fmNotempty.getValidatorList().add( //
+        new NotEmptyValidator(_I18NFrmMCrudPruebaEdit.notempty(), txtNotempty));
 
      
-    sectionModel.addChild(fmCampo7);
+    sectionModel.addChild(fmNotempty);
     
     // --------------------------------------------------------------------------------
-    ETextAreaEx txtCampo8 = new ETextAreaEx();
-    txtCampo8.setWidth(new Extent(204));
+    ETextAreaEx txtRango = new ETextAreaEx();
+    txtRango.setWidth(new Extent(204));
 
-    fmCampo8 = new FieldModel();
-    fmCampo8.setLabelCmp(new EFieldLabel(_I18NFrmMCrudPruebaEdit.campo8()));
-    fmCampo8.setFieldCmp(txtCampo8);
-    fmCampo8.setKey(_PropMCrudPrueba.CAMPO8);
-    fmCampo8.setProperty(_PropMCrudPrueba.CAMPO8);
+    fmRango = new FieldModel();
+    fmRango.setLabelCmp(new EFieldLabel(_I18NFrmMCrudPruebaEdit.rango()));
+    fmRango.setFieldCmp(txtRango);
+    fmRango.setKey(_PropMCrudPrueba.RANGO);
+    fmRango.setProperty(_PropMCrudPrueba.RANGO);
 
    
      
-    sectionModel.addChild(fmCampo8);
+    sectionModel.addChild(fmRango);
     
     // --------------------------------------------------------------------------------
     DuplicatedValidator duplicatedValidator = new DuplicatedValidator(data);
-    duplicatedValidator.add(fmNumero);
+    duplicatedValidator.add(fmDuplicatedfield);
     formModel.getValidatorList().add(duplicatedValidator);
   }
 }
