@@ -15,8 +15,10 @@ public class _PropMCrudPrueba {
   public static final String CAMPO4 = "campo4";
   public static final String CAMPO5 = "campo5";
   public static final String CAMPO6 = "campo6";
+  public static final String CAMPO7 = "campo7";
+  public static final String CAMPO8 = "campo8";
   public static final String EMAIL = "email";
   public static final String ID = "id";
-  public static final String INTEGER = "integer";
+  public static final String NUMERO = "numero";
   public static final String SYST_ENTRY = "systEntry";
 }

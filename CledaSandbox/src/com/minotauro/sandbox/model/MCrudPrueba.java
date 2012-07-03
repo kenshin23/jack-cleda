@@ -18,7 +18,7 @@ import org.hibernate.annotations.Proxy;
 import com.minotauro.base.model.MBase;
 
 /**
- * @author Karla Moreno
+ * @author E.G JACK™
  */
 
 @Entity
@@ -27,7 +27,7 @@ import com.minotauro.base.model.MBase;
 public class MCrudPrueba extends MBase{
 
 	
-	  private String integer;
+	  private String numero;
 	  private String email;
 	  private String campo1;
 	  private String campo2;
@@ -35,6 +35,8 @@ public class MCrudPrueba extends MBase{
 	  private String campo4;
 	  private String campo5;
 	  private String campo6;
+	  private String campo7;
+	  private String campo8;
 	  
 
 	  public MCrudPrueba() {
@@ -42,13 +44,13 @@ public class MCrudPrueba extends MBase{
 	  }
 
 	// --------------------------------------------------------------------------------
-	public String getInteger() {
-		return integer;
+	public String getNumero() {
+		return numero;
 	}
 
 	
-	public void setInteger(String integer) {
-		this.integer = integer;
+	public void setNumero(String numero) {
+		this.numero = numero;
 	}
 
 	// --------------------------------------------------------------------------------
@@ -120,7 +122,25 @@ public class MCrudPrueba extends MBase{
 	public void setCampo6(String campo6) {
 		this.campo6 = campo6;
 	}
-	 
+	// --------------------------------------------------------------------------------
+	public String getCampo7() {
+		return campo7;
+	}
+
+
+	public void setCampo7(String campo7) {
+		this.campo7 = campo7;
+	}	 
+	// --------------------------------------------------------------------------------
+	public String getCampo8() {
+		return campo8;
+	}	
+	public void setCampo8(String campo8) {
+		this.campo8 = campo8;
+	}	
+	
+
+
 	 
 }
 
