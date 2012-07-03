@@ -82,6 +82,15 @@
 		<meta-data key="frm"
 			val="com.minotauro.sandbox.gui.mcrudpost.FrmMCrudPostList" />
 	</event>
+	
+	<group route="crud/prueba" order="4" />
+
+	<event route="crud/prueba/crudPruebalist" order="1" i18nCls="demo"
+		i18nKey="crudPruebalist" handler="com.minotauro.echo.desktop.event.CrudListEvent"
+		priv="crud.crudPrueba">
+		<meta-data key="frm"
+			val="com.jack.sandbox.gui.mcrudprueba" />
+	</event>
 
 	<!-- **************************************** -->
 	<!-- wizard menu -->
