@@ -10,9 +10,12 @@ import com.minotauro.echo.grid.FieldModel;
 import com.minotauro.echo.grid.SectionModel;
 import com.minotauro.echo.validator.impl.DuplicatedValidator;
 import com.minotauro.echo.validator.impl.EmailValidator;
+import com.minotauro.echo.validator.impl.IdNumberValidator;
 import com.minotauro.echo.validator.impl.IntegerValidator;
 import com.minotauro.echo.validator.impl.NotBlankValidator;
 import com.minotauro.echo.validator.impl.NotEmptyValidator;
+import com.minotauro.echo.validator.impl.RegexValidator;
+import com.minotauro.echo.validator.impl.TrueValidator;
 import com.minotauro.sandbox.model.MCrudPrueba;
 import com.minotauro.sandbox.model._PropMCrudPrueba;
 
@@ -124,6 +127,8 @@ public class FrmMCrudPruebaEdit extends FrmEditBase {
     fmIdnumber.setKey(_PropMCrudPrueba.IDNUMBER);
     fmIdnumber.setProperty(_PropMCrudPrueba.IDNUMBER);
 
+    fmIdnumber.getValidatorList().add( //
+            new IdNumberValidator(_I18NFrmMCrudPruebaEdit.idnumber(),txtIdnumber));
     
      
     sectionModel.addChild(fmIdnumber);
@@ -154,7 +159,8 @@ public class FrmMCrudPruebaEdit extends FrmEditBase {
     fmRegex.setKey(_PropMCrudPrueba.REGEX);
     fmRegex.setProperty(_PropMCrudPrueba.REGEX);
 
-
+    fmRegex.getValidatorList().add( //
+            new RegexValidator(_I18NFrmMCrudPruebaEdit.regex(),txtRegex, "^[A-Z]*(\\s[A-Z]+)*$"));
      
     sectionModel.addChild(fmRegex);
     
@@ -169,7 +175,6 @@ public class FrmMCrudPruebaEdit extends FrmEditBase {
     fmTruefield.setKey(_PropMCrudPrueba.TRUEFIELD);
     fmTruefield.setProperty(_PropMCrudPrueba.TRUEFIELD);
 
-   
      
     sectionModel.addChild(fmTruefield);
     
