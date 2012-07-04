@@ -8,14 +8,18 @@ import com.minotauro.echo.beans.ETextAreaEx;
 import com.minotauro.echo.cleda.edit.FrmEditBase;
 import com.minotauro.echo.grid.FieldModel;
 import com.minotauro.echo.grid.SectionModel;
+//import com.minotauro.echo.validator.impl.ConditionalValidator.ConditionalType;
 import com.minotauro.echo.validator.impl.DuplicatedValidator;
 import com.minotauro.echo.validator.impl.EmailValidator;
 import com.minotauro.echo.validator.impl.IdNumberValidator;
 import com.minotauro.echo.validator.impl.IntegerValidator;
+import com.minotauro.echo.validator.impl.LowerThanValidator;
+import com.minotauro.echo.validator.impl.GreaterThanValidator;
 import com.minotauro.echo.validator.impl.NotBlankValidator;
 import com.minotauro.echo.validator.impl.NotEmptyValidator;
 import com.minotauro.echo.validator.impl.RegexValidator;
 import com.minotauro.echo.validator.impl.TrueValidator;
+import com.minotauro.echo.validator.impl.ConditionalValidator;
 import com.minotauro.sandbox.model.MCrudPrueba;
 import com.minotauro.sandbox.model._PropMCrudPrueba;
 
@@ -64,8 +68,24 @@ public class FrmMCrudPruebaEdit extends FrmEditBase {
     fmNumero.setProperty(_PropMCrudPrueba.NUMERO);
 
        
-    fmNumero.getValidatorList().add( //
-            new IntegerValidator(_I18NFrmMCrudPruebaEdit.numero(), txtNumero));
+//    fmNumero.getValidatorList().add( //
+//            new IntegerValidator(_I18NFrmMCrudPruebaEdit.numero(), txtNumero));
+//    
+//    fmNumero.getValidatorList().add( //
+//            new NotEmptyValidator(_I18NFrmMCrudPruebaEdit.numero(), txtNumero));
+    
+    
+    
+    //Validadores de rango
+    
+//  fmNumero.getValidatorList().add(new LowerThanValidator(_I18NFrmMCrudPruebaEdit.numero(), txtNumero));
+//  
+  fmNumero.getValidatorList().add( //
+          new GreaterThanValidator(_I18NFrmMCrudPruebaEdit.numero(), txtNumero));
+
+//    fmNumero.getValidatorList().add( //
+//             ConditionalValidator.AND( new NotEmptyValidator(_I18NFrmMCrudPruebaEdit.numero(),  txtNumero), new IntegerValidator(_I18NFrmMCrudPruebaEdit.numero(), txtNumero),true));
+
 
     sectionModel.addChild(fmNumero);
 
@@ -175,6 +195,7 @@ public class FrmMCrudPruebaEdit extends FrmEditBase {
     fmTruefield.setKey(_PropMCrudPrueba.TRUEFIELD);
     fmTruefield.setProperty(_PropMCrudPrueba.TRUEFIELD);
 
+   
      
     sectionModel.addChild(fmTruefield);
     
