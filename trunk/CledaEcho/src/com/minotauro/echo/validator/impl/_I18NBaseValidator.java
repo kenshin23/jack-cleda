@@ -18,6 +18,14 @@ public class _I18NBaseValidator {
     // Empty
   }
 
+  public static String GreaterThanValidator(Object arg0) throws MessageException {
+    return MessageBase.getInstance().locateValue(locale, RES_NAME, "GreaterThanValidator", new Object[]{arg0});
+  }
+
+  public static String LowerThanValidator(Object arg0) throws MessageException {
+    return MessageBase.getInstance().locateValue(locale, RES_NAME, "LowerThanValidator", new Object[]{arg0});
+  }
+
   public static String duplicatedField(Object arg0) throws MessageException {
     return MessageBase.getInstance().locateValue(locale, RES_NAME, "duplicatedField", new Object[]{arg0});
   }
