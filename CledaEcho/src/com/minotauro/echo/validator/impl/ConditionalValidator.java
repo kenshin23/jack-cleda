@@ -60,13 +60,11 @@ public class ConditionalValidator extends BaseValidator {
     if (baseValidatorA != null) {
       retListA = baseValidatorA.validateAll(
           command, processContext);
-      System.out.println("retListA"+retListA.get(0));
     }
 
     if (baseValidatorB != null) {
       retListB = baseValidatorB.validateAll(
           command, processContext);
-      System.out.println("retListB"+retListB.get(0));
     }
 
     boolean ret = false;
@@ -92,11 +90,7 @@ public class ConditionalValidator extends BaseValidator {
     }
 
     if (!ret) {
-    	retList.addAll(retListA);
-    	retList.addAll(retListB);
-        System.out.println("hay  errores de validacion en alguno");
       return retList;
-      //  return "fuck you";
     }
 
     for (BaseValidator validator : baseValidatorList) {
