@@ -1,15 +1,23 @@
 package com.jack.sandbox.gui.mcrudprueba;
 
+import java.util.Date;
+import java.util.List;
+
 import nextapp.echo.app.Extent;
 import nextapp.echo.app.TextField;
 import nextapp.echo.app.CheckBox;
 import nextapp.echo.app.SelectField;
+import nextapp.echo.app.PasswordField;
+import nextapp.echo.app.TextArea;
+import echopoint.jquery.DateField;
+import nextapp.echo.app.list.DefaultListModel;
 
 import com.minotauro.echo.beans.EFieldLabel;
 import com.minotauro.echo.beans.ETextAreaEx;
 import com.minotauro.echo.cleda.edit.FrmEditBase;
 import com.minotauro.echo.grid.FieldModel;
 import com.minotauro.echo.grid.SectionModel;
+import com.minotauro.echo.login._I18NDlgLogin;
 import com.minotauro.echo.validator.impl.DuplicatedValidator;
 import com.minotauro.echo.validator.impl.EmailValidator;
 import com.minotauro.echo.validator.impl.IdNumberValidator;
@@ -23,6 +31,7 @@ import com.minotauro.echo.validator.impl.TrueValidator;
 import com.minotauro.echo.validator.impl.ConditionalValidator;
 import com.minotauro.sandbox.model.MCrudPrueba;
 import com.minotauro.sandbox.model._PropMCrudPrueba;
+import com.minotauro.user.model.MUser;
 
 import com.minotauro.echo.wrapper.impl.CheckBoxWrapper;
 import com.minotauro.echo.wrapper.impl.SelectFieldWrapper;
@@ -43,6 +52,8 @@ public class FrmMCrudPruebaEdit extends FrmEditBase {
 	private FieldModel fmNotempty;
 	private FieldModel fmRango;
 	private FieldModel fmSelect;
+	private FieldModel fmPass;
+	private FieldModel fmDate;
 
 	// --------------------------------------------------------------------------------
 
@@ -52,6 +63,9 @@ public class FrmMCrudPruebaEdit extends FrmEditBase {
 
 	// --------------------------------------------------------------------------------
 
+	/* (non-Javadoc)
+	 * @see com.minotauro.echo.cleda.edit.FrmEditBase#initGUI()
+	 */
 	@Override
 	protected void initGUI() {
 		String numero = ((MCrudPrueba) data).getNumero();
@@ -79,12 +93,12 @@ public class FrmMCrudPruebaEdit extends FrmEditBase {
 		// VN1.add(new IntegerValidator(_I18NFrmMCrudPruebaEdit.numero(),
 		// txtNumero));
 
-//		ConditionalValidator VN1 = ConditionalValidator.CHAIN(true);
-//
-//		VN1.add(new NotEmptyValidator(_I18NFrmMCrudPruebaEdit.numero(),
-//				txtNumero));
-//		VN1.add(new IntegerValidator(_I18NFrmMCrudPruebaEdit.numero(),
-//				txtNumero));
+		// ConditionalValidator VN1 = ConditionalValidator.CHAIN(true);
+		//
+		// VN1.add(new NotEmptyValidator(_I18NFrmMCrudPruebaEdit.numero(),
+		// txtNumero));
+		// VN1.add(new IntegerValidator(_I18NFrmMCrudPruebaEdit.numero(),
+		// txtNumero));
 		
 		fmNumero.getValidatorList().add(
 				ConditionalValidator
@@ -203,12 +217,25 @@ public class FrmMCrudPruebaEdit extends FrmEditBase {
 		fmConditional.setProperty(_PropMCrudPrueba.CONDITIONAL);
 
 		sectionModel.addChild(fmConditional);
+		
+		// ------------------DATE--------------------------------------------------------------
 
-		// --------------------------------------------------------------------------------
+		// DateField date = new DateField();
+		// date.setWidth(new Extent(204));
+		
+		// fmDate = new FieldModel();
+		// fmDate.setLabelCmp(new EFieldLabel(_I18NFrmMCrudPruebaEdit
+		// .conditional()));
+		// fmDate.setFieldCmp(date);
+		// fmDate.setKey(_PropMCrudPrueba.CONDITIONAL);
+		// fmDate.setProperty(_PropMCrudPrueba.CONDITIONAL);
+		//
+		// sectionModel.addChild(fmDate);
 
-		ETextAreaEx txtRegex = new ETextAreaEx();
+		// ------------------TEXTAREA--------------------------------------------------------------
+ 
+		TextArea txtRegex = new TextArea();
 		txtRegex.setWidth(new Extent(204));
-
 		fmRegex = new FieldModel();
 		fmRegex.setLabelCmp(new EFieldLabel(_I18NFrmMCrudPruebaEdit.regex()));
 		fmRegex.setFieldCmp(txtRegex);
@@ -221,12 +248,22 @@ public class FrmMCrudPruebaEdit extends FrmEditBase {
 
 		sectionModel.addChild(fmRegex);
 
-		// --------------------------------------------------------------------------------
+		// ---------------------SELECT-----------------------------------------------------------
 
 		SelectField selectField = new SelectField();
 		selectField.setHeight(new Extent(25));
 		selectField.setWidth(new Extent(100));
-		// selectField.setComponents();
+				
+		DefaultListModel dlm = (DefaultListModel) selectField.getModel();
+
+	    dlm.add("hola");
+	    dlm.add("karla");
+	    dlm.add("eduardo");
+	    dlm.add("gerardo");
+	    dlm.add("jesus");
+	    dlm.add("armando");
+
+	   
 
 		fmSelect = new FieldModel();
 		fmSelect.setLabelCmp(new EFieldLabel(_I18NFrmMCrudPruebaEdit.numero()));
@@ -239,7 +276,22 @@ public class FrmMCrudPruebaEdit extends FrmEditBase {
 						selectField));
 
 		sectionModel.addChild(fmSelect);
-		// --------------------------------------------------------------------------------
+		
+		// ---------------------------PASSWORDFIELD-----------------------------------------------------
+
+		PasswordField passField = new PasswordField();
+		passField.setWidth(new Extent(100));
+
+		fmPass = new FieldModel();
+		fmPass.setLabelCmp(new EFieldLabel(_I18NFrmMCrudPruebaEdit.numero()));
+		fmPass.setFieldCmp(passField);
+		fmPass.setKey(_PropMCrudPrueba.NUMERO);
+		fmPass.setProperty(_PropMCrudPrueba.NUMERO);
+
+		sectionModel.addChild(fmPass);
+		
+		// ----------------------------CHECKBOX----------------------------------------------------
+
 		CheckBox checkBoxtrue = new CheckBox();
 
 		checkBoxtrue.setHeight(new Extent(50));
@@ -300,9 +352,6 @@ public class FrmMCrudPruebaEdit extends FrmEditBase {
 		VR1.add(new LowerThanValidator(_I18NFrmMCrudPruebaEdit.rango(),
 				txtRango, 20));
 
-
-
-		
 		// fmRango.getValidatorList()
 		// .add(new NotEmptyValidator(_I18NFrmMCrudPruebaEdit.rango(),
 		// txtRango));
