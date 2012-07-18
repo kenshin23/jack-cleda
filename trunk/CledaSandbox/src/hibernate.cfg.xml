@@ -89,7 +89,7 @@
 		<mapping class="com.minotauro.sandbox.model.MCrudC" />
 		<mapping class="com.minotauro.sandbox.model.MCrudD" />
 		<mapping class="com.minotauro.sandbox.model.MCrudPost" />
-		<mapping class="com.minotauro.sandbox.model.MCrudPrueba" />
+		
 		<mapping class="com.minotauro.sandbox.model.MMultJointMPostA" />
 		<mapping class="com.minotauro.sandbox.model.MInnerA" />
 		<mapping class="com.minotauro.sandbox.model.MMultJointAB" />
