@@ -2,6 +2,8 @@ package com.jack.sandbox.gui.mcrudprueba;
 
 import nextapp.echo.app.Extent;
 import nextapp.echo.app.TextField;
+import nextapp.echo.app.CheckBox;
+import nextapp.echo.app.SelectField;
 
 import com.minotauro.echo.beans.EFieldLabel;
 import com.minotauro.echo.beans.ETextAreaEx;
@@ -22,6 +24,9 @@ import com.minotauro.echo.validator.impl.ConditionalValidator;
 import com.minotauro.sandbox.model.MCrudPrueba;
 import com.minotauro.sandbox.model._PropMCrudPrueba;
 
+import com.minotauro.echo.wrapper.impl.CheckBoxWrapper;
+import com.minotauro.echo.wrapper.impl.SelectFieldWrapper;
+
 /**
  * @author E.G JACK™
  */
@@ -37,6 +42,7 @@ public class FrmMCrudPruebaEdit extends FrmEditBase {
 	private FieldModel fmTruefield;
 	private FieldModel fmNotempty;
 	private FieldModel fmRango;
+	private FieldModel fmSelect;
 
 	// --------------------------------------------------------------------------------
 
@@ -66,19 +72,35 @@ public class FrmMCrudPruebaEdit extends FrmEditBase {
 		fmNumero.setKey(_PropMCrudPrueba.NUMERO);
 		fmNumero.setProperty(_PropMCrudPrueba.NUMERO);
 
-		ConditionalValidator validator1 = ConditionalValidator.AND(
-				new NotEmptyValidator(_I18NFrmMCrudPruebaEdit.numero(),
-						txtNumero), new IntegerValidator(
-						_I18NFrmMCrudPruebaEdit.numero(), txtNumero), true);
+		// ConditionalValidator VN1 = ConditionalValidator
+		// .IF(new NotEmptyValidator(_I18NFrmMCrudPruebaEdit.numero(),
+		// txtNumero));
+		//
+		// VN1.add(new IntegerValidator(_I18NFrmMCrudPruebaEdit.numero(),
+		// txtNumero));
 
-		validator1.add(new GreaterThanValidator(_I18NFrmMCrudPruebaEdit
-				.numero(), txtNumero, 5));
-		validator1.add(new GreaterThanValidator(_I18NFrmMCrudPruebaEdit
-				.numero(), txtNumero, 11));
-		validator1.add(new LowerThanValidator(_I18NFrmMCrudPruebaEdit.numero(),
-				txtNumero, 20));
+//		ConditionalValidator VN1 = ConditionalValidator.CHAIN(true);
+//
+//		VN1.add(new NotEmptyValidator(_I18NFrmMCrudPruebaEdit.numero(),
+//				txtNumero));
+//		VN1.add(new IntegerValidator(_I18NFrmMCrudPruebaEdit.numero(),
+//				txtNumero));
+		
+		fmNumero.getValidatorList().add(
+				ConditionalValidator
+						.CHAIN(true)
+						.add(new NotEmptyValidator(_I18NFrmMCrudPruebaEdit
+								.numero(), txtNumero))
+						.add(new IntegerValidator(_I18NFrmMCrudPruebaEdit
+								.numero(), txtNumero)));
 
-		fmNumero.getValidatorList().add(validator1);
+		// fmNumero.getValidatorList().add(VN1);
+
+		// fmNumero.getValidatorList().add(
+		// new NotEmptyValidator(_I18NFrmMCrudPruebaEdit.numero(),
+		// txtNumero));
+
+		//fmNumero.getValidatorList().add(VN1);
 
 		sectionModel.addChild(fmNumero);
 
@@ -93,8 +115,19 @@ public class FrmMCrudPruebaEdit extends FrmEditBase {
 		fmEmail.setKey(_PropMCrudPrueba.EMAIL);
 		fmEmail.setProperty(_PropMCrudPrueba.EMAIL);
 
-		fmEmail.getValidatorList().add( //
-				new EmailValidator(_I18NFrmMCrudPruebaEdit.email(), txtEmail));
+		ConditionalValidator EV1 = ConditionalValidator
+				.IF(new NotEmptyValidator(_I18NFrmMCrudPruebaEdit.email(),
+						txtEmail));
+
+		EV1.add(new NotEmptyValidator(_I18NFrmMCrudPruebaEdit.email(), txtEmail));
+
+		EV1.add(new EmailValidator(_I18NFrmMCrudPruebaEdit.email(), txtEmail));
+
+		// fmNumero.getValidatorList()
+		// .add(new NotEmptyValidator(_I18NFrmMCrudPruebaEdit.email(),
+		// txtEmail));
+
+		fmEmail.getValidatorList().add(EV1);
 
 		sectionModel.addChild(fmEmail);
 
@@ -142,9 +175,18 @@ public class FrmMCrudPruebaEdit extends FrmEditBase {
 		fmIdnumber.setKey(_PropMCrudPrueba.IDNUMBER);
 		fmIdnumber.setProperty(_PropMCrudPrueba.IDNUMBER);
 
-		fmIdnumber.getValidatorList().add( //
-				new IdNumberValidator(_I18NFrmMCrudPruebaEdit.idnumber(),
+		ConditionalValidator ViN1 = ConditionalValidator
+				.IF(new NotEmptyValidator(_I18NFrmMCrudPruebaEdit.idnumber(),
 						txtIdnumber));
+
+		ViN1.add(new IntegerValidator(_I18NFrmMCrudPruebaEdit.idnumber(),
+				txtIdnumber));
+
+		fmIdnumber.getValidatorList().add(
+				new NotEmptyValidator(_I18NFrmMCrudPruebaEdit.idnumber(),
+						txtIdnumber));
+
+		fmIdnumber.getValidatorList().add(ViN1);
 
 		sectionModel.addChild(fmIdnumber);
 
@@ -181,15 +223,37 @@ public class FrmMCrudPruebaEdit extends FrmEditBase {
 
 		// --------------------------------------------------------------------------------
 
-		ETextAreaEx txtTruefield = new ETextAreaEx();
-		txtTruefield.setWidth(new Extent(204));
+		SelectField selectField = new SelectField();
+		selectField.setHeight(new Extent(25));
+		selectField.setWidth(new Extent(100));
+		// selectField.setComponents();
+
+		fmSelect = new FieldModel();
+		fmSelect.setLabelCmp(new EFieldLabel(_I18NFrmMCrudPruebaEdit.numero()));
+		fmSelect.setFieldCmp(selectField);
+		fmSelect.setKey(_PropMCrudPrueba.NUMERO);
+		fmSelect.setProperty(_PropMCrudPrueba.NUMERO);
+
+		fmSelect.getValidatorList().add( //
+				new NotEmptyValidator(_I18NFrmMCrudPruebaEdit.numero(),
+						selectField));
+
+		sectionModel.addChild(fmSelect);
+		// --------------------------------------------------------------------------------
+		CheckBox checkBoxtrue = new CheckBox();
+
+		checkBoxtrue.setHeight(new Extent(50));
 
 		fmTruefield = new FieldModel();
 		fmTruefield.setLabelCmp(new EFieldLabel(_I18NFrmMCrudPruebaEdit
 				.truefield()));
-		fmTruefield.setFieldCmp(txtTruefield);
+		fmTruefield.setFieldCmp(checkBoxtrue);
 		fmTruefield.setKey(_PropMCrudPrueba.TRUEFIELD);
 		fmTruefield.setProperty(_PropMCrudPrueba.TRUEFIELD);
+
+		fmIdnumber.getValidatorList().add( //
+				new TrueValidator(_I18NFrmMCrudPruebaEdit.truefield(),
+						checkBoxtrue));
 
 		sectionModel.addChild(fmTruefield);
 
@@ -220,6 +284,34 @@ public class FrmMCrudPruebaEdit extends FrmEditBase {
 		fmRango.setFieldCmp(txtRango);
 		fmRango.setKey(_PropMCrudPrueba.RANGO);
 		fmRango.setProperty(_PropMCrudPrueba.RANGO);
+
+		ConditionalValidator VR1 = ConditionalValidator
+				.AND(new NotEmptyValidator(_I18NFrmMCrudPruebaEdit.rango(),
+						txtRango),
+						new IntegerValidator(_I18NFrmMCrudPruebaEdit.rango(),
+								txtRango), false);
+
+		VR1.add(new IntegerValidator(_I18NFrmMCrudPruebaEdit.rango(), txtRango));
+
+		VR1.add(new GreaterThanValidator(_I18NFrmMCrudPruebaEdit.rango(),
+				txtRango, 5));
+		VR1.add(new GreaterThanValidator(_I18NFrmMCrudPruebaEdit.rango(),
+				txtRango, 11));
+		VR1.add(new LowerThanValidator(_I18NFrmMCrudPruebaEdit.rango(),
+				txtRango, 20));
+
+
+
+		
+		// fmRango.getValidatorList()
+		// .add(new NotEmptyValidator(_I18NFrmMCrudPruebaEdit.rango(),
+		// txtRango));
+		//
+		// fmRango.getValidatorList()
+		// .add(new IntegerValidator(_I18NFrmMCrudPruebaEdit.rango(),
+		// txtRango));
+
+		fmRango.getValidatorList().add(VR1);
 
 		sectionModel.addChild(fmRango);
 
