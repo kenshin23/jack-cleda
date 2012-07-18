@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <crud xmlns="http://www.cledaCrud.org/crud.xsd"
-package="com.minotauro.sandbox.gui.mcrudpost" name="post" modelName="MCrudPost" group="NombreGrupoCruds" >
+package="com.minotauro.sandbox.gui.mcrudpost" name="post" modelName="MCrudPost" modelPackage="com.minotauro.sandbox.model" group="NombreGrupoCruds" >
 
 <description>
 Este crud define un post en un blog.
@@ -23,6 +23,8 @@ Este crud define un post en un blog.
 			<!-- ... -->
 		</att>
 		<!-- ... -->
+		
+		<list targetModelName="MCrudA" relationModelName="MMultJointMPostA" type="Joint" listGuiPackage="com.minotauro.sandbox.gui.mmultjointmposta" relationAttName="MULT_JOINT_MPOST_ALIST" firstRelAttName="CRUD_POST_REF" secondRelAttName="CRUD_AREF"/>
 		
 	</attributes>
 

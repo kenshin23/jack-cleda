@@ -24,19 +24,21 @@
 				use="required" />
 			<xs:attribute name="filterByThis" type="xs:boolean" use="required" />
 			<xs:attribute name="editFieldType" type="xs:string" use="required" />
-
-
+			
 		</xs:complexType>
 	</xs:element>
 
 	<xs:element name="list">
 		<xs:complexType>
-			<xs:attribute name="target" type="xs:string" use="required" />
+			<xs:attribute name="targetModelName" type="xs:string" use="required" />
+			<xs:attribute name="relationModelName" type="xs:string" use="required" />
 			<xs:attribute name="type" type="xs:string" use="required" />
-			<xs:attribute name="visibleOnList" type="xs:boolean"
-				use="required" />
-			<xs:attribute name="editabletiOnList" type="xs:boolean"
-				use="required" />
+			<xs:attribute name="listGuiPackage" type="xs:string" use="required" />
+			<xs:attribute name="visibleOnList" type="xs:boolean" use="required" />
+			<xs:attribute name="editabletiOnList" type="xs:boolean" use="required" />
+			<xs:attribute name="relationAttName" type="xs:string" use="required" />
+			<xs:attribute name="firstRelAttName" type="xs:string" use="required" />
+			<xs:attribute name="secondRelAttName" type="xs:string" use="required" />
 		</xs:complexType>
 	</xs:element>
 
@@ -145,6 +147,7 @@
 			<xs:attribute name="package" type="xs:string" use="required" />
 			<xs:attribute name="name" type="xs:string" use="required" />
 			<xs:attribute name="modelName" type="xs:string" use="required" />
+			<xs:attribute name="modelPackage" type="xs:string" use="required" />
 			<xs:attribute name="group" type="xs:string" use="required" />
 
 		</xs:complexType>
