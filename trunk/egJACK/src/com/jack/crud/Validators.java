@@ -9,8 +9,10 @@
 package com.jack.crud;
 
 import java.util.ArrayList;
+import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
@@ -26,9 +28,9 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element ref="{http://www.cledaCrud.org/crud.xsd}att" maxOccurs="unbounded"/>
- *         &lt;element ref="{http://www.cledaCrud.org/crud.xsd}list" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element ref="{http://www.cledaCrud.org/crud.xsd}conditionalValidators" maxOccurs="unbounded"/>
  *       &lt;/sequence>
+ *       &lt;attribute name="type" use="required" type="{http://www.w3.org/2001/XMLSchema}string" />
  *     &lt;/restriction>
  *   &lt;/complexContent>
  * &lt;/complexType>
@@ -38,72 +40,67 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "att",
-    "list"
+    "conditionalValidators"
 })
-@XmlRootElement(name = "attributes")
-public class Attributes {
+@XmlRootElement(name = "validators")
+public class Validators {
 
     @XmlElement(required = true)
-    protected java.util.List<Att> att;
-    protected java.util.List<com.jack.crud.List> list;
+    protected List<ConditionalValidators> conditionalValidators;
+    @XmlAttribute(name = "type", required = true)
+    protected String type;
 
     /**
-     * Gets the value of the att property.
+     * Gets the value of the conditionalValidators property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the att property.
+     * This is why there is not a <CODE>set</CODE> method for the conditionalValidators property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getAtt().add(newItem);
+     *    getConditionalValidators().add(newItem);
      * </pre>
      * 
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link Att }
+     * {@link ConditionalValidators }
      * 
      * 
      */
-    public java.util.List<Att> getAtt() {
-        if (att == null) {
-            att = new ArrayList<Att>();
+    public List<ConditionalValidators> getConditionalValidators() {
+        if (conditionalValidators == null) {
+            conditionalValidators = new ArrayList<ConditionalValidators>();
         }
-        return this.att;
+        return this.conditionalValidators;
     }
 
     /**
-     * Gets the value of the list property.
+     * Gets the value of the type property.
      * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the list property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getList().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link com.jack.crud.List }
-     * 
-     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
-    public java.util.List<com.jack.crud.List> getList() {
-        if (list == null) {
-            list = new ArrayList<com.jack.crud.List>();
-        }
-        return this.list;
+    public String getType() {
+        return type;
+    }
+
+    /**
+     * Sets the value of the type property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setType(String value) {
+        this.type = value;
     }
 
 }

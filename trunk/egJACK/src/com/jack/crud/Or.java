@@ -9,8 +9,10 @@
 package com.jack.crud;
 
 import java.util.ArrayList;
+import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
@@ -26,9 +28,9 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element ref="{http://www.cledaCrud.org/crud.xsd}att" maxOccurs="unbounded"/>
- *         &lt;element ref="{http://www.cledaCrud.org/crud.xsd}list" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element ref="{http://www.cledaCrud.org/crud.xsd}validatorChoice" maxOccurs="2"/>
  *       &lt;/sequence>
+ *       &lt;attribute name="chained" use="required" type="{http://www.w3.org/2001/XMLSchema}boolean" />
  *     &lt;/restriction>
  *   &lt;/complexContent>
  * &lt;/complexType>
@@ -38,72 +40,59 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "att",
-    "list"
+    "validatorChoice"
 })
-@XmlRootElement(name = "attributes")
-public class Attributes {
+@XmlRootElement(name = "or")
+public class Or {
 
     @XmlElement(required = true)
-    protected java.util.List<Att> att;
-    protected java.util.List<com.jack.crud.List> list;
+    protected List<ValidatorChoice> validatorChoice;
+    @XmlAttribute(name = "chained", required = true)
+    protected boolean chained;
 
     /**
-     * Gets the value of the att property.
+     * Gets the value of the validatorChoice property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the att property.
+     * This is why there is not a <CODE>set</CODE> method for the validatorChoice property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getAtt().add(newItem);
+     *    getValidatorChoice().add(newItem);
      * </pre>
      * 
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link Att }
+     * {@link ValidatorChoice }
      * 
      * 
      */
-    public java.util.List<Att> getAtt() {
-        if (att == null) {
-            att = new ArrayList<Att>();
+    public List<ValidatorChoice> getValidatorChoice() {
+        if (validatorChoice == null) {
+            validatorChoice = new ArrayList<ValidatorChoice>();
         }
-        return this.att;
+        return this.validatorChoice;
     }
 
     /**
-     * Gets the value of the list property.
-     * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the list property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getList().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link com.jack.crud.List }
-     * 
+     * Gets the value of the chained property.
      * 
      */
-    public java.util.List<com.jack.crud.List> getList() {
-        if (list == null) {
-            list = new ArrayList<com.jack.crud.List>();
-        }
-        return this.list;
+    public boolean isChained() {
+        return chained;
+    }
+
+    /**
+     * Sets the value of the chained property.
+     * 
+     */
+    public void setChained(boolean value) {
+        this.chained = value;
     }
 
 }

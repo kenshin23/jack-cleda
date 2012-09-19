@@ -72,7 +72,7 @@ public class Frm${modelName}Edit extends FrmEditBase {
  	fm${currentAtt.name?cap_first}.getValidatorList()
 	[#list currentAtt.validatorChoice as currentValidatorChoice]
 [#if currentValidatorChoice.bandera==true]
-   	.add(new ${currentValidatorChoice.validator.name}(_I18NFrmMCrudPostEdit.${currentAtt.name}(), txt${currentAtt.name?cap_first}))
+   	.add(new ${currentValidatorChoice.validator.name}(_I18NFrmMCrudPostEdit.${currentAtt.name}(), txt${currentAtt.name?cap_first})
 [/#if]
 	[#if currentValidatorChoice.bandera==false]	
 		.add(ConditionalValidator
