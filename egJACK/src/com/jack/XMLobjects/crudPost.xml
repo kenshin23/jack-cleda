@@ -15,9 +15,9 @@
 			<validatorChoice bandera="true">
 				<validator name="NotEmptyValidator" />
 			</validatorChoice>
-			<validatorChoice bandera="true">
-				<validator name="NotEmptyValidator" />
-			</validatorChoice>
+<!-- 			<validatorChoice bandera="true"> -->
+<!-- 				<validator name="NotEmptyValidator" /> -->
+<!-- 			</validatorChoice> -->
 			<!-- ... -->
 
 		</att>
