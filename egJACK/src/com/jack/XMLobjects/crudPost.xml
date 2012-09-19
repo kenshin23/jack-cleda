@@ -15,15 +15,26 @@
 			<validatorChoice bandera="true">
 				<validator name="NotEmptyValidator" />
 			</validatorChoice>
-			<!-- ... -->
-
-		</att>
-		<att name="desc" type="string" visibleOnList="true"
-			editabletiOnList="true" filterByThis="true" editFieldType="ETextAreaEx">
-			<validatorChoice>
+			<validatorChoice bandera="true">
 				<validator name="NotEmptyValidator" />
 			</validatorChoice>
 			<!-- ... -->
+
+		</att>
+	<att name="desc" type="string" visibleOnList="true"
+		editabletiOnList="true" filterByThis="true" editFieldType="ETextAreaEx">
+		<validatorChoice bandera="false">
+			<validators>
+				<conditionalValidator>
+					<chain>
+						<validatorChoice bandera="true">
+							<validator name="NotEmptyValidator" />
+						</validatorChoice>
+					</chain>
+				</conditionalValidator>
+			</validators>
+		</validatorChoice>
+		<!-- ... -->
 		</att>
 <!-- 		<att name="body" type="string" visibleOnList="true" -->
 <!-- 			editabletiOnList="true" filterByThis="true" editFieldType="ETextAreaEx"> -->
