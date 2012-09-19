@@ -1,75 +1,92 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<crud xmlns="http://www.cledaCrud.org/crud.xsd"
-package="com.minotauro.sandbox.gui.mcrudpost" name="post" modelName="MCrudPost" modelPackage="com.minotauro.sandbox.model" group="NombreGrupoCruds" >
+<crud xmlns="http://www.cledaCrud.org/crud.xsd" package="com.minotauro.sandbox.gui.mcrudpost"
+	name="post" modelName="MCrudPost" modelPackage="com.minotauro.sandbox.model"
+	group="NombreGrupoCruds">
 
-<description>
-Este crud define un post en un blog.
-</description>
+	<description>
+		Este crud define un post en un blog.
+	</description>
 	<!-- **************************************** -->
 	<!-- Lista de Atributos del CRUD POST -->
 	<!-- **************************************** -->
 	<attributes>
-		<att name="name" type="string" visibleOnList="true" editabletiOnList="true" filterByThis="true" editFieldType="TextField">
-			<validator name="NotEmptyValidator" />
+		<att name="name" type="string" visibleOnList="true"
+			editabletiOnList="true" filterByThis="true" editFieldType="TextField">
+			<validatorChoice bandera="true">
+				<validator name="NotEmptyValidator" />
+			</validatorChoice>
 			<!-- ... -->
-			
+
 		</att>
-		<att name="desc" type="string" visibleOnList="true" editabletiOnList="true" filterByThis="true" editFieldType="ETextAreaEx">
-			<validator name="NotEmptyValidator" />
+		<att name="desc" type="string" visibleOnList="true"
+			editabletiOnList="true" filterByThis="true" editFieldType="ETextAreaEx">
+			<validatorChoice>
+				<validator name="NotEmptyValidator" />
+			</validatorChoice>
 			<!-- ... -->
 		</att>
-		<att name="body" type="string" visibleOnList="true" editabletiOnList="true" filterByThis="true" editFieldType="ETextAreaEx">
-			<validator name="NotEmptyValidator" />
-			<!-- ... -->
-		</att>
-		<!-- ... -->
-		
-		<list targetModelName="MCrudA" relationModelName="MMultJointMPostA" type="Joint" listGuiPackage="com.minotauro.sandbox.gui.mmultjointmposta" relationAttName="MULT_JOINT_MPOST_ALIST" firstRelAttName="CRUD_POST_REF" secondRelAttName="CRUD_AREF"/>
-		
+<!-- 		<att name="body" type="string" visibleOnList="true" -->
+<!-- 			editabletiOnList="true" filterByThis="true" editFieldType="ETextAreaEx"> -->
+<!-- 			<validators> -->
+<!-- 				<chain chained="true"> -->
+<!-- 					<validator name="NotEmptyValidator" /> -->
+<!-- 					<validator name="IntegerValidator" /> -->
+<!-- 				</chain> -->
+<!-- 			</validators> -->
+<!-- 		</att> -->
+
+
+
+		<list targetModelName="MCrudA" relationModelName="MMultJointMPostA"
+			type="Joint" listGuiPackage="com.minotauro.sandbox.gui.mmultjointmposta"
+			relationAttName="MULT_JOINT_MPOST_ALIST" firstRelAttName="CRUD_POST_REF"
+			secondRelAttName="CRUD_AREF" />
+
 	</attributes>
 
-	
+
 	<!-- **************************************** -->
-	<!-- Opciones de Menú, esto era para permitir especificar la ubicacion del nuevo CRUD POST (se hará con una plantilla) -->
-	<!-- En nuevo menu aparte e todos los Cruds existentes.  -->
-	<!-- ****REVISAR/CONSULTAR****  -->
+	<!-- Opciones de Menú, esto era para permitir especificar la ubicacion del 
+		nuevo CRUD POST (se hará con una plantilla) -->
+	<!-- En nuevo menu aparte e todos los Cruds existentes. -->
+	<!-- ****REVISAR/CONSULTAR**** -->
 	<!-- **************************************** -->
-	
-	<!--  <menuEntry name="nombreEntradaMenu" type="TipoMenu" group="nombreGrupoMenu"/> -->
-	
-	
+
+	<!-- <menuEntry name="nombreEntradaMenu" type="TipoMenu" group="nombreGrupoMenu"/> -->
+
+
 	<!-- **************************************** -->
-	<!-- Configuración del Formulario de edición  -->
+	<!-- Configuración del Formulario de edición -->
 	<!-- **************************************** -->
 	<editForm title="FrmMCrudPostEdit" width="2" height="32">
-		
+
 	</editForm>
-	
-	
+
+
 	<!-- **************************************** -->
-	<!-- Configuración del Formulario de Listado  -->
+	<!-- Configuración del Formulario de Listado -->
 	<!-- **************************************** -->
 	<listForm title="FrmMCrudPostList" width="4" height="5">
-	
+
 		<!-- Columnas del form -->
 		<column name="name" width="4" renderer="rendererType" />
 		<!-- ... -->
-		
+
 		<!-- Opciones de paginado: REVISAR posibilidades!!!**** -->
 		<paging opt1="" opt2=""></paging>
-		
+
 	</listForm>
-	
+
 	<!-- **************************************** -->
-	<!-- Configuracion de Perfiles  -->
+	<!-- Configuracion de Perfiles -->
 	<!-- **************************************** -->
-	
+
 	<profile name="cruds">
 		<create status="true" />
 		<update status="true" />
 		<delete status="true" />
 		<view status="true" />
 	</profile>
-		
+
 	<!-- ... -->
 </crud>
