@@ -9,12 +9,93 @@
 		</xs:complexType>
 	</xs:element>
 
+
+	<xs:element name="chain">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="validatorChoice" maxOccurs="2" />
+			</xs:sequence>
+			<xs:attribute name="chained" type="xs:boolean" use="required" />
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="not">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="validatorChoice" maxOccurs="1" />
+			</xs:sequence>
+			<xs:attribute name="chained" type="xs:boolean" use="required" />
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="and">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="validatorChoice" maxOccurs="2" />
+			</xs:sequence>
+			<xs:attribute name="chained" type="xs:boolean" use="required" />
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="or">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="validatorChoice" maxOccurs="2" />
+			</xs:sequence>
+			<xs:attribute name="chained" type="xs:boolean" use="required" />
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="if">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="validatorChoice" maxOccurs="2" />
+			</xs:sequence>
+			<xs:attribute name="chained" type="xs:boolean" use="required" />
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="conditionalValidators">
+		<xs:complexType>
+			<xs:all>
+				<xs:element ref="chain" />
+				<xs:element ref="not" />
+				<xs:element ref="and" />
+				<xs:element ref="or" />
+				<xs:element ref="if" />
+			</xs:all>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="validators">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="conditionalValidators" maxOccurs="unbounded" />
+			</xs:sequence>
+			<xs:attribute name="type" type="xs:string" use="required" />
+		</xs:complexType>
+
+	</xs:element>
+
+	<xs:element name="validatorChoice">
+		<xs:complexType>
+			<xs:all>
+				<xs:element ref="validator" />
+				<xs:element ref="validators" />
+			</xs:all>
+		</xs:complexType>
+	</xs:element>
+
+
+
 	<xs:element name="att">
+
 		<xs:complexType>
 
 			<xs:sequence>
-				<xs:element ref="validator" minOccurs="1" maxOccurs="unbounded" />
+				<xs:element ref="validatorChoice" maxOccurs="unbounded" />
 			</xs:sequence>
+
 
 			<xs:attribute name="name" type="xs:string" use="required" />
 			<xs:attribute name="type" type="xs:string" use="required" />
@@ -24,21 +105,29 @@
 				use="required" />
 			<xs:attribute name="filterByThis" type="xs:boolean" use="required" />
 			<xs:attribute name="editFieldType" type="xs:string" use="required" />
-			
+
 		</xs:complexType>
 	</xs:element>
 
 	<xs:element name="list">
 		<xs:complexType>
-			<xs:attribute name="targetModelName" type="xs:string" use="required" />
-			<xs:attribute name="relationModelName" type="xs:string" use="required" />
+			<xs:attribute name="targetModelName" type="xs:string"
+				use="required" />
+			<xs:attribute name="relationModelName" type="xs:string"
+				use="required" />
 			<xs:attribute name="type" type="xs:string" use="required" />
-			<xs:attribute name="listGuiPackage" type="xs:string" use="required" />
-			<xs:attribute name="visibleOnList" type="xs:boolean" use="required" />
-			<xs:attribute name="editabletiOnList" type="xs:boolean" use="required" />
-			<xs:attribute name="relationAttName" type="xs:string" use="required" />
-			<xs:attribute name="firstRelAttName" type="xs:string" use="required" />
-			<xs:attribute name="secondRelAttName" type="xs:string" use="required" />
+			<xs:attribute name="listGuiPackage" type="xs:string"
+				use="required" />
+			<xs:attribute name="visibleOnList" type="xs:boolean"
+				use="required" />
+			<xs:attribute name="editabletiOnList" type="xs:boolean"
+				use="required" />
+			<xs:attribute name="relationAttName" type="xs:string"
+				use="required" />
+			<xs:attribute name="firstRelAttName" type="xs:string"
+				use="required" />
+			<xs:attribute name="secondRelAttName" type="xs:string"
+				use="required" />
 		</xs:complexType>
 	</xs:element>
 
