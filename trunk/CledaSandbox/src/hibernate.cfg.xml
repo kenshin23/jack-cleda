@@ -96,7 +96,7 @@
 		<mapping class="com.minotauro.sandbox.model.MMultJointAC" />
 		<mapping class="com.minotauro.sandbox.model.MSingJointAB" />
 		<mapping class="com.minotauro.sandbox.model.MSingJointAC" />
-
+		<mapping class="com.minotauro.sandbox.model.MSingJointPostB" />
 		<mapping class="com.minotauro.sandbox.model.DMainA" />
 		<mapping class="com.minotauro.sandbox.model.DMainSms" />
 		<mapping class="com.minotauro.sandbox.model.DInnerA" />
