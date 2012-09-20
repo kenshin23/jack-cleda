@@ -1,44 +1,49 @@
 
 package com.minotauro.sandbox.gui.mcrudpost;
 
+import java.util.List;
+
 import nextapp.echo.app.Extent;
 import nextapp.echo.app.TextField;
 
 import com.minotauro.echo.beans.EFieldLabel;
 import com.minotauro.echo.beans.ETextAreaEx;
 import com.minotauro.echo.cleda.edit.FrmEditBase;
+import com.minotauro.echo.grid.FieldModel;
 import com.minotauro.echo.cleda.list.var.EJointButton;
 import com.minotauro.echo.cleda.list.var.EJointModel;
-import com.minotauro.echo.grid.FieldModel;
 import com.minotauro.echo.grid.SectionModel;
 import com.minotauro.echo.validator.impl.DuplicatedValidator;
 import com.minotauro.echo.validator.impl.NotEmptyValidator;
 
 import com.minotauro.sandbox.gui.mcruda._I18NFrmMCrudAEdit;
-import com.minotauro.sandbox.gui.mmultjointab.FrmMMultJointABList;
-import com.minotauro.sandbox.model.MCrudPost;
-import com.minotauro.sandbox.model.MMultJointAB;
-import com.minotauro.sandbox.model._PropMCrudA;
-import com.minotauro.sandbox.model._PropMMultJointAB;
-import com.minotauro.sandbox.model._PropMMultJointMPostA;
+import com.minotauro.sandbox.gui.mmultjointmposta.FrmMMultJointMPostAList;
+import com.minotauro.sandbox.gui.msingjointpostb.*;
 
+//TODO:plantilla agregar dinamicamente imports.
+
+import com.minotauro.sandbox.model.MCrudA;
+import com.minotauro.sandbox.model.MMultJointMPostA;
+import com.minotauro.sandbox.model.MSingJointAC;
+import com.minotauro.sandbox.model.MSingJointPostB;
+import com.minotauro.sandbox.model._PropMCrudA;
 import com.minotauro.sandbox.model._PropMCrudPost;
+import com.minotauro.sandbox.model._PropMMultJointMPostA;
+import com.minotauro.sandbox.model.MCrudPost;
+import com.minotauro.sandbox.model._PropMSingJointAC;
+import com.minotauro.sandbox.model._PropMSingJointPostB;
+
 
 
 public class FrmMCrudPostEdit extends FrmEditBase {
 
 
-
-  private FieldModel fmNname;
-
-
-  private FieldModel fmNdesc;
-
-
-  private FieldModel fmNbody;
+  protected FieldModel fmname;
+  protected FieldModel fmdesc;
+  protected FieldModel fmbody;
   
-  protected FieldModel fmMultJointMPostA; //1er cambio
-
+  protected FieldModel fmMMultJointMPostA;
+  protected FieldModel fmMSingJointMPostB;
   // --------------------------------------------------------------------------------
 
   public FrmMCrudPostEdit() {
@@ -49,8 +54,8 @@ public class FrmMCrudPostEdit extends FrmEditBase {
 
   @Override
   protected void initGUI() {
-    String name = ((MCrudPost) data).getName(); //*** pregunta getName
-    setTitle(_I18NFrmMCrudPostEdit.title(name == null ? "-" : name)); // preguntar "name"
+    String name = ((MCrudPost) data).getName(); 
+    setTitle(_I18NFrmMCrudPostEdit.title(name == null ? "-" : name)); 
 
     // --------------------------------------------------------------------------------
 
@@ -59,86 +64,101 @@ public class FrmMCrudPostEdit extends FrmEditBase {
     // --------------------------------------------------------------------------------
 
 
-
-
 	TextField txtname = new TextField();
     txtname.setWidth(new Extent(204));
 
-    fmNname = new FieldModel();
-    fmNname.setLabelCmp(new EFieldLabel(_I18NFrmMCrudPostEdit.name()));
-    fmNname.setFieldCmp(txtname);
-    fmNname.setKey(_PropMCrudPost.NAME);
-    fmNname.setProperty(_PropMCrudPost.NAME);
-
-	
-    fmNname.getValidatorList().add(new NotEmptyValidator(_I18NFrmMCrudPostEdit.name(), txtname)); //investigar especificaciones de validadores
-
-	
-    sectionModel.addChild(fmNname);
-	
+    fmname = new FieldModel();
+    fmname.setLabelCmp(new EFieldLabel(_I18NFrmMCrudPostEdit.name()));
+    fmname.setFieldCmp(txtname);
+    fmname.setKey(_PropMCrudPost.NAME);
+    fmname.setProperty(_PropMCrudPost.NAME);
+   	fmname.getValidatorList().add(new NotEmptyValidator(_I18NFrmMCrudPostEdit.name(), txtname));
+    sectionModel.addChild(fmname);
 
 
 	ETextAreaEx txtdesc = new ETextAreaEx();
     txtdesc.setWidth(new Extent(204));
 
-    fmNdesc = new FieldModel();
-    fmNdesc.setLabelCmp(new EFieldLabel(_I18NFrmMCrudPostEdit.name()));
-    fmNdesc.setFieldCmp(txtdesc);
-    fmNdesc.setKey(_PropMCrudPost.NAME);
-    fmNdesc.setProperty(_PropMCrudPost.NAME);
-
-	
-    fmNdesc.getValidatorList().add(new NotEmptyValidator(_I18NFrmMCrudPostEdit.desc(), txtdesc)); //investigar especificaciones de validadores
-
-	
-    sectionModel.addChild(fmNdesc);
-	
+    fmdesc = new FieldModel();
+    fmdesc.setLabelCmp(new EFieldLabel(_I18NFrmMCrudPostEdit.desc()));
+    fmdesc.setFieldCmp(txtdesc);
+    fmdesc.setKey(_PropMCrudPost.DESC);
+    fmdesc.setProperty(_PropMCrudPost.DESC);
+   	fmdesc.getValidatorList().add(new NotEmptyValidator(_I18NFrmMCrudPostEdit.desc(), txtdesc));
+    sectionModel.addChild(fmdesc);
 
 
 	ETextAreaEx txtbody = new ETextAreaEx();
     txtbody.setWidth(new Extent(204));
 
-    fmNbody = new FieldModel();
-    fmNbody.setLabelCmp(new EFieldLabel(_I18NFrmMCrudPostEdit.name()));
-    fmNbody.setFieldCmp(txtbody);
-    fmNbody.setKey(_PropMCrudPost.NAME);
-    fmNbody.setProperty(_PropMCrudPost.NAME);
+    fmbody = new FieldModel();
+    fmbody.setLabelCmp(new EFieldLabel(_I18NFrmMCrudPostEdit.body()));
+    fmbody.setFieldCmp(txtbody);
+    fmbody.setKey(_PropMCrudPost.BODY);
+    fmbody.setProperty(_PropMCrudPost.BODY);
+   	fmbody.getValidatorList().add(new NotEmptyValidator(_I18NFrmMCrudPostEdit.body(), txtbody));
+    sectionModel.addChild(fmbody);
 
-	
-    fmNbody.getValidatorList().add(new NotEmptyValidator(_I18NFrmMCrudPostEdit.body(), txtbody)); //investigar especificaciones de validadores
 
-	
-    sectionModel.addChild(fmNbody);
-	
-    //++++++++++++++++++++++
-
-    sectionModel.addChild(fmMultJointMPostA = initMultJointMPostA());
-    
-    
-    
-    
-  }
+	sectionModel.addChild(fmMMultJointMPostA = initMMultJointMPostA());
+	sectionModel.addChild(fmMSingJointMPostB = initSingJointPostB());
+ }
   
-  protected FieldModel initMultJointMPostA() {
+  protected FieldModel initMMultJointMPostA() {
+
+	    EJointModel jointModel = new EJointModel();
+
+		
+	    jointModel.init(
+	        data,
+	        MMultJointMPostA.class,
+	        _PropMCrudPost.MULT_JOINT_MPOST_ALIST,
+	        _PropMMultJointMPostA.CRUD_POST_REF,
+	        _PropMMultJointMPostA.CRUD_AREF);
+
+	    EJointButton jntJoint = new EJointButton(
+	    		FrmMMultJointMPostAList.class, jointModel, this);
+
+	    jntJoint.setEditMode(editMode);
+
+	    FieldModel fmJoint = new FieldModel();
+	    fmJoint.setLabelCmp(new EFieldLabel(_I18NFrmMCrudPostEdit.jointAB())); //TODO: editar properties
+	    fmJoint.setFieldCmp(jntJoint);
+	    fmJoint.setKey(_PropMCrudPost.MULT_JOINT_MPOST_ALIST);
+
+	    return fmJoint;
+	  }
+  protected FieldModel initSingJointPostB() {
 
 	    EJointModel jointModel = new EJointModel();
 
 	    jointModel.init(
 	        data,
-	        MMultJointAB.class,
-	        _PropMCrudPost.MULT_JOINT_MPOST_ALIST,
-	        _PropMMultJointMPostA.CRUD_AREF,
-	        _PropMMultJointMPostA.CRUD_POST_REF);
+	        MSingJointPostB.class,
+	        _PropMCrudPost.SING_JOINT_MPOST_BLIST,
+	        _PropMSingJointPostB.CRUD_POST_REF,
+	        _PropMSingJointPostB.CRUD_BREF);
 
 	    EJointButton jntJoint = new EJointButton(
-	        FrmMMultJointABList.class, jointModel, this);
+	            FrmMSingJointPostBList.class, jointModel, this) {
+
+	          protected String getInfoText() {
+	            List<MSingJointPostB> singJointPostBList =
+	                ((MCrudPost) data).getSingJointPostBList();
+
+	            return !singJointPostBList.isEmpty()
+	                ? singJointPostBList.get(0).getCrudBRef().getName() +
+	                    " / " + singJointPostBList.get(0).getName()
+	                : null;
+	          }
+	        };
 
 	    jntJoint.setEditMode(editMode);
 
 	    FieldModel fmJoint = new FieldModel();
-	    fmJoint.setLabelCmp(new EFieldLabel("hola mundo"));
+	    fmJoint.setLabelCmp(new EFieldLabel(_I18NFrmMCrudPostEdit.jointPostB()));
 	    fmJoint.setFieldCmp(jntJoint);
-	    fmJoint.setKey(_PropMCrudPost.MULT_JOINT_MPOST_ALIST);
+	    fmJoint.setKey(_PropMCrudPost.SING_JOINT_MPOST_BLIST);
 
 	    return fmJoint;
 	  }

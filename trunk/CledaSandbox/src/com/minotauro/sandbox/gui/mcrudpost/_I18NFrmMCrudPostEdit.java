@@ -26,12 +26,12 @@ public class _I18NFrmMCrudPostEdit {
     return MessageBase.getInstance().locateValue(locale, RES_NAME, "desc", new Object[]{});
   }
 
-  public static String innerAC() throws MessageException {
-    return MessageBase.getInstance().locateValue(locale, RES_NAME, "innerAC", new Object[]{});
-  }
-
   public static String jointAB() throws MessageException {
     return MessageBase.getInstance().locateValue(locale, RES_NAME, "jointAB", new Object[]{});
+  }
+
+  public static String jointPostB() throws MessageException {
+    return MessageBase.getInstance().locateValue(locale, RES_NAME, "jointPostB", new Object[]{});
   }
 
   public static String name() throws MessageException {
