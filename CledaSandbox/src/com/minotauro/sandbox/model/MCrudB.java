@@ -15,6 +15,7 @@ import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
+import org.hibernate.annotations.OrderBy;
 import org.hibernate.annotations.Proxy;
 
 import com.minotauro.base.model.MBase;
@@ -35,6 +36,8 @@ public class MCrudB extends MBase {
   private List<MMultJointAB> multJointABList = new ArrayList<MMultJointAB>();
 
   private List<MSingJointAB> singJointABList = new ArrayList<MSingJointAB>();
+  
+  private List<MSingJointPostB> singJointPostBList = new ArrayList<MSingJointPostB>();
 
   // --------------------------------------------------------------------------------
 
@@ -87,5 +90,16 @@ public class MCrudB extends MBase {
 
   public void setSingJointABList(List<MSingJointAB> singJointABList) {
     this.singJointABList = singJointABList;
+  }
+  
+  @OneToMany(mappedBy = _PropMSingJointPostB.CRUD_BREF, orphanRemoval = true)
+  @LazyCollection(LazyCollectionOption.TRUE)
+  @Cascade({CascadeType.ALL})
+  public List<MSingJointPostB> getSingJointPostBList() {
+    return singJointPostBList;
+  }
+
+  public void setSingJointPostBList(List<MSingJointPostB> singJointPostBList) {
+    this.singJointPostBList = singJointPostBList;
   }
 }

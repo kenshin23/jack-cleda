@@ -12,12 +12,15 @@ public class _CledaI18N extends BaseI18NMain {
     m.prop(MCrudC.class);
     m.prop(MCrudD.class);
     m.prop(MCrudPost.class);
-    m.prop(MCrudPrueba.class);
     m.prop(MInnerA.class);
+    m.prop(MInnerPost.class);
     m.prop(MSingJointAB.class);
     m.prop(MSingJointAC.class);
     m.prop(MMultJointAB.class);
+    m.prop(MMultJointMPostA.class);
     m.prop(MMultJointAC.class);
+    m.prop(MSingJointPostB.class);
+    
     m.prop(DMainA.class);
     m.prop(DMainSms.class);
     m.prop(DInnerA.class);

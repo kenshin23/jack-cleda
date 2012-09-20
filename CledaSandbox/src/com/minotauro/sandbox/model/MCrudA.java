@@ -40,6 +40,8 @@ public class MCrudA extends MBase {
   private List<MSingJointAC> singJointACList = new ArrayList<MSingJointAC>();
 
   private List<MInnerA> innerACList = new ArrayList<MInnerA>();
+  
+  private List<MMultJointMPostA> multJointMPostAList = new ArrayList<MMultJointMPostA>();
 
   // --------------------------------------------------------------------------------
 
@@ -133,4 +135,17 @@ public class MCrudA extends MBase {
   public void setInnerACList(List<MInnerA> innerACList) {
     this.innerACList = innerACList;
   }
+
+  
+  @OneToMany(mappedBy = _PropMMultJointMPostA.CRUD_AREF, orphanRemoval = true)
+  @LazyCollection(LazyCollectionOption.TRUE)
+  @Cascade({CascadeType.ALL})
+  public List<MMultJointMPostA> getMultJointMPostAList() {
+	return multJointMPostAList;
+  }
+
+  public void setMultJointMPostAList(List<MMultJointMPostA> multJointMPostAList) {
+	this.multJointMPostAList = multJointMPostAList;
+  }
+
 }

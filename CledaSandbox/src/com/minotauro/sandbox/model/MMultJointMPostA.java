@@ -12,7 +12,7 @@ import org.hibernate.annotations.Proxy;
 import com.minotauro.base.model.MBase;
 
 /**
- * @author Karla "azucar" Moreno
+ * @author Karla "sugar" Moreno
  */
 @Entity
 @Table(name = "t_tst_mult_joint_mpost_a")
@@ -23,12 +23,23 @@ public class MMultJointMPostA extends MBase {
 	  private MCrudA crudARef;
 
 
-  // --------------------------------------------------------------------------------
+  // --------------------------------------------------------------------------------------
 
   public MMultJointMPostA() {
     // Empty
   }
 
+
+
+  @ManyToOne
+  public MCrudPost getcrudPostRef() {
+    return crudPostRef;
+  }
+
+  public void setcrudPostRef(MCrudPost crudPostRef) {
+    this.crudPostRef = crudPostRef;
+  }
+  
   // --------------------------------------------------------------------------------
 
   @ManyToOne
@@ -41,13 +52,6 @@ public class MMultJointMPostA extends MBase {
   }
 
   // --------------------------------------------------------------------------------
-
-  @ManyToOne
-  public MCrudPost getcrudPostRef() {
-    return crudPostRef;
-  }
-
-  public void setcrudPostRef(MCrudPost crudPostRef) {
-    this.crudPostRef = crudPostRef;
-  }
+  
+  
 }
