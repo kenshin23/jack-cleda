@@ -22,7 +22,7 @@ import org.hibernate.annotations.Proxy;
 import com.minotauro.base.model.MBase;
 
 /**
- * @author Karla Moreno
+ * @author Karla "azucar" Moreno
  */
 
 @Entity
@@ -38,8 +38,8 @@ public class MCrudPost extends MBase{
 	  // --------------------------------------------------------------------------------
 
 	  private List<MMultJointMPostA> multJointMPostAList = new ArrayList<MMultJointMPostA>();
-
-	  //private List<MSingJointAB> singJointABList = new ArrayList<MSingJointAB>();
+	  
+	  private List<MSingJointPostB> singJointPostBList = new ArrayList<MSingJointPostB>();
 
 	  // --------------------------------------------------------------------------------
 
@@ -82,26 +82,25 @@ public class MCrudPost extends MBase{
 	  @LazyCollection(LazyCollectionOption.TRUE)
 	  @Cascade({CascadeType.ALL})
 	  public List<MMultJointMPostA> getMultJointMPostAList() {
-	    return multJointMPostAList;
+		  return multJointMPostAList;
 	  }
 
 	  public void setMultJointMPostAList(List<MMultJointMPostA> multJointMPostAList) {
-	    this.multJointMPostAList = multJointMPostAList;
+		  this.multJointMPostAList = multJointMPostAList;
 	  }
-
-	  // --------------------------------------------------------------------------------
-
-	/*  @OneToMany(mappedBy = _PropMSingJointAB.CRUD_BREF, orphanRemoval = true)
+	  
+	  @OneToMany(mappedBy = _PropMSingJointPostB.CRUD_POST_REF, orphanRemoval = true)
 	  @LazyCollection(LazyCollectionOption.TRUE)
 	  @Cascade({CascadeType.ALL})
-	  public List<MSingJointAB> getSingJointABList() {
-	    return singJointABList;
+	  public List<MSingJointPostB> getSingJointPostBList() {
+		  return singJointPostBList;
 	  }
 
-	  public void setSingJointABList(List<MSingJointAB> singJointABList) {
-	    this.singJointABList = singJointABList;
+	  public void setSingJointPostBList(List<MSingJointPostB> singJointPostBList){
+		  this.singJointPostBList = singJointPostBList;
 	  }
-*/
+
+
 }
 
 
