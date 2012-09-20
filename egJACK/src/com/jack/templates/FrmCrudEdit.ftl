@@ -70,20 +70,40 @@ public class Frm${modelName}Edit extends FrmEditBase {
     fm${currentAtt.name?cap_first}.setProperty(_PropMCrudPost.${currentAtt.name?upper_case});
  	
  	fm${currentAtt.name?cap_first}.getValidatorList()
+	
+[#macro list title items]
+	${title?cap_first}:
+  
+    [#list items as x]     
+    	 ${x?cap_first}
+    [/#list]
+[/#macro]
+[@list items=["mouse", "elephant", "python"] title="Animals"/]
+	
+	
+	
+	
 	[#list currentAtt.validatorChoice as currentValidatorChoice]
-[#if currentValidatorChoice.bandera==true]
-   	.add(new ${currentValidatorChoice.validator.name}(_I18NFrmMCrudPostEdit.${currentAtt.name}(), txt${currentAtt.name?cap_first})
-[/#if]
-	[#if currentValidatorChoice.bandera==false]	
-		.add(ConditionalValidator
-		.CHAIN(true)
-[/#if]	
-
+		[#if currentValidatorChoice.bandera==true]
+   		.add(new ${currentValidatorChoice.validator.name}(_I18NFrmMCrudPostEdit.${currentAtt.name}(), txt${currentAtt.name?cap_first})
+		[/#if]
+		[#if currentValidatorChoice.bandera==false]	
+			.add(ConditionalValidator		
+			[#list currentValidatorChoice.validators.conditionalValidators as currentCondValidator]
+				.${currentCondValidator.type?upper_case}(true)
+			[/#list]
+		[/#if]	
 	[/#list]
 	);
+	
+	
  sectionModel.addChild(fm${currentAtt.name?cap_first});
  }
   
 
 [/#list]
+
+
+
+[@test/] 
 }

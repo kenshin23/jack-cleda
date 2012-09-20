@@ -25,13 +25,13 @@
 		editabletiOnList="true" filterByThis="true" editFieldType="ETextAreaEx">
 		<validatorChoice bandera="false">
 			<validators>
-				<conditionalValidator>
+				<conditionalValidators type="chain">
 					<chain>
 						<validatorChoice bandera="true">
 							<validator name="NotEmptyValidator" />
 						</validatorChoice>
 					</chain>
-				</conditionalValidator>
+				</conditionalValidators>
 			</validators>
 		</validatorChoice>
 		<!-- ... -->
