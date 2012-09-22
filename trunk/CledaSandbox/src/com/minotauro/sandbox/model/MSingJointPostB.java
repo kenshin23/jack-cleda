@@ -16,7 +16,7 @@ import com.minotauro.base.model.MBase;
  * @author e.j.:jack
  */
 @Entity
-@Table(name = "t_tst_sing_joint_a_c")
+@Table(name = "t_tst_sing_joint_post_b")
 @Proxy(lazy = false)
 public class MSingJointPostB extends MBase {
 

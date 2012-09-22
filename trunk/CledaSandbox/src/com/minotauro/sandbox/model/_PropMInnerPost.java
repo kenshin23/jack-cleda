@@ -10,6 +10,7 @@ public class _PropMInnerPost {
   }
 
   public static final String BODY = "body";
+  public static final String CRUD_POST_REF = "crudPostRef";
   public static final String DESC = "desc";
   public static final String ID = "id";
   public static final String NAME = "name";
