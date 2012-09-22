@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <crud xmlns="http://www.cledaCrud.org/crud.xsd"
 package="com.minotauro.sandbox.gui.mcrudpost" name="NOMBRE_CRUD" modelName="nombremodelo" group="NombreGrupoCruds">
-	<description>
-	
+	<description>	
 	Aqui va la descripcion textual del crud, blah blah blah.
-	
-	
 	</description>
 	
 	<!-- **************************************** -->
