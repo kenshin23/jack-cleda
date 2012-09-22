@@ -110,27 +110,24 @@
 		</xs:complexType>
 	</xs:element>
 
-	<xs:element name="list">
-		<xs:complexType>
-			<xs:attribute name="targetModelName" type="xs:string"
-				use="required" />
-			<xs:attribute name="relationModelName" type="xs:string"
-				use="required" />
-			<xs:attribute name="type" type="xs:string" use="required" />
-			<xs:attribute name="listGuiPackage" type="xs:string"
-				use="required" />
-			<xs:attribute name="visibleOnList" type="xs:boolean"
-				use="required" />
-			<xs:attribute name="editabletiOnList" type="xs:boolean"
-				use="required" />
-			<xs:attribute name="relationAttName" type="xs:string"
-				use="required" />
-			<xs:attribute name="firstRelAttName" type="xs:string"
-				use="required" />
-			<xs:attribute name="secondRelAttName" type="xs:string"
-				use="required" />
-		</xs:complexType>
-	</xs:element>
+<xs:element name="list">
+<xs:complexType>
+<xs:attribute name="targetModelName" type="xs:string" use="required"/>
+<xs:attribute name="relationModelName" type="xs:string" use="required"/>
+<xs:attribute name="type" type="xs:string" use="required"/>
+<xs:attribute name="listGuiPackage" type="xs:string" use="required"/>
+<xs:attribute name="visibleOnList" type="xs:boolean" use="required"/>
+<xs:attribute name="editabletiOnList" type="xs:boolean" use="required"/>
+<xs:attribute name="relationAttName" type="xs:string" use="required"/>
+<xs:attribute name="firstRelAttName" type="xs:string" use="required"/>
+<xs:attribute name="secondRelAttName" type="xs:string" use="required"/>
+<xs:attribute name="edit" type="xs:boolean" use="required"/>
+<xs:attribute name="propRelName" type="xs:string" use="required"/>
+<xs:attribute name="relationFirstAtt" type="xs:string" use="required"/>
+<xs:attribute name="relationSecAtt" type="xs:string" use="required"/>
+<xs:attribute name="relModGetter" type="xs:string" use="required"/>
+</xs:complexType>
+</xs:element>
 
 	<xs:element name="attributes">
 		<xs:complexType>
