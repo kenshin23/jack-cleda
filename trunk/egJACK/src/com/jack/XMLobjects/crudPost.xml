@@ -25,6 +25,11 @@ Este crud define un post en un blog.
 		
 		<list targetModelName="MCrudA" relationModelName="MMultJointMPostA" relModGetter="getSingJointPostAList" relationFirstAtt="CrudPostRef" relationSecAtt="CrudARef" type="MultJoint" edit="false" listGuiPackage="com.minotauro.sandbox.gui.mmultjointmposta" relationAttName="MULT_JOINT_MPOST_ALIST" firstRelAttName="CRUD_POST_REF" secondRelAttName="CRUD_AREF" propRelName="jointAB"/>
 		<list targetModelName="MCrudB" relationModelName="MSingJointPostB" relModGetter="getSingJointPostBList" relationFirstAtt="CrudPostRef" relationSecAtt="CrudBRef"  type="SingJoint" edit="true" listGuiPackage="com.minotauro.sandbox.gui.msingjointmpostb" relationAttName="SING_JOINT_POST_BLIST" firstRelAttName="CRUD_POST_REF" secondRelAttName="CRUD_BREF" propRelName="jointPostB"/>
+		<list targetModelName="MCrudC" relationModelName="MInnerPost" relModGetter="getInnerPostCList" relationFirstAtt="CrudPostRef" relationSecAtt="CrudCRef"  type="Inner" edit="false" listGuiPackage="com.minotauro.sandbox.gui.minnerpostc" relationAttName="INNER_POST_CLIST" firstRelAttName="CRUD_POST_REF" secondRelAttName="CRUD_CREF" propRelName="innerPostC"/>
+		
+		
+			sectionModel.addChild(fmMInnerPostC/* */= initInnerPostC());
+		
 	</attributes>
 
 	
