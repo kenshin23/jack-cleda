@@ -1,10 +1,27 @@
 [#ftl]	
+[#macro recurseValidator validatorChoice currentAttribute]
+	[#list validatorChoice as currentValidatorChoice]
+		[#if currentValidatorChoice.bandera==true]
+   		.add(new ${currentValidatorChoice.validator.name}(_I18NFrmMCrudPostEdit.${currentAttribute.name}(), txt${currentAttribute.name?cap_first}))
+		[/#if]
+		[#if currentValidatorChoice.bandera==false]	
+			.add(ConditionalValidator		
+			[#list currentValidatorChoice.validators.conditionalValidators as currentCondValidator]
+				.${currentCondValidator.type?upper_case}(true)
+				[@recurseValidator validatorChoice=currentCondValidator.chain.validatorChoice currentAttribute=currentAttribute/]
+				)
+			[/#list]
+		[/#if]	
+	[/#list]
+[/#macro]
+
 
 package com.minotauro.sandbox.gui.mcrud${name};
 
 import java.util.List;
 import nextapp.echo.app.Extent;
 import nextapp.echo.app.TextField;
+
 import com.minotauro.echo.beans.EFieldLabel;
 import com.minotauro.echo.beans.ETextAreaEx;
 import com.minotauro.echo.cleda.edit.FrmEditBase;
@@ -15,6 +32,8 @@ import com.minotauro.echo.cleda.list.var.EJointModel;
 import com.minotauro.echo.grid.SectionModel;
 import com.minotauro.echo.validator.impl.DuplicatedValidator;
 import com.minotauro.echo.validator.impl.NotEmptyValidator;
+import com.minotauro.echo.validator.impl.ConditionalValidator;
+import com.minotauro.echo.validator.impl.IntegerValidator;
 
 import com.minotauro.sandbox.gui.*;
 import com.minotauro.sandbox.gui.minnerpostc.FrmMInnerPostList;
@@ -24,23 +43,22 @@ import com.minotauro.sandbox.model.*;
 
 //TODO:plantilla agregar dinamicamente imports.
 
-//import ${modelPackage}.MMultJointMPostA;
-//import ${modelPackage}._Prop${modelName};
-//import ${modelPackage}._PropMMultJointMPostA;
-//import ${modelPackage}.${modelName};
+import ${modelPackage}.MMultJointMPostA;
+import ${modelPackage}._Prop${modelName};
+import ${modelPackage}._PropMMultJointMPostA;
+import ${modelPackage}.${modelName};
 
 
 
 public class Frm${modelName}Edit extends FrmEditBase {
 
-
 [#list attributes.att as currentAtt]
-  protected FieldModel fm${currentAtt.name};
+  protected FieldModel fm${currentAtt.name?cap_first};
 [/#list]
   
-  [#list attributes.list as currentlist]
+[#list attributes.list as currentlist]
   protected FieldModel fm${currentlist.relationModelName};
-  [/#list]
+[/#list]
 
   // --------------------------------------------------------------------------------
 
@@ -48,7 +66,7 @@ public class Frm${modelName}Edit extends FrmEditBase {
     // Empty
   }
 
-  // ---------------------------------------------------------------------------------
+  // --------------------------------------------------------------------------------
 
   @Override
   protected void initGUI() {
@@ -63,26 +81,22 @@ public class Frm${modelName}Edit extends FrmEditBase {
 
 [#list attributes.att as currentAtt]
 
-	${currentAtt.editFieldType} txt${currentAtt.name} = new ${currentAtt.editFieldType}();
-    txt${currentAtt.name}.setWidth(new Extent(204));
+	${currentAtt.editFieldType} txt${currentAtt.name?cap_first} = new ${currentAtt.editFieldType}();
+    txt${currentAtt.name?cap_first}.setWidth(new Extent(204));
 
-    fm${currentAtt.name} = new FieldModel();
-    fm${currentAtt.name}.setLabelCmp(new EFieldLabel(_I18NFrmMCrudPostEdit.${currentAtt.name}()));
-    fm${currentAtt.name}.setFieldCmp(txt${currentAtt.name});
-    fm${currentAtt.name}.setKey(_PropMCrudPost.${currentAtt.name?upper_case});
-    fm${currentAtt.name}.setProperty(_PropMCrudPost.${currentAtt.name?upper_case});
-	[#list currentAtt.validator as currentValidator]
-   	fm${currentAtt.name}.getValidatorList().add(new ${currentValidator.name}(_I18NFrmMCrudPostEdit.${currentAtt.name}(), txt${currentAtt.name}));
-	[/#list]
-    sectionModel.addChild(fm${currentAtt.name});
+    fm${currentAtt.name?cap_first} = new FieldModel();
+    fm${currentAtt.name?cap_first}.setLabelCmp(new EFieldLabel(_I18NFrmMCrudPostEdit.${currentAtt.name}()));
+    fm${currentAtt.name?cap_first}.setFieldCmp(txt${currentAtt.name?cap_first});
+    fm${currentAtt.name?cap_first}.setKey(_PropMCrudPost.${currentAtt.name?upper_case});
+    fm${currentAtt.name?cap_first}.setProperty(_PropMCrudPost.${currentAtt.name?upper_case});
+ 	fm${currentAtt.name?cap_first}.getValidatorList()
+		[@recurseValidator validatorChoice=currentAtt.validatorChoice currentAttribute=currentAtt /]
+	;
+
+	sectionModel.addChild(fm${currentAtt.name?cap_first});
 
 [/#list]
-
-[#list attributes.list as currentlist]
-	sectionModel.addChild(fm${currentlist.relationModelName} = init${currentlist.propRelName}());
-[/#list]
- }
-  
+	}
 [#list attributes.list as currentlist]
   [#if currentlist.type=="MultJoint"]
   protected FieldModel init${currentlist.propRelName}() {
@@ -177,3 +191,4 @@ public class Frm${modelName}Edit extends FrmEditBase {
   
 [/#list]    	  
 }
+	
