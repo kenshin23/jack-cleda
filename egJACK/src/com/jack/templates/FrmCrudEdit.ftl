@@ -10,22 +10,17 @@ import com.minotauro.echo.beans.ETextAreaEx;
 import com.minotauro.echo.cleda.edit.FrmEditBase;
 import com.minotauro.echo.grid.FieldModel;
 import com.minotauro.echo.cleda.list.var.EJointButton;
+import com.minotauro.echo.cleda.list.var.EInnerButton;
 import com.minotauro.echo.cleda.list.var.EJointModel;
 import com.minotauro.echo.grid.SectionModel;
 import com.minotauro.echo.validator.impl.DuplicatedValidator;
 import com.minotauro.echo.validator.impl.NotEmptyValidator;
 
+import com.minotauro.sandbox.gui.*;
+import com.minotauro.sandbox.gui.minnerpostc.FrmMInnerPostList;
 import com.minotauro.sandbox.gui.mmultjointmposta.FrmMMultJointMPostAList;
 import com.minotauro.sandbox.gui.msingjointpostb.FrmMSingJointPostBList;
-
-//TODO:plantilla agregar dinamicamente imports.
-
-import com.minotauro.sandbox.model.MMultJointMPostA;
-import com.minotauro.sandbox.model.MSingJointPostB;
-import com.minotauro.sandbox.model._PropMCrudPost;
-import com.minotauro.sandbox.model._PropMMultJointMPostA;
-import com.minotauro.sandbox.model.MCrudPost;
-import com.minotauro.sandbox.model._PropMSingJointPostB;
+import com.minotauro.sandbox.model.*;
 
 //TODO:plantilla agregar dinamicamente imports.
 
@@ -141,7 +136,7 @@ public class Frm${modelName}Edit extends FrmEditBase {
             ? aux.get(0).get${currentlist.relationSecAtt}().getName() +
                 " / " + aux.get(0).getName() //getname por defecto por ahora
             : null;
-      	}
+      		}
     	};
 
 	    
@@ -154,6 +149,30 @@ public class Frm${modelName}Edit extends FrmEditBase {
 
 	    return fmJoint;
 	  }
+  [/#if]
+  
+  [#if currentlist.type=="Inner"]
+  
+    protected FieldModel init${currentlist.propRelName}() {
+
+	   EInnerButton innInner = new EInnerButton(
+	   	  Frm${currentlist.relationModelName}List.class,
+	      data,
+	      _Prop${modelName}.${currentlist.relationAttName},
+	      _Prop${currentlist.relationModelName}.${currentlist.firstRelAttName},
+	      this);
+
+	   innInner.setEditMode(editMode);
+
+	   FieldModel fmInner = new FieldModel();
+	   fmInner.setLabelCmp(new EFieldLabel(_I18NFrm${modelName}Edit.${currentlist.propRelName}()));
+	   fmInner.setFieldCmp(innInner);
+	   fmInner.setKey(_Prop${modelName}.${currentlist.relationAttName});
+
+	   return fmInner;
+	 }
+  
+  
   [/#if]
   
 [/#list]    	  
