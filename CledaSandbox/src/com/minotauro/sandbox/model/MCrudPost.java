@@ -40,6 +40,9 @@ public class MCrudPost extends MBase{
 	  private List<MMultJointMPostA> multJointMPostAList = new ArrayList<MMultJointMPostA>();
 	  
 	  private List<MSingJointPostB> singJointPostBList = new ArrayList<MSingJointPostB>();
+	  
+	  private List<MInnerPost> InnerPostCList = new ArrayList<MInnerPost>();
+
 
 	  // --------------------------------------------------------------------------------
 
@@ -87,6 +90,18 @@ public class MCrudPost extends MBase{
 
 	  public void setMultJointMPostAList(List<MMultJointMPostA> multJointMPostAList) {
 		  this.multJointMPostAList = multJointMPostAList;
+	  }
+	  
+	  @OneToMany(mappedBy = _PropMInnerPost.CRUD_POST_REF, orphanRemoval = true)
+	  @LazyCollection(LazyCollectionOption.TRUE)
+	  @Cascade({CascadeType.ALL})
+	  @OrderBy(clause = _PropMInnerPost.NAME)
+	  public List<MInnerPost> getInnerPostCList() {
+	    return InnerPostCList;
+	  }
+
+	  public void setInnerPostCList(List<MInnerPost> InnerPostCList) {
+	    this.InnerPostCList = InnerPostCList;
 	  }
 	  
 	  @OneToMany(mappedBy = _PropMSingJointPostB.CRUD_POST_REF, orphanRemoval = true)
