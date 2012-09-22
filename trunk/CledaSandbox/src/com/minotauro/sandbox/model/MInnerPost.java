@@ -58,7 +58,7 @@ public class MInnerPost extends MBase {
   // --------------------------------------------------------------------------------
 
   @ManyToOne
-  public MCrudPost getCrudARef() {
+  public MCrudPost getCrudPostRef() {
     return crudPostRef;
   }
 

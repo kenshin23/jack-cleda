@@ -92,6 +92,7 @@
 		
 		<mapping class="com.minotauro.sandbox.model.MMultJointMPostA" />
 		<mapping class="com.minotauro.sandbox.model.MInnerA" />
+		<mapping class="com.minotauro.sandbox.model.MInnerPost" />
 		<mapping class="com.minotauro.sandbox.model.MMultJointAB" />
 		<mapping class="com.minotauro.sandbox.model.MMultJointAC" />
 		<mapping class="com.minotauro.sandbox.model.MSingJointAB" />
