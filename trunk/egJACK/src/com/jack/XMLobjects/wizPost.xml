@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<crud xmlns="http://www.cledaCrud.org/crud.xsd" package="com.minotauro.sandbox.gui.mcrudpost"
+<wizard xmlns="http://www.cledaCrud.org/crud.xsd" package="com.jack.sandbox.gui.wizpost"
 	name="post" modelName="MCrudPost" modelPackage="com.minotauro.sandbox.model"
 	group="NombreGrupoCruds">
 
 	<description>
-		Este crud define un post en un blog.
+		Este wizard define un post en un blog.
 	</description>
 	
 	<!-- **************************************** -->
@@ -16,12 +16,19 @@
 			<validatorChoice bandera="true">
 				<validator name="NotEmptyValidator" />
 			</validatorChoice>
-			<!-- <validatorChoice bandera="true"> -->
-			<!-- <validator name="NotEmptyValidator" /> -->
-			<!-- </validatorChoice> -->
-			<!-- ... -->
+			
 
 		</att>
+
+			<att name="body" type="string" visibleOnList="true"
+			editabletiOnList="true" filterByThis="true" editFieldType="TextField">
+			<validatorChoice bandera="true">
+				<validator name="NotEmptyValidator" />
+			</validatorChoice>
+			
+		</att>
+		
+			
 		<att name="desc" type="string" visibleOnList="true"
 			editabletiOnList="true" filterByThis="true" editFieldType="ETextAreaEx">
 			<validatorChoice bandera="false">
@@ -54,12 +61,9 @@
 			<!-- ... -->
 		</att>
 		
-		
-		
 	<!-- **************************************** -->
 	<!-- RElaciones Joints, Inners -->
 	<!-- **************************************** -->
-
 
 		<list targetModelName="MCrudA" relationModelName="MMultJointMPostA"
 			relModGetter="getSingJointPostAList" relationFirstAtt="CrudPostRef"
@@ -84,48 +88,4 @@
 	</attributes>
 
 
-	<!-- **************************************** -->
-	<!-- Opciones de Menú, esto era para permitir especificar la ubicacion del 
-		nuevo CRUD POST (se hará con una plantilla) -->
-	<!-- En nuevo menu aparte e todos los Cruds existentes. -->
-	<!-- ****REVISAR/CONSULTAR**** -->
-	<!-- **************************************** -->
-
-	<!-- <menuEntry name="nombreEntradaMenu" type="TipoMenu" group="nombreGrupoMenu"/> -->
-
-
-	<!-- **************************************** -->
-	<!-- Configuración del Formulario de edición -->
-	<!-- **************************************** -->
-	<editForm title="FrmMCrudPostEdit" width="2" height="32">
-
-	</editForm>
-
-
-	<!-- **************************************** -->
-	<!-- Configuración del Formulario de Listado -->
-	<!-- **************************************** -->
-	<listForm title="FrmMCrudPostList" width="4" height="5">
-
-		<!-- Columnas del form -->
-		<column name="name" width="4" renderer="rendererType" />
-		<!-- ... -->
-
-		<!-- Opciones de paginado: REVISAR posibilidades!!!**** -->
-		<paging opt1="" opt2=""></paging>
-
-	</listForm>
-
-	<!-- **************************************** -->
-	<!-- Configuracion de Perfiles -->
-	<!-- **************************************** -->
-
-	<profile name="cruds">
-		<create status="true" />
-		<update status="true" />
-		<delete status="true" />
-		<view status="true" />
-	</profile>
-
-	<!-- ... -->
-</crud>
+	</wizard>

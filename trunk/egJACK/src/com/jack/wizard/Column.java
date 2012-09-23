@@ -25,6 +25,8 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;attribute name="name" use="required" type="{http://www.w3.org/2001/XMLSchema}string" />
+ *       &lt;attribute name="width" use="required" type="{http://www.w3.org/2001/XMLSchema}int" />
+ *       &lt;attribute name="renderer" use="required" type="{http://www.w3.org/2001/XMLSchema}string" />
  *     &lt;/restriction>
  *   &lt;/complexContent>
  * &lt;/complexType>
@@ -34,11 +36,15 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "")
-@XmlRootElement(name = "validator")
-public class Validator {
+@XmlRootElement(name = "column")
+public class Column {
 
     @XmlAttribute(name = "name", required = true)
     protected String name;
+    @XmlAttribute(name = "width", required = true)
+    protected int width;
+    @XmlAttribute(name = "renderer", required = true)
+    protected String renderer;
 
     /**
      * Gets the value of the name property.
@@ -62,6 +68,46 @@ public class Validator {
      */
     public void setName(String value) {
         this.name = value;
+    }
+
+    /**
+     * Gets the value of the width property.
+     * 
+     */
+    public int getWidth() {
+        return width;
+    }
+
+    /**
+     * Sets the value of the width property.
+     * 
+     */
+    public void setWidth(int value) {
+        this.width = value;
+    }
+
+    /**
+     * Gets the value of the renderer property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getRenderer() {
+        return renderer;
+    }
+
+    /**
+     * Sets the value of the renderer property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setRenderer(String value) {
+        this.renderer = value;
     }
 
 }
