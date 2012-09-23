@@ -57,7 +57,7 @@ public class PnlWizardMPost6 extends PnlWizardBase {
     innInner.setEditMode(EnumEditMode.UPDATE);
 
     FieldModel fmInner = new FieldModel();
-    fmInner.setLabelCmp(new EFieldLabel(_I18NFrmMCrudPostEdit.innerPostA()));
+    fmInner.setLabelCmp(new EFieldLabel(_I18NFrmMCrudPostEdit.innerPostC()));
     fmInner.setFieldCmp(innInner);
     fmInner.setKey(_PropMCrudPost.INNER_POST_CLIST);
 
