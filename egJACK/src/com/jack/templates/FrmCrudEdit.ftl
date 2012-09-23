@@ -94,8 +94,13 @@ public class Frm${modelName}Edit extends FrmEditBase {
 	;
 
 	sectionModel.addChild(fm${currentAtt.name?cap_first});
-
+	
 [/#list]
+
+[#list attributes.list as currentlist]
+	sectionModel.addChild(fm${currentlist.relationModelName} = init${currentlist.propRelName}());
+[/#list]
+	
 	}
 [#list attributes.list as currentlist]
   [#if currentlist.type=="MultJoint"]
