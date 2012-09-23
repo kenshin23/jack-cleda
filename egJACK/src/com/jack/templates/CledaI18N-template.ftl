@@ -4,7 +4,7 @@
 // ----------------------------------------
 
 
-package com.minotauro.sandbox.gui.mcrud${name};
+import ${Package};
 
 import com.minotauro.i18n.base.BaseI18NMain;
 
