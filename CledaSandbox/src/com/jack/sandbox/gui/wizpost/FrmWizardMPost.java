@@ -25,6 +25,9 @@ public class FrmWizardMPost extends FrmWizardDta {
     pnlWizardBaseList.add(new PnlWizardMPost1(this));
     pnlWizardBaseList.add(new PnlWizardMPost2(this));
     pnlWizardBaseList.add(new PnlWizardMPost3(this));
+    pnlWizardBaseList.add(new PnlWizardMPost4(this));
+    pnlWizardBaseList.add(new PnlWizardMPost5(this));
+    pnlWizardBaseList.add(new PnlWizardMPost6(this));
     
   }
 
