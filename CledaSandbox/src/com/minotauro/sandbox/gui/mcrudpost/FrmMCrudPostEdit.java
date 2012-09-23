@@ -124,7 +124,7 @@ public class FrmMCrudPostEdit extends FrmEditBase {
 	    jntJoint.setEditMode(editMode);
 
 	    FieldModel fmJoint = new FieldModel();
-	    fmJoint.setLabelCmp(new EFieldLabel(_I18NFrmMCrudPostEdit.jointAB())); //TODO: editar properties
+	    fmJoint.setLabelCmp(new EFieldLabel(_I18NFrmMCrudPostEdit.multJointPostA())); 
 	    fmJoint.setFieldCmp(jntJoint);
 	    fmJoint.setKey(_PropMCrudPost.MULT_JOINT_MPOST_ALIST);
 
@@ -165,7 +165,7 @@ public class FrmMCrudPostEdit extends FrmEditBase {
 	    jntJoint.setEditMode(editMode);
 
 	    FieldModel fmJoint = new FieldModel();		
-	    fmJoint.setLabelCmp(new EFieldLabel(_I18NFrmMCrudPostEdit.jointPostB())); //TODO: editar properties
+	    fmJoint.setLabelCmp(new EFieldLabel(_I18NFrmMCrudPostEdit.singJointPostB())); 
 	    fmJoint.setFieldCmp(jntJoint);
 	    fmJoint.setKey(_PropMCrudPost.SING_JOINT_POST_BLIST);
 

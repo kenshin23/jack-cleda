@@ -30,16 +30,16 @@ public class _I18NFrmMCrudPostEdit {
     return MessageBase.getInstance().locateValue(locale, RES_NAME, "innerPostC", new Object[]{});
   }
 
-  public static String jointAB() throws MessageException {
-    return MessageBase.getInstance().locateValue(locale, RES_NAME, "jointAB", new Object[]{});
-  }
-
-  public static String jointPostB() throws MessageException {
-    return MessageBase.getInstance().locateValue(locale, RES_NAME, "jointPostB", new Object[]{});
+  public static String multJointPostA() throws MessageException {
+    return MessageBase.getInstance().locateValue(locale, RES_NAME, "multJointPostA", new Object[]{});
   }
 
   public static String name() throws MessageException {
     return MessageBase.getInstance().locateValue(locale, RES_NAME, "name", new Object[]{});
+  }
+
+  public static String singJointPostB() throws MessageException {
+    return MessageBase.getInstance().locateValue(locale, RES_NAME, "singJointPostB", new Object[]{});
   }
 
   public static String title(Object arg0) throws MessageException {
