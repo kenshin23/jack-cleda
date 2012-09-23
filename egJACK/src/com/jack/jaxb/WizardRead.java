@@ -31,7 +31,7 @@ public class WizardRead {
     Wizard xmlWizard = (Wizard) unmarshaller.unmarshal(is);
     
     System.err.println("Nombre del Wizard: " + xmlWizard.getName());
-    System.err.println("Descripcion: " + xmlWizard.getDesc());
+    //System.err.println("Descripcion: " + xmlWizard.getDesc());
     
         
   }

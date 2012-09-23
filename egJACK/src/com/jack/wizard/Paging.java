@@ -24,7 +24,8 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;complexType>
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;attribute name="name" use="required" type="{http://www.w3.org/2001/XMLSchema}string" />
+ *       &lt;attribute name="opt1" use="required" type="{http://www.w3.org/2001/XMLSchema}string" />
+ *       &lt;attribute name="opt2" use="required" type="{http://www.w3.org/2001/XMLSchema}string" />
  *     &lt;/restriction>
  *   &lt;/complexContent>
  * &lt;/complexType>
@@ -34,34 +35,60 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "")
-@XmlRootElement(name = "validator")
-public class Validator {
+@XmlRootElement(name = "paging")
+public class Paging {
 
-    @XmlAttribute(name = "name", required = true)
-    protected String name;
+    @XmlAttribute(name = "opt1", required = true)
+    protected String opt1;
+    @XmlAttribute(name = "opt2", required = true)
+    protected String opt2;
 
     /**
-     * Gets the value of the name property.
+     * Gets the value of the opt1 property.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getName() {
-        return name;
+    public String getOpt1() {
+        return opt1;
     }
 
     /**
-     * Sets the value of the name property.
+     * Sets the value of the opt1 property.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setName(String value) {
-        this.name = value;
+    public void setOpt1(String value) {
+        this.opt1 = value;
+    }
+
+    /**
+     * Gets the value of the opt2 property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getOpt2() {
+        return opt2;
+    }
+
+    /**
+     * Sets the value of the opt2 property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setOpt2(String value) {
+        this.opt2 = value;
     }
 
 }
