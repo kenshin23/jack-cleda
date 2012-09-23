@@ -16,6 +16,7 @@ import com.minotauro.sandbox.gui.mcruda._I18NFrmMCrudAEdit;
 import com.minotauro.sandbox.gui.mcrudpost._I18NFrmMCrudPostEdit;
 import com.minotauro.sandbox.gui.mmultjointab.FrmMMultJointABList;
 import com.minotauro.sandbox.gui.mmultjointac.FrmMMultJointACList;
+import com.minotauro.sandbox.gui.mmultjointmposta.FrmMMultJointMPostAList;
 import com.minotauro.sandbox.model.MMultJointAB;
 import com.minotauro.sandbox.model.MMultJointAC;
 import com.minotauro.sandbox.model.MMultJointMPostA;
@@ -65,7 +66,7 @@ public class PnlWizardMPost4 extends PnlWizardBase {
         _PropMMultJointMPostA.CRUD_AREF);
     
     EJointButton jntJoint = new EJointButton(
-        FrmMMultJointABList.class, jointModel, parent);
+    		FrmMMultJointMPostAList.class, jointModel, parent);
 
     jntJoint.setEditMode(EnumEditMode.UPDATE);
 

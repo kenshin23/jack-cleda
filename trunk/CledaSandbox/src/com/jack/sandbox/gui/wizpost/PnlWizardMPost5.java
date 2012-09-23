@@ -18,6 +18,7 @@ import com.minotauro.sandbox.gui.mcruda._I18NFrmMCrudAEdit;
 import com.minotauro.sandbox.gui.mcrudpost._I18NFrmMCrudPostEdit;
 import com.minotauro.sandbox.gui.msingjointab.FrmMSingJointABList;
 import com.minotauro.sandbox.gui.msingjointac.FrmMSingJointACList;
+import com.minotauro.sandbox.gui.msingjointpostb.FrmMSingJointPostBList;
 import com.minotauro.sandbox.model.MCrudA;
 import com.minotauro.sandbox.model.MCrudPost;
 import com.minotauro.sandbox.model.MSingJointAB;
@@ -67,7 +68,7 @@ public class PnlWizardMPost5 extends PnlWizardBase {
         _PropMSingJointPostB.CRUD_BREF);
 
     EJointButton jntJoint = new EJointButton(
-        FrmMSingJointABList.class, jointModel, parent) {
+        FrmMSingJointPostBList.class, jointModel, parent) {
 
       protected String getInfoText() {
         List<MSingJointPostB> singJointPostBList =

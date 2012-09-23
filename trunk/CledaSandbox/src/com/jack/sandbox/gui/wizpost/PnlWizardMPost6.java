@@ -14,6 +14,7 @@ import com.minotauro.echo.grid.SectionModel;
 import com.minotauro.sandbox.gui.mcruda._I18NFrmMCrudAEdit;
 import com.minotauro.sandbox.gui.mcrudpost._I18NFrmMCrudPostEdit;
 import com.minotauro.sandbox.gui.minnerac.FrmMInnerAList;
+import com.minotauro.sandbox.gui.minnerpostc.FrmMInnerPostList;
 import com.minotauro.sandbox.model._PropMCrudA;
 import com.minotauro.sandbox.model._PropMCrudPost;
 import com.minotauro.sandbox.model._PropMInnerA;
@@ -48,7 +49,7 @@ public class PnlWizardMPost6 extends PnlWizardBase {
   protected FieldModel initInnerPostA() {
 
     EInnerButton innInner = new EInnerButton(
-        FrmMInnerAList.class,
+        FrmMInnerPostList.class,
         (MBase) data,
         _PropMCrudPost.INNER_POST_CLIST,
         _PropMInnerPost.CRUD_POST_REF,
