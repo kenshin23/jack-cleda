@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
@@ -27,8 +28,9 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element ref="{http://www.cledaWorkflow.org/workflow.xsd}transet" maxOccurs="unbounded"/>
+ *         &lt;element ref="{http://www.cledaWorkflow.org/workflow.xsd}validatorChoice" maxOccurs="2"/>
  *       &lt;/sequence>
+ *       &lt;attribute name="chained" use="required" type="{http://www.w3.org/2001/XMLSchema}boolean" />
  *     &lt;/restriction>
  *   &lt;/complexContent>
  * &lt;/complexType>
@@ -38,41 +40,59 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "transet"
+    "validatorChoice"
 })
-@XmlRootElement(name = "transets")
-public class Transets {
+@XmlRootElement(name = "chain")
+public class Chain {
 
     @XmlElement(required = true)
-    protected List<Transet> transet;
+    protected List<ValidatorChoice> validatorChoice;
+    @XmlAttribute(name = "chained", required = true)
+    protected boolean chained;
 
     /**
-     * Gets the value of the transet property.
+     * Gets the value of the validatorChoice property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the transet property.
+     * This is why there is not a <CODE>set</CODE> method for the validatorChoice property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getTranset().add(newItem);
+     *    getValidatorChoice().add(newItem);
      * </pre>
      * 
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link Transet }
+     * {@link ValidatorChoice }
      * 
      * 
      */
-    public List<Transet> getTranset() {
-        if (transet == null) {
-            transet = new ArrayList<Transet>();
+    public List<ValidatorChoice> getValidatorChoice() {
+        if (validatorChoice == null) {
+            validatorChoice = new ArrayList<ValidatorChoice>();
         }
-        return this.transet;
+        return this.validatorChoice;
+    }
+
+    /**
+     * Gets the value of the chained property.
+     * 
+     */
+    public boolean isChained() {
+        return chained;
+    }
+
+    /**
+     * Sets the value of the chained property.
+     * 
+     */
+    public void setChained(boolean value) {
+        this.chained = value;
     }
 
 }

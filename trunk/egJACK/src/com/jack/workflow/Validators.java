@@ -27,7 +27,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element ref="{http://www.cledaWorkflow.org/workflow.xsd}transet" maxOccurs="unbounded"/>
+ *         &lt;element ref="{http://www.cledaWorkflow.org/workflow.xsd}conditionalValidators" maxOccurs="unbounded"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -38,41 +38,41 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "transet"
+    "conditionalValidators"
 })
-@XmlRootElement(name = "transets")
-public class Transets {
+@XmlRootElement(name = "validators")
+public class Validators {
 
     @XmlElement(required = true)
-    protected List<Transet> transet;
+    protected List<ConditionalValidators> conditionalValidators;
 
     /**
-     * Gets the value of the transet property.
+     * Gets the value of the conditionalValidators property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the transet property.
+     * This is why there is not a <CODE>set</CODE> method for the conditionalValidators property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getTranset().add(newItem);
+     *    getConditionalValidators().add(newItem);
      * </pre>
      * 
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link Transet }
+     * {@link ConditionalValidators }
      * 
      * 
      */
-    public List<Transet> getTranset() {
-        if (transet == null) {
-            transet = new ArrayList<Transet>();
+    public List<ConditionalValidators> getConditionalValidators() {
+        if (conditionalValidators == null) {
+            conditionalValidators = new ArrayList<ConditionalValidators>();
         }
-        return this.transet;
+        return this.conditionalValidators;
     }
 
 }

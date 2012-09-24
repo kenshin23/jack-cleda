@@ -11,6 +11,7 @@ package com.jack.workflow;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
@@ -24,8 +25,10 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;complexType>
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;attribute name="opt1" use="required" type="{http://www.w3.org/2001/XMLSchema}string" />
- *       &lt;attribute name="opt2" use="required" type="{http://www.w3.org/2001/XMLSchema}string" />
+ *       &lt;sequence>
+ *         &lt;element ref="{http://www.cledaWorkflow.org/workflow.xsd}validatorChoice"/>
+ *       &lt;/sequence>
+ *       &lt;attribute name="chained" use="required" type="{http://www.w3.org/2001/XMLSchema}boolean" />
  *     &lt;/restriction>
  *   &lt;/complexContent>
  * &lt;/complexType>
@@ -34,61 +37,55 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "")
-@XmlRootElement(name = "paging")
-public class Paging {
+@XmlType(name = "", propOrder = {
+    "validatorChoice"
+})
+@XmlRootElement(name = "not")
+public class Not {
 
-    @XmlAttribute(name = "opt1", required = true)
-    protected String opt1;
-    @XmlAttribute(name = "opt2", required = true)
-    protected String opt2;
+    @XmlElement(required = true)
+    protected ValidatorChoice validatorChoice;
+    @XmlAttribute(name = "chained", required = true)
+    protected boolean chained;
 
     /**
-     * Gets the value of the opt1 property.
+     * Gets the value of the validatorChoice property.
      * 
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link ValidatorChoice }
      *     
      */
-    public String getOpt1() {
-        return opt1;
+    public ValidatorChoice getValidatorChoice() {
+        return validatorChoice;
     }
 
     /**
-     * Sets the value of the opt1 property.
+     * Sets the value of the validatorChoice property.
      * 
      * @param value
      *     allowed object is
-     *     {@link String }
+     *     {@link ValidatorChoice }
      *     
      */
-    public void setOpt1(String value) {
-        this.opt1 = value;
+    public void setValidatorChoice(ValidatorChoice value) {
+        this.validatorChoice = value;
     }
 
     /**
-     * Gets the value of the opt2 property.
+     * Gets the value of the chained property.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
      */
-    public String getOpt2() {
-        return opt2;
+    public boolean isChained() {
+        return chained;
     }
 
     /**
-     * Sets the value of the opt2 property.
+     * Sets the value of the chained property.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
      */
-    public void setOpt2(String value) {
-        this.opt2 = value;
+    public void setChained(boolean value) {
+        this.chained = value;
     }
 
 }
