@@ -30,8 +30,16 @@ public class _I18NFrmDMainSmsEdit {
     return MessageBase.getInstance().locateValue(locale, RES_NAME, "enterdoc", new Object[]{});
   }
 
+  public static String innerSmsC() throws MessageException {
+    return MessageBase.getInstance().locateValue(locale, RES_NAME, "innerSmsC", new Object[]{});
+  }
+
   public static String menu() throws MessageException {
     return MessageBase.getInstance().locateValue(locale, RES_NAME, "menu", new Object[]{});
+  }
+
+  public static String multJointSmsB() throws MessageException {
+    return MessageBase.getInstance().locateValue(locale, RES_NAME, "multJointSmsB", new Object[]{});
   }
 
   public static String name() throws MessageException {
@@ -48,6 +56,10 @@ public class _I18NFrmDMainSmsEdit {
 
   public static String register() throws MessageException {
     return MessageBase.getInstance().locateValue(locale, RES_NAME, "register", new Object[]{});
+  }
+
+  public static String singJointSmsB() throws MessageException {
+    return MessageBase.getInstance().locateValue(locale, RES_NAME, "singJointSmsB", new Object[]{});
   }
 
   public static String tipo() throws MessageException {

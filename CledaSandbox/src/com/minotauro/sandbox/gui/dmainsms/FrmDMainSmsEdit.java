@@ -15,25 +15,33 @@ import com.minotauro.echo.grid.FieldModel;
 import com.minotauro.echo.grid.SectionModel;
 import com.minotauro.echo.validator.impl.NotEmptyValidator;
 import com.minotauro.sandbox.gui.dinnerac.FrmDInnerAList;
+import com.minotauro.sandbox.gui.dinnersmsb.FrmDInnerSmsList;
+import com.minotauro.sandbox.gui.dmaina._I18NFrmDMainAEdit;
 import com.minotauro.sandbox.gui.dmultjointab.FrmDMultJointABList;
 import com.minotauro.sandbox.gui.dmultjointac.FrmDMultJointACList;
+import com.minotauro.sandbox.gui.dmultjointsmsb.FrmDMultJointSmsBList;
 import com.minotauro.sandbox.gui.dsingjointab.FrmDSingJointABList;
 import com.minotauro.sandbox.gui.dsingjointac.FrmDSingJointACList;
+import com.minotauro.sandbox.gui.dsingjointsmsb.FrmDSingJointSmsBList;
 import com.minotauro.sandbox.gui.mcruda._I18NFrmMCrudAEdit;
 import com.minotauro.sandbox.gui.mcrudpost._I18NFrmMCrudPostEdit;
 import com.minotauro.sandbox.gui.minnerpostc.FrmMInnerPostList;
 import com.minotauro.sandbox.gui.mmultjointmposta.FrmMMultJointMPostAList;
 import com.minotauro.sandbox.gui.msingjointpostb.FrmMSingJointPostBList;
+import com.minotauro.sandbox.model.DMainA;
 import com.minotauro.sandbox.model.DMainSms;
 import com.minotauro.sandbox.model.DMultJointAB;
 import com.minotauro.sandbox.model.DMultJointAC;
 import com.minotauro.sandbox.model.DMultJointSmsB;
 import com.minotauro.sandbox.model.DSingJointAB;
 import com.minotauro.sandbox.model.DSingJointAC;
+import com.minotauro.sandbox.model.DSingJointSmsB;
 import com.minotauro.sandbox.model.MCrudPost;
 import com.minotauro.sandbox.model.MMultJointMPostA;
 import com.minotauro.sandbox.model.MSingJointPostB;
 import com.minotauro.sandbox.model._PropDInnerA;
+import com.minotauro.sandbox.model._PropDInnerSms;
+import com.minotauro.sandbox.model._PropDMainA;
 import com.minotauro.sandbox.model._PropDMainSms;
 import com.minotauro.sandbox.model._PropDMultJointAB;
 import com.minotauro.sandbox.model._PropDMultJointAC;
@@ -56,7 +64,7 @@ public class FrmDMainSmsEdit extends FrmEditWrk {
 	protected FieldModel fmDesc;
 	protected FieldModel fmTipo;
 
-	protected FieldModel fmDMultJointSmsA;
+	protected FieldModel fmDMultJointSmsB;
 	protected FieldModel fmDSingJointSmsB;
 	protected FieldModel fmMInnerSmsC;
 
@@ -128,85 +136,101 @@ public class FrmDMainSmsEdit extends FrmEditWrk {
 		sectionModel.addChild(fmTipo);
 
 		// --------------------------------------------------------------------------------
-//		sectionModel.addChild(fmDMultJointSmsA = initMultjointSmsA());
-//		sectionModel.addChild(fmDSingJointSmsB = initSingJointSmsB());
-//		sectionModel.addChild(fmMInnerSmsC = initInnerPostC());
+		sectionModel.addChild(fmDMultJointSmsB = initMultjointSmsB());
+		sectionModel.addChild(fmDSingJointSmsB = initSingJointSmsB());
+		
+		sectionModel.addChild(fmMInnerSmsC = initInnerSmsC());
 
 	}
+		// --------------------------------------------------------------------------------
+	protected FieldModel initMultjointSmsB() {
 
-	@Override
-	protected DMainSms initMDocument() {
-		return new DMainSms();
-	}
+	    EJointModel jointModel = new EJointModel();
 
-	protected FieldModel initMultjointSmsA() {
+	    jointModel.init(
+	        data,
+	        DMultJointSmsB.class,
+	        _PropDMainSms.MULT_JOINT_SMS_BLIST,
+	        _PropDMultJointSmsB.MAIN_SMS_REF,
+	        _PropDMultJointSmsB.CRUD_BREF);
 
-		EJointModel jointModel = new EJointModel();
+	    EJointButton jntJoint = new EJointButton(
+	        FrmDMultJointSmsBList.class, jointModel, this);
 
-		jointModel.init(data, MMultJointMPostA.class,
-				_PropMCrudPost.MULT_JOINT_MPOST_ALIST,
-				_PropDMultJointSmsB.CRUD_BREF, _PropDMultJointAC.CRUD_CREF);
+	    jntJoint.setEditMode(editMode);
 
-		EJointButton jntJoint = new EJointButton(FrmDMultJointACList.class,
-				jointModel, this);
+	    FieldModel fmJoint = new FieldModel();
+	    fmJoint.setLabelCmp(new EFieldLabel(_I18NFrmDMainSmsEdit.multJointSmsB()));
+	    fmJoint.setFieldCmp(jntJoint);
+	    fmJoint.setKey(_PropDMainSms.SING_JOINT_SMS_BLIST);
 
-		jntJoint.setEditMode(editMode);
+	    return fmJoint;
+	  }
 
-		FieldModel fmJoint = new FieldModel();
-		fmJoint.setLabelCmp(new EFieldLabel(_I18NFrmMCrudPostEdit
-				.multJointPostA())); // TODO: editar properties
-		fmJoint.setFieldCmp(jntJoint);
-		fmJoint.setKey(_PropMCrudPost.MULT_JOINT_MPOST_ALIST);
+	  // --------------------------------------------------------------------------------
 
-		return fmJoint;
-	}
+	   protected FieldModel initSingJointSmsB() {
 
-	protected FieldModel initSingJointSmsB() {
+	    EJointModel jointModel = new EJointModel();
 
-		EJointModel jointModel = new EJointModel();
+	    jointModel.init(
+	        data,
+	        DSingJointSmsB.class,
+	        _PropDMainSms.SING_JOINT_SMS_BLIST,
+	        _PropDSingJointSmsB.MAIN_SMS_REF,
+	        _PropDSingJointSmsB.CRUD_BREF);
 
-		jointModel.init(data, MSingJointPostB.class,
-				_PropMCrudPost.SING_JOINT_POST_BLIST,
-				_PropDSingJointSmsB.CRUD_BREF, _PropDSingJointAC.CRUD_CREF);
+	    EJointButton jntJoint = new EJointButton(
+	        FrmDSingJointSmsBList.class, jointModel, this) {
 
-		EJointButton jntJoint = new EJointButton(FrmMSingJointPostBList.class,
-				jointModel, this) {
+	      protected String getInfoText() {
+	        List<DSingJointSmsB> singJointSmsBList =
+	            ((DMainSms) data).getSingJointSmsBList();
 
-			protected String getInfoText() {
-				List<MSingJointPostB> aux = ((MCrudPost) data)
-						.getSingJointPostBList();
+	        return !singJointSmsBList.isEmpty()
+	            ? singJointSmsBList.get(0).getCrudBRef().getName()
+	            : null;
+	      }
+	    };
 
-				return !aux.isEmpty() ? aux.get(0).getCrudBRef().getName()
-						+ " / " + aux.get(0).getName() // getname por defecto
-														// por ahora
-				: null;
-			}
-		};
+	    jntJoint.setEditMode(editMode);
 
-		jntJoint.setEditMode(editMode);
+	    FieldModel fmJoint = new FieldModel();
+	    fmJoint.setLabelCmp(new EFieldLabel(_I18NFrmDMainSmsEdit.singJointSmsB()));
+	    fmJoint.setFieldCmp(jntJoint);
+	    fmJoint.setKey(_PropDMainSms.MULT_JOINT_SMS_BLIST);
 
-		FieldModel fmJoint = new FieldModel();
-		fmJoint.setLabelCmp(new EFieldLabel(_I18NFrmMCrudPostEdit
-				.singJointPostB())); // TODO: editar properties
-		fmJoint.setFieldCmp(jntJoint);
-		fmJoint.setKey(_PropMCrudPost.SING_JOINT_POST_BLIST);
+	    return fmJoint;
+	  }
 
-		return fmJoint;
-	}
+	  // --------------------------------------------------------------------------------
 
-	protected FieldModel initInnerPostC() {
+	   protected FieldModel initInnerSmsC() {
 
-		EInnerButton innInner = new EInnerButton(FrmMInnerPostList.class, data,
-				_PropMCrudPost.INNER_POST_CLIST, _PropMInnerPost.CRUD_POST_REF,
-				this);
+	    EInnerButton innInner = new EInnerButton(
+	        FrmDInnerSmsList.class,
+	        data,
+	        _PropDMainSms.INNER_SMS_CLIST,
+	        _PropDInnerSms.MAIN_SMS_REF,
+	        this);
 
-		innInner.setEditMode(editMode);
+	    innInner.setEditMode(editMode);
 
-		FieldModel fmInner = new FieldModel();
-		fmInner.setLabelCmp(new EFieldLabel(_I18NFrmMCrudAEdit.innerAC()));
-		fmInner.setFieldCmp(innInner);
-		fmInner.setKey(_PropMCrudPost.INNER_POST_CLIST);
+	    FieldModel fmInner = new FieldModel();
+	    fmInner.setLabelCmp(new EFieldLabel(_I18NFrmDMainSmsEdit.innerSmsC()));
+	    fmInner.setFieldCmp(innInner);
+	    fmInner.setKey(_PropDMainSms.INNER_SMS_CLIST);
 
-		return fmInner;
-	}
+	    return fmInner;
+	  }
+
+	  // --------------------------------------------------------------------------------
+
+	  @Override
+	  protected DMainSms initMDocument() {
+	    return new DMainSms();
+	  }
+
+	
+	
 }
