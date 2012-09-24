@@ -4,7 +4,7 @@
 // ----------------------------------------
 
 
-import ${Package};
+package ${package};
 
 import com.minotauro.i18n.base.BaseI18NMain;
 
