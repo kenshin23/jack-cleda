@@ -16,71 +16,70 @@
 	[/#list]
 [/#macro]
 
-
 package ${package};
 
 import java.util.List;
+
 import nextapp.echo.app.Extent;
 import nextapp.echo.app.TextField;
 
 import com.minotauro.echo.beans.EFieldLabel;
 import com.minotauro.echo.beans.ETextAreaEx;
-import com.minotauro.echo.cleda.edit.FrmEditBase;
-import com.minotauro.echo.grid.FieldModel;
-import com.minotauro.echo.cleda.list.var.EJointButton;
+import com.minotauro.echo.cleda.edit.wrk.FrmEditWrk;
 import com.minotauro.echo.cleda.list.var.EInnerButton;
+import com.minotauro.echo.cleda.list.var.EJointButton;
 import com.minotauro.echo.cleda.list.var.EJointModel;
+import com.minotauro.echo.grid.FieldModel;
 import com.minotauro.echo.grid.SectionModel;
-import com.minotauro.echo.validator.impl.DuplicatedValidator;
-import com.minotauro.echo.validator.impl.NotEmptyValidator;
-import com.minotauro.echo.validator.impl.ConditionalValidator;
-import com.minotauro.echo.validator.impl.IntegerValidator;
+import com.minotauro.echo.validator.impl.*;
+import com.minotauro.sandbox.gui.dinnersmsb.FrmDInnerSmsList;
+import com.minotauro.sandbox.gui.dmultjointsmsb.FrmDMultJointSmsBList;
+import com.minotauro.sandbox.gui.dsingjointsmsb.FrmDSingJointSmsBList;
+import com.minotauro.sandbox.model.${modelName};
+import com.minotauro.sandbox.model.DMultJointSmsB;
+import com.minotauro.sandbox.model.DSingJointSmsB;
+import com.minotauro.sandbox.model._PropDInnerSms;
+import com.minotauro.sandbox.model._Prop${modelName};
+import com.minotauro.sandbox.model._PropDMultJointSmsB;
+import com.minotauro.sandbox.model._PropDSingJointSmsB;
 
-import com.minotauro.sandbox.gui.*;
-import com.minotauro.sandbox.gui.minnerpostc.FrmMInnerPostList;
-import com.minotauro.sandbox.gui.mmultjointmposta.FrmMMultJointMPostAList;
-import com.minotauro.sandbox.gui.msingjointpostb.FrmMSingJointPostBList;
-import com.minotauro.sandbox.model.*;
-
-//TODO:plantilla agregar dinamicamente imports.
-
-/*import ${modelPackage}.MMultJointMPostA;
-import ${modelPackage}._Prop${modelName};
-import ${modelPackage}._PropMMultJointMPostA;
-import ${modelPackage}.${modelName};*/
-
-
-
-public class Frm${modelName}Edit extends FrmEditBase {
+/**
+ * @author E.G. Jack
+ * 
+ */
+public class FrmDMainSmsEdit extends FrmEditWrk {
 
 [#list attributes.att as currentAtt]
   protected FieldModel fm${currentAtt.name?cap_first};
 [/#list]
-  
 [#list attributes.list as currentlist]
   protected FieldModel fm${currentlist.relationModelName};
 [/#list]
 
-  // --------------------------------------------------------------------------------
+	// --------------------------------------------------------------------------------
 
-  public FrmMCrud${name?cap_first}Edit() {
-    // Empty
-  }
+	public Frm${modelName}Edit() {
+		super("ID", "sms-net", "enterdoc");
+		
+		//TODO: buscar que representan estos parametros
+	}
 
-  // --------------------------------------------------------------------------------
+	// --------------------------------------------------------------------------------
 
-  @Override
-  protected void initGUI() {
-    String name = ((${modelName}) data).getName(); 
-    setTitle(_I18NFrm${modelName}Edit.title(name == null ? "-" : name)); 
+	protected void initGUI() {
+		String name = ((${modelName}) data).getName();
+		setTitle(_I18NFrm${modelName}Edit.title(name == null ? "-" : name));
 
-    // --------------------------------------------------------------------------------
+		setW(new Extent(450));
+		setH(new Extent(500));
 
-    SectionModel sectionModel = formModel.initSingleSectionModel();
+		// --------------------------------------------------------------------------------
 
-    // --------------------------------------------------------------------------------
+		SectionModel sectionModel = formModel.initSingleSectionModel();
 
-[#list attributes.att as currentAtt]
+		// --------------------------------------------------------------------------------
+
+		[#list attributes.att as currentAtt]
 
 	${currentAtt.editFieldType} txt${currentAtt.name?cap_first} = new ${currentAtt.editFieldType}();
     txt${currentAtt.name?cap_first}.setWidth(new Extent(204));
@@ -195,6 +194,13 @@ public class Frm${modelName}Edit extends FrmEditBase {
   
   [/#if]
   
-[/#list]    	  
+[/#list]
+
+	// --------------------------------------------------------------------------------
+
+	@Override
+	protected DMainSms initMDocument() {
+		return new DMainSms();
+	}
+
 }
-	

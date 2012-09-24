@@ -29,12 +29,12 @@ import com.minotauro.base.model.MBase;
 @Entity
 @Table(name = "t_tst_crud_${name}")
 @Proxy(lazy = false)
-public class MCrudPost extends MBase{
+public class ${modelName}} extends MBase{
 
-	
-	  private String name;
-	  private String desc;
-	  private String body;
+
+[#list attributes.att as currentAtt]
+  private ${currentAtt.type?cap_first} ${currentAtt.name};
+[/#list]
 
 	  // --------------------------------------------------------------------------------
 
