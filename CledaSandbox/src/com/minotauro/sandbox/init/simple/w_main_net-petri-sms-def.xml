@@ -73,7 +73,7 @@
 			<doc-section-state name="cuerpo" state="editable" />
 			
 			<trans name="inscribir">
-				<meta-data key="java.echo.doc.i18n.key" val="deny1st" />
+				<meta-data key="java.echo.doc.i18n.key" val="register" />
 
 				<doc-section-state name="cuerpo" state="dovalidate" />
 
@@ -81,7 +81,7 @@
 				<pos-place name="p2" />
 			</trans>
 			<trans name="consultar">
-				<meta-data key="java.echo.doc.i18n.key" val="accept1st" />
+				<meta-data key="java.echo.doc.i18n.key" val="query" />
 
 				<doc-section-state name="cuerpo" state="novalidate" />
 
@@ -89,7 +89,7 @@
 				<pos-place name="p3" />
 			</trans>
 			<trans name="suspender">
-				<meta-data key="java.echo.doc.i18n.key" val="saveTmp" />
+				<meta-data key="java.echo.doc.i18n.key" val="unregister" />
 
 				<doc-section-state name="cuerpo" state="novalidate" />
 
@@ -118,7 +118,7 @@
 			<doc-section-state name="cuerpo" state="readonly" />
 
 			<trans name="consultando">
-				<meta-data key="java.echo.doc.i18n.key" val="deny2nd" />
+				<meta-data key="java.echo.doc.i18n.key" val="queryCommit" />
 
 				<pre-place name="p3" />
 				<pos-place name="p5" />
