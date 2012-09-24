@@ -16,7 +16,7 @@
 [/#macro]
 
 
-package com.minotauro.sandbox.gui.mcrud${name};
+package com.minotauro.sandbox.gui.mcrudpost;
 
 import java.util.List;
 import nextapp.echo.app.Extent;
@@ -43,26 +43,23 @@ import com.minotauro.sandbox.model.*;
 
 //TODO:plantilla agregar dinamicamente imports.
 
-/*import ${modelPackage}.MMultJointMPostA;
-import ${modelPackage}._Prop${modelName};
-import ${modelPackage}._PropMMultJointMPostA;
-import ${modelPackage}.${modelName};*/
 
 
 
-public class Frm${modelName}Edit extends FrmEditBase {
 
-[#list attributes.att as currentAtt]
+public class PnlWizard${modelName}${num} extends PnlWizardBase {
+
+[#list att as currentAtt]
   protected FieldModel fm${currentAtt.name?cap_first};
 [/#list]
   
-[#list attributes.list as currentlist]
+[#list list as currentlist]
   protected FieldModel fm${currentlist.relationModelName};
 [/#list]
 
   // --------------------------------------------------------------------------------
 
-  public FrmMCrud${name?cap_first}Edit() {
+  public Pnl${modelName}Edit() {
     // Empty
   }
 
@@ -79,7 +76,7 @@ public class Frm${modelName}Edit extends FrmEditBase {
 
     // --------------------------------------------------------------------------------
 
-[#list attributes.att as currentAtt]
+[#list att as currentAtt]
 
 	${currentAtt.editFieldType} txt${currentAtt.name?cap_first} = new ${currentAtt.editFieldType}();
     txt${currentAtt.name?cap_first}.setWidth(new Extent(204));
@@ -97,12 +94,12 @@ public class Frm${modelName}Edit extends FrmEditBase {
 	
 [/#list]
 
-[#list attributes.list as currentlist]
+[#list list as currentlist]
 	sectionModel.addChild(fm${currentlist.relationModelName} = init${currentlist.propRelName}());
 [/#list]
 	
 	}
-[#list attributes.list as currentlist]
+[#list list as currentlist]
   [#if currentlist.type=="MultJoint"]
   protected FieldModel init${currentlist.propRelName}() {
 

@@ -57,32 +57,22 @@ public class Crudgenerator extends URLTemplateLoader {
 			System.out.println("wizard");
 			
 			Wizard wizInput = leerWiz(args[0]);
-	
-			Configuration configuration = new Configuration();
-			configuration.setObjectWrapper(new BeansWrapper());
-			configuration.setTemplateLoader(this);
-	
-			Configuration configuration2 = new Configuration();
-			configuration2.setObjectWrapper(new BeansWrapper());
-			configuration2.setTemplateLoader(this);
-	
-			Configuration configuration3 = new Configuration();
-			configuration3.setObjectWrapper(new BeansWrapper());
-			configuration3.setTemplateLoader(this);
+
+			for(int i=0;i<wizInput.getAttributes().getGroup().size();i++){
+				
+				Configuration configuration = new Configuration();
+				configuration.setObjectWrapper(new BeansWrapper());
+				configuration.setTemplateLoader(this);
+		
 			
-			FileWriter fileWriter = new FileWriter(args[1]+wizInput.getPackage().replace('.', '/')+"/_CledaI18N.java");
-			FileWriter fileWriter2 = new FileWriter(args[1]+wizInput.getPackage().replace('.', '/')+"/Frm"+wizInput.getModelName()+"Edit.java");
-			FileWriter fileWriter3 = new FileWriter(args[1]+wizInput.getPackage().replace('.', '/')+"/Frm"+wizInput.getModelName()+"List.java");
-			
-			
-			configuration.getTemplate("/com/jack/templates/CledaI18N-template.ftl").process(wizInput, fileWriter);
-			configuration2.getTemplate("/com/jack/templates/FrmCrudEdit.ftl").process(wizInput, fileWriter2);
-			//configuration3.getTemplate("/com/jack/templates/FrmCrudList.ftl").process(wizInput, fileWriter3);
-	
-			fileWriter.close();
-			fileWriter2.close();
-			fileWriter3.close();
-			
+				FileWriter fileWriter = new FileWriter("hola"+i+".java");
+				//FileWriter fileWriter = new FileWriter(args[1]+wizInput.getPackage().replace('.', '/')+"/Frm"+wizInput.getModelName()+"Edit.java");
+				
+				configuration.getTemplate("/com/jack/templates/wiz.ftl").process(wizInput.getAttributes().getGroup().get(i), fileWriter);
+		
+				fileWriter.close();
+			}
+					
 		}
 	}
 
@@ -120,7 +110,7 @@ public class Crudgenerator extends URLTemplateLoader {
 		// Inicializar JAXB y leer el XML
 		// ----------------------------------------
 		
-		JAXBContext jc = JAXBContext.newInstance(com.jack.crud.ObjectFactory.class.getPackage().getName());
+		JAXBContext jc = JAXBContext.newInstance(com.jack.wizard.ObjectFactory.class.getPackage().getName());
 	
 		Unmarshaller unmarshaller = jc.createUnmarshaller();
 	
