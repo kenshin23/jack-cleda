@@ -6,7 +6,7 @@
 	<description>
 		Este crud define un post en un blog.
 	</description>
-	
+
 	<!-- **************************************** -->
 	<!-- Lista de Atributos del CRUD POST -->
 	<!-- **************************************** -->
@@ -24,23 +24,23 @@
 		</att>
 		<att name="desc" type="string" visibleOnList="true"
 			editabletiOnList="true" filterByThis="true" editFieldType="ETextAreaEx">
-			<validatorChoice bandera="false">
+			<validatorChoice isConditionalVal="true">
 				<validators>
 					<conditionalValidators type="chain">
 						<chain>
-							<validatorChoice bandera="true">
+							<validatorChoice isConditionalVal="false">
 								<validator name="NotEmptyValidator" />
 							</validatorChoice>
 
-							<validatorChoice bandera="false">
+							<validatorChoice isConditionalVal="true">
 								<validators>
 									<conditionalValidators type="chain">
 										<chain>
-											<validatorChoice bandera="true">
+											<validatorChoice isConditionalVal="false">
 												<validator name="NotEmptyValidator" />
 											</validatorChoice>
 
-											<validatorChoice bandera="true">
+											<validatorChoice isConditionalVal="false">
 												<validator name="IntegerValidator" />
 											</validatorChoice>
 										</chain>
@@ -53,12 +53,12 @@
 			</validatorChoice>
 			<!-- ... -->
 		</att>
-		
-		
-		
-	<!-- **************************************** -->
-	<!-- RElaciones Joints, Inners -->
-	<!-- **************************************** -->
+
+
+
+		<!-- **************************************** -->
+		<!-- RElaciones Joints, Inners -->
+		<!-- **************************************** -->
 
 
 		<list targetModelName="MCrudA" relationModelName="MMultJointMPostA"

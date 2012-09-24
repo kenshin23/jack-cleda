@@ -83,7 +83,7 @@
 				<xs:element ref="validator" />
 				<xs:element ref="validators" />
 			</xs:all>
-			<xs:attribute name="bandera" type="xs:boolean" use="required" />
+			<xs:attribute name="isConditionalVal" type="xs:boolean" use="required" />
 		</xs:complexType>
 	</xs:element>
 

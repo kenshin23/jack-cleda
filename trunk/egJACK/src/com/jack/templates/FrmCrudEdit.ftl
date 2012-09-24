@@ -1,10 +1,10 @@
 [#ftl]	
 [#macro recurseValidator validatorChoice currentAttribute]
 	[#list validatorChoice as currentValidatorChoice]
-		[#if currentValidatorChoice.bandera==true]
+		[#if currentValidatorChoice.isConditionalVal==false]
    		.add(new ${currentValidatorChoice.validator.name}(_I18NFrmMCrudPostEdit.${currentAttribute.name}(), txt${currentAttribute.name?cap_first}))
 		[/#if]
-		[#if currentValidatorChoice.bandera==false]	
+		[#if currentValidatorChoice.isConditionalVal==true]	
 			.add(ConditionalValidator		
 			[#list currentValidatorChoice.validators.conditionalValidators as currentCondValidator]
 				.${currentCondValidator.type?upper_case}(true)
