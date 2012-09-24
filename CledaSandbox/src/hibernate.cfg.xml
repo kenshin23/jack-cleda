@@ -101,6 +101,9 @@
 		<mapping class="com.minotauro.sandbox.model.DMainA" />
 		<mapping class="com.minotauro.sandbox.model.DMainSms" />
 		<mapping class="com.minotauro.sandbox.model.DInnerA" />
+		<mapping class="com.minotauro.sandbox.model.DInnerSms" />
+		<mapping class="com.minotauro.sandbox.model.DMultJointSmsB" />
+		<mapping class="com.minotauro.sandbox.model.DSingJointSmsB" />
 		<mapping class="com.minotauro.sandbox.model.DMultJointAB" />
 		<mapping class="com.minotauro.sandbox.model.DMultJointAC" />
 		<mapping class="com.minotauro.sandbox.model.DSingJointAB" />
