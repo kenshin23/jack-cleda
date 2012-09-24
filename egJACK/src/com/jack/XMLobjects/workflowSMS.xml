@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<workflow xmlns="http://www.cledaWorkflow.org/workflow.xsd"
+	package="com.minotauro.sandbox.gui.dmainsms" name="mainSms" modelName="DMainSms"
+	modelPackage="com.minotauro.sandbox.model">
+	<!-- **************************************** -->
+	<!-- Lista de Atributos del documento del Workflow -->
+	<!-- **************************************** -->
+	<attributes>
+		<!-- ... -->
+		<att name="name" type="string" visibleOnList="true"
+			editabletiOnList="true" filterByThis="true" editFieldType="TextField">
+			<validatorChoice bandera="true">
+				<validator name="NotEmptyValidator" />
+			</validatorChoice>
+		</att>
+		<att name="desc" type="string" visibleOnList="true"
+			editabletiOnList="true" filterByThis="true" editFieldType="TextField">
+			<validatorChoice bandera="true">
+				<validator name="NotEmptyValidator" />
+			</validatorChoice>
+		</att>
+		<att name="tipo" type="string" visibleOnList="true"
+			editabletiOnList="true" filterByThis="true" editFieldType="TextField">
+			<validatorChoice bandera="true">
+				<validator name="NotEmptyValidator" />
+			</validatorChoice>
+		</att>
+
+		<!-- ... -->
+
+		<!-- Relaciones -->
+		<list targetModelName="MCrudB" relationModelName="DMultJointSmsA"
+			relModGetter="getSingJointSmsBList" relationFirstAtt="MainSmsRef"
+			relationSecAtt="CrudBRef" type="MultJoint" edit="false"
+			listGuiPackage="com.minotauro.sandbox.gui.dmultjointmsmsb"
+			relationAttName="MULT_JOINT_SMS_BLIST" firstRelAttName="MAIN_SMS_REF"
+			secondRelAttName="CRUD_BREF" propRelName="multJointSmsA" />
+			
+		<list targetModelName="MCrudB" relationModelName="dSingJointSmsB"
+			relModGetter="getSingJointSmsBList" relationFirstAtt="MainSmsRef"
+			relationSecAtt="CrudBRef" type="SingJoint" edit="true"
+			listGuiPackage="com.minotauro.sandbox.gui.dsingjointsmsb"
+			relationAttName="SING_JOINT_SMS_BLIST" firstRelAttName="MAIN_SMS_REF"
+			secondRelAttName="CRUD_BREF" propRelName="singJointSmsB" />
+			
+		<list targetModelName="MCrudC" relationModelName="MInnerPost"
+			relModGetter="getInnerSmsCList" relationFirstAtt="MainSmsRef"
+			relationSecAtt="CrudCRef" type="Inner" edit="false"
+			listGuiPackage="com.minotauro.sandbox.gui.dinnersmsc"
+			relationAttName="INNER_SMS_CLIST" firstRelAttName="MAIN_SMS_REF"
+			secondRelAttName="INNER_SMS_CLIST" propRelName="innerPostC" />
+		<!-- ... -->
+
+	</attributes>
+
+
+
+	<!-- **************************************** -->
+	<!-- Opciones de Menú -->
+	<!-- cHECk THISSSSS!!! -->
+	<!-- **************************************** -->
+
+	<!-- <menuEntry name="nombreEntradaMenu" type="TipoMenu" group="nombreGrupoMenu"/> -->
+
+
+	<!-- **************************************** -->
+	<!-- Configuración del Formulario de edición -->
+	<!-- **************************************** -->
+	<editForm title="tituloFormulario" width="200" height="200">
+
+	</editForm>
+
+
+	<!-- **************************************** -->
+	<!-- Configuración del Formulario de Listado -->
+	<!-- **************************************** -->
+	<listForm title="tituloFormulario" width="100" height="100">
+		<!-- Columnas del form -->
+		<column name="nombreColumna1" width="100" targetField="CampoObjetivoDelCrud" />
+		<column name="nombreColumna2" width="100" targetField="CampoObjetivoDelCrud" />
+		<column name="nombreColumna3" width="100" targetField="CampoObjetivoDelCrud" />
+		<!-- ... -->
+
+		<!-- Opciones de paginado: REVISAR posibilidades!!!**** -->
+		<paging opt1="" opt2=""></paging>
+	</listForm>
+
+	<!-- **************************************** -->
+	<!-- Configuracion de Perfiles -->
+	<!-- **************************************** -->
+
+	<profile name="nombrePerfil">
+		<create status="bool" />
+		<update status="bool" />
+		<delete status="bool" />
+		<view status="bool" />
+	</profile>
+
+	<profile name="nombrePerfil2">
+		<create status="bool" />
+		<update status="bool" />
+		<delete status="bool" />
+		<view status="bool" />
+	</profile>
+
+	<!-- **************************************** -->
+	<!-- DEfinicion de la red de petri -->
+	<!-- **************************************** -->
+	<petrinet name="nombreRed" doc-type="NombreDelTipoDocumento">
+
+		<places>
+			<place name="nombreLugar1" />
+			<place name="nombreLugar2" />
+			<place name="nombreLugar3" />
+			<!-- ... -->
+		</places>
+
+		<states>
+			<!-- El docstate es el atributo q especifica si un campo es visible en 
+				este estado -->
+			<state name="nombreEstado1">
+				<docstate field="CampoObjetivo1" state="estado"></docstate>
+				<docstate field="CampoObjetivo2" state="estado"></docstate>
+				<docstate field="CampoObjetivo3" state="estado"></docstate>
+				<!-- ... -->
+			</state>
+			<state name="nombreEstado2">
+				<docstate field="CampoObjetivo1" state="estado"></docstate>
+				<docstate field="CampoObjetivo2" state="estado"></docstate>
+				<docstate field="CampoObjetivo3" state="estado"></docstate>
+				<!-- ... -->
+			</state>
+			<state name="nombreEstado3">
+				<docstate field="CampoObjetivo1" state="estado"></docstate>
+				<docstate field="CampoObjetivo2" state="estado"></docstate>
+				<docstate field="CampoObjetivo3" state="estado"></docstate>
+				<!-- ... -->
+			</state>
+			<!-- ... -->
+		</states>
+
+
+
+		<!-- **************************************** -->
+		<!-- Definicion de ROLES para el workflow, revisar si tiene mucho sentido 
+			esto, -->
+		<!-- porque los roles se pueden crear desde el editor de Perfiles -->
+		<!-- **************************************** -->
+		<roles>
+			<role name="nombreRol1" />
+			<role name="nombreRol2" />
+			<role name="nombreRol3" />
+			<!-- ... -->
+		</roles>
+
+		<transets>
+			<transet name="nombreTranset1" role="NombreRolAsociado"
+				workname="NombreTrabajo">
+				<transitions>
+					<transition name="nombreTransicion1" preplace="PosicionPrevia"
+						postplace="posicionPosterior" />
+					<transition name="nombreTransicion2" preplace="PosicionPrevia"
+						postplace="posicionPosterior" />
+					<transition name="nombreTransicion3" preplace="PosicionPrevia"
+						postplace="posicionPosterior" />
+					<!-- ... -->
+				</transitions>
+			</transet>
+			<transet name="nombreTranset2" role="NombreRolAsociado"
+				workname="NombreTrabajo">
+				<transitions>
+					<transition name="nombreTransicion1" preplace="PosicionPrevia"
+						postplace="posicionPosterior" />
+					<transition name="nombreTransicion2" preplace="PosicionPrevia"
+						postplace="posicionPosterior" />
+					<transition name="nombreTransicion3" preplace="PosicionPrevia"
+						postplace="posicionPosterior" />
+					<!-- ... -->
+				</transitions>
+			</transet>
+		</transets>
+	</petrinet>
+
+
+</workflow>
