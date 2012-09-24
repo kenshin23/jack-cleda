@@ -66,7 +66,7 @@
 			relationSecAtt="CrudARef" type="MultJoint" edit="false"
 			listGuiPackage="com.minotauro.sandbox.gui.mmultjointmposta"
 			relationAttName="MULT_JOINT_MPOST_ALIST" firstRelAttName="CRUD_POST_REF"
-			secondRelAttName="CRUD_AREF" propRelName="multJointPostB" />
+			secondRelAttName="CRUD_AREF" propRelName="multJointPostA" />
 		<list targetModelName="MCrudB" relationModelName="MSingJointPostB"
 			relModGetter="getSingJointPostBList" relationFirstAtt="CrudPostRef"
 			relationSecAtt="CrudBRef" type="SingJoint" edit="true"
