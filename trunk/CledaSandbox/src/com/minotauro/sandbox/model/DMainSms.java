@@ -29,7 +29,14 @@ public class DMainSms extends MDocument {
   private String name;
   private String desc;
   private String tipo;
-   // --------------------------------------------------------------------------------
+  
+  // --------------------------------------------------------------------------------
+  private List<DMultJointSmsB> multJointSmsBList = new ArrayList<DMultJointSmsB>();
+ 
+  private List<DSingJointSmsB> singJointSmsBList = new ArrayList<DSingJointSmsB>();
+
+  private List<DInnerSms> innerSmsCList = new ArrayList<DInnerSms>();
+  //--------------------------------------------------------------------------------
 
   public DMainSms() {
     // Empty
@@ -68,7 +75,45 @@ public class DMainSms extends MDocument {
   }
   
   //--------------------------------------------------------------------------------
+  @OneToMany(mappedBy = _PropDMultJointSmsB.MAIN_SMS_REF, orphanRemoval = true)
+  @LazyCollection(LazyCollectionOption.TRUE)
+  @Cascade({CascadeType.ALL})
+  public List<DMultJointSmsB> getMultJointSmsBList() {
+    return multJointSmsBList;
+  }
+
+  public void setMultJointSmsBList(List<DMultJointSmsB> multJointSmsBList) {
+    this.multJointSmsBList = multJointSmsBList;
+  }
+
+  // --------------------------------------------------------------------------------
+
   
+  @OneToMany(mappedBy = _PropDSingJointSmsB.MAIN_SMS_REF, orphanRemoval = true)
+  @LazyCollection(LazyCollectionOption.TRUE)
+  @Cascade({CascadeType.ALL})
+  public List<DSingJointSmsB> getSingJointSmsBList() {
+    return singJointSmsBList;
+  }
+
+  public void setSingJointSmsBList(List<DSingJointSmsB> singJointSmsBList) {
+    this.singJointSmsBList = singJointSmsBList;
+  }
+
+  // --------------------------------------------------------------------------------
+
+  @OneToMany(mappedBy = _PropDInnerSms.MAIN_SMS_REF, orphanRemoval = true)
+  @LazyCollection(LazyCollectionOption.TRUE)
+  @Cascade({CascadeType.ALL})
+  @OrderBy(clause = _PropDInnerSms.NAME)
+  public List<DInnerSms> getInnerSmsCList() {
+    return innerSmsCList;
+  }
+
+  public void setInnerSmsCList(List<DInnerSms> innerSmsCList) {
+    this.innerSmsCList = innerSmsCList;
+  }
+
   
  }
 
