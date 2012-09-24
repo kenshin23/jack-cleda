@@ -27,10 +27,10 @@ import com.minotauro.sandbox.model.*;
 
 //TODO:plantilla agregar dinamicamente imports.
 
-import com.minotauro.sandbox.model.MMultJointMPostA;
+/*import com.minotauro.sandbox.model.MMultJointMPostA;
 import com.minotauro.sandbox.model._PropMCrudPost;
 import com.minotauro.sandbox.model._PropMMultJointMPostA;
-import com.minotauro.sandbox.model.MCrudPost;
+import com.minotauro.sandbox.model.MCrudPost;*/
 
 
 
@@ -101,12 +101,12 @@ public class FrmMCrudPostEdit extends FrmEditBase {
 	sectionModel.addChild(fmDesc);
 	
 
-	sectionModel.addChild(fmMMultJointMPostA = initjointAB());
-	sectionModel.addChild(fmMSingJointPostB = initjointPostB());
+	sectionModel.addChild(fmMMultJointMPostA = initmultJointPostB());
+	sectionModel.addChild(fmMSingJointPostB = initsingJointPostB());
 	sectionModel.addChild(fmMInnerPost = initinnerPostC());
 	
 	}
-  protected FieldModel initjointAB() {
+  protected FieldModel initmultJointPostB() {
 
 	    EJointModel jointModel = new EJointModel();
 
@@ -124,7 +124,7 @@ public class FrmMCrudPostEdit extends FrmEditBase {
 	    jntJoint.setEditMode(editMode);
 
 	    FieldModel fmJoint = new FieldModel();
-	    fmJoint.setLabelCmp(new EFieldLabel(_I18NFrmMCrudPostEdit.multJointPostA())); 
+	    fmJoint.setLabelCmp(new EFieldLabel(_I18NFrmMCrudPostEdit.multJointPostB())); //TODO: editar properties
 	    fmJoint.setFieldCmp(jntJoint);
 	    fmJoint.setKey(_PropMCrudPost.MULT_JOINT_MPOST_ALIST);
 
@@ -134,7 +134,7 @@ public class FrmMCrudPostEdit extends FrmEditBase {
   
   
   
-  protected FieldModel initjointPostB() {
+  protected FieldModel initsingJointPostB() {
 
 	    EJointModel jointModel = new EJointModel();
 		
@@ -165,7 +165,7 @@ public class FrmMCrudPostEdit extends FrmEditBase {
 	    jntJoint.setEditMode(editMode);
 
 	    FieldModel fmJoint = new FieldModel();		
-	    fmJoint.setLabelCmp(new EFieldLabel(_I18NFrmMCrudPostEdit.singJointPostB())); 
+	    fmJoint.setLabelCmp(new EFieldLabel(_I18NFrmMCrudPostEdit.singJointPostB())); //TODO: editar properties
 	    fmJoint.setFieldCmp(jntJoint);
 	    fmJoint.setKey(_PropMCrudPost.SING_JOINT_POST_BLIST);
 
