@@ -128,9 +128,9 @@ public class FrmDMainSmsEdit extends FrmEditWrk {
 		sectionModel.addChild(fmTipo);
 
 		// --------------------------------------------------------------------------------
-		sectionModel.addChild(fmDMultJointSmsA = initMultjointSmsA());
-		sectionModel.addChild(fmDSingJointSmsB = initSingJointSmsB());
-		sectionModel.addChild(fmMInnerSmsC = initInnerPostC());
+//		sectionModel.addChild(fmDMultJointSmsA = initMultjointSmsA());
+//		sectionModel.addChild(fmDSingJointSmsB = initSingJointSmsB());
+//		sectionModel.addChild(fmMInnerSmsC = initInnerPostC());
 
 	}
 
