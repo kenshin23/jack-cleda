@@ -31,5 +31,8 @@ public class _CledaI18N extends BaseI18NMain {
     m.prop(DMultJointAC.class);
     m.prop(DUserReg.class);
     m.prop(DUserRegProf.class);
+    m.prop(DMultJointSmsB.class);
+    m.prop(DSingJointSmsB.class);
+    m.prop(DInnerSms.class);
   }
 }
