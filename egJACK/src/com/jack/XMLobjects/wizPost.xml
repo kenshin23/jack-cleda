@@ -12,7 +12,7 @@
 	<!-- **************************************** -->
 	<attributes>
 	    
-	    <group modelName="MCrudPost" num="1"> 
+	    <group package="com.jack.sandbox.gui.wizpost" modelName="MCrudPost" num="1"> 
 	    
 			<att name="name" type="string" visibleOnList="true"
 				editabletiOnList="true" filterByThis="true" editFieldType="TextField">
@@ -30,7 +30,7 @@
 			
 		</group>
 			
-	    <group modelName="MCrudPost" num="2">
+	    <group package="com.jack.sandbox.gui.wizpost" modelName="MCrudPost" num="2" >
 	        
 			<att name="desc" type="string" visibleOnList="true"
 				editabletiOnList="true" filterByThis="true" editFieldType="ETextAreaEx">
@@ -68,21 +68,21 @@
 	<!-- **************************************** -->
 	<!-- RElaciones Joints, Inners -->
 	<!-- **************************************** -->
-		<group modelName="MCrudPost" num="3">
+		<group package="com.jack.sandbox.gui.wizpost" modelName="MCrudPost" num="3">
 			<list targetModelName="MCrudA" relationModelName="MMultJointMPostA"
 				relModGetter="getSingJointPostAList" relationFirstAtt="CrudPostRef"
 				relationSecAtt="CrudARef" type="MultJoint" edit="false"
 				listGuiPackage="com.minotauro.sandbox.gui.mmultjointmposta"
 				relationAttName="MULT_JOINT_MPOST_ALIST" firstRelAttName="CRUD_POST_REF"
-				secondRelAttName="CRUD_AREF" propRelName="jointAB" />
+				secondRelAttName="CRUD_AREF" propRelName="multJointPostA" />
 			<list targetModelName="MCrudB" relationModelName="MSingJointPostB"
 				relModGetter="getSingJointPostBList" relationFirstAtt="CrudPostRef"
 				relationSecAtt="CrudBRef" type="SingJoint" edit="true"
 				listGuiPackage="com.minotauro.sandbox.gui.msingjointmpostb"
 				relationAttName="SING_JOINT_POST_BLIST" firstRelAttName="CRUD_POST_REF"
-				secondRelAttName="CRUD_BREF" propRelName="jointPostB" />
+				secondRelAttName="CRUD_BREF" propRelName="singJointPostB" />
 		</group>
-		<group modelName="MCrudPost" num="4">	
+		<group package="com.jack.sandbox.gui.wizpost" modelName="MCrudPost" num="4">	
 			<list targetModelName="MCrudC" relationModelName="MInnerPost"
 				relModGetter="getInnerPostCList" relationFirstAtt="CrudPostRef"
 				relationSecAtt="CrudCRef" type="Inner" edit="false"

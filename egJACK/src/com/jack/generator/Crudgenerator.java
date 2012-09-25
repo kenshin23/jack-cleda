@@ -57,22 +57,32 @@ public class Crudgenerator extends URLTemplateLoader {
 			System.out.println("wizard");
 			
 			Wizard wizInput = leerWiz(args[0]);
-
-			for(int i=0;i<wizInput.getAttributes().getGroup().size();i++){
-				
-				Configuration configuration = new Configuration();
-				configuration.setObjectWrapper(new BeansWrapper());
-				configuration.setTemplateLoader(this);
-		
 			
-				FileWriter fileWriter = new FileWriter("hola"+i+".java");
+			Configuration configuration = new Configuration();
+			configuration.setObjectWrapper(new BeansWrapper());
+			configuration.setTemplateLoader(this);
+			
+			FileWriter fileWriter;
+			
+			for(int i=0;i<wizInput.getAttributes().getGroup().size();i++){
+							
+				fileWriter = new FileWriter(args[1]+wizInput.getPackage().replace('.', '/')+"/PnlWizard"+wizInput.getModelName()+(i+1)+".java");
 				//FileWriter fileWriter = new FileWriter(args[1]+wizInput.getPackage().replace('.', '/')+"/Frm"+wizInput.getModelName()+"Edit.java");
 				
 				configuration.getTemplate("/com/jack/templates/wiz.ftl").process(wizInput.getAttributes().getGroup().get(i), fileWriter);
-		
 				fileWriter.close();
 			}
-					
+			
+			
+			Configuration configuration5 = new Configuration();
+			configuration5.setObjectWrapper(new BeansWrapper());
+			configuration5.setTemplateLoader(this);
+			
+			FileWriter fileWriter5 = new FileWriter(args[1]+wizInput.getPackage().replace('.', '/')+"/_CledaI18N.java");			
+			
+			configuration5.getTemplate("/com/jack/templates/CledaI18N-template2.ftl").process(wizInput, fileWriter5);
+			
+			fileWriter5.close();	
 		}
 	}
 

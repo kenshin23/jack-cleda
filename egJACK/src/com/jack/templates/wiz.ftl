@@ -16,12 +16,14 @@
 [/#macro]
 
 
-package com.minotauro.sandbox.gui.mcrudpost;
+package ${package};
 
 import java.util.List;
 import nextapp.echo.app.Extent;
 import nextapp.echo.app.TextField;
 
+import com.minotauro.base.model.MBase;
+import com.minotauro.echo.base.EnumEditMode;
 import com.minotauro.echo.beans.EFieldLabel;
 import com.minotauro.echo.beans.ETextAreaEx;
 import com.minotauro.echo.cleda.edit.FrmEditBase;
@@ -30,15 +32,18 @@ import com.minotauro.echo.cleda.list.var.EJointButton;
 import com.minotauro.echo.cleda.list.var.EInnerButton;
 import com.minotauro.echo.cleda.list.var.EJointModel;
 import com.minotauro.echo.grid.SectionModel;
+import com.minotauro.echo.cleda.wizard.PnlWizardBase;
+import com.minotauro.echo.cleda.wizard.FrmWizardBase;
 import com.minotauro.echo.validator.impl.DuplicatedValidator;
 import com.minotauro.echo.validator.impl.NotEmptyValidator;
 import com.minotauro.echo.validator.impl.ConditionalValidator;
 import com.minotauro.echo.validator.impl.IntegerValidator;
 
 import com.minotauro.sandbox.gui.*;
-import com.minotauro.sandbox.gui.minnerpostc.FrmMInnerPostList;
-import com.minotauro.sandbox.gui.mmultjointmposta.FrmMMultJointMPostAList;
-import com.minotauro.sandbox.gui.msingjointpostb.FrmMSingJointPostBList;
+import com.minotauro.sandbox.gui.minnerpostc.*;
+import com.minotauro.sandbox.gui.mcrudpost.*;
+import com.minotauro.sandbox.gui.mmultjointmposta.*;
+import com.minotauro.sandbox.gui.msingjointpostb.*;
 import com.minotauro.sandbox.model.*;
 
 //TODO:plantilla agregar dinamicamente imports.
@@ -59,19 +64,15 @@ public class PnlWizard${modelName}${num} extends PnlWizardBase {
 
   // --------------------------------------------------------------------------------
 
-  public Pnl${modelName}Edit() {
-    // Empty
+  public PnlWizard${modelName}${num}(FrmWizardBase parent) {
+    super(parent);
   }
 
   // --------------------------------------------------------------------------------
 
   @Override
   protected void initGUI() {
-    String name = ((${modelName}) data).getName(); 
-    setTitle(_I18NFrm${modelName}Edit.title(name == null ? "-" : name)); 
-
-    // --------------------------------------------------------------------------------
-
+    
     SectionModel sectionModel = formModel.initSingleSectionModel();
 
     // --------------------------------------------------------------------------------
@@ -107,16 +108,16 @@ public class PnlWizard${modelName}${num} extends PnlWizardBase {
 
 		
 	    jointModel.init(
-	        data,
+	        (MBase) data,
 	        ${currentlist.relationModelName}.class,
 	        _Prop${modelName}.${currentlist.relationAttName},
 	        _Prop${currentlist.relationModelName}.${currentlist.firstRelAttName},
 	        _Prop${currentlist.relationModelName}.${currentlist.secondRelAttName});
 
 	    EJointButton jntJoint = new EJointButton(
-	    		Frm${currentlist.relationModelName}List.class, jointModel, this);
+	    		Frm${currentlist.relationModelName}List.class, jointModel, parent);
 
-	    jntJoint.setEditMode(editMode);
+	    jntJoint.setEditMode(EnumEditMode.UPDATE);
 
 	    FieldModel fmJoint = new FieldModel();
 	    fmJoint.setLabelCmp(new EFieldLabel(_I18NFrm${modelName}Edit.${currentlist.propRelName}())); //TODO: editar properties
@@ -134,7 +135,7 @@ public class PnlWizard${modelName}${num} extends PnlWizardBase {
 		
 		
 	   	jointModel.init(
-	        data,
+	        (MBase) data,
 	        ${currentlist.relationModelName}.class,
 	        _Prop${modelName}.${currentlist.relationAttName},
 	        _Prop${currentlist.relationModelName}.${currentlist.firstRelAttName},
@@ -142,7 +143,7 @@ public class PnlWizard${modelName}${num} extends PnlWizardBase {
 	        
 	        
 	    EJointButton jntJoint = new EJointButton(
-        		Frm${currentlist.relationModelName}List.class, jointModel, this) {
+        		Frm${currentlist.relationModelName}List.class, jointModel, parent) {
 
       	protected String getInfoText() {
         List<${currentlist.relationModelName}> aux =
@@ -156,7 +157,7 @@ public class PnlWizard${modelName}${num} extends PnlWizardBase {
     	};
 
 	    
-	    jntJoint.setEditMode(editMode);
+	    jntJoint.setEditMode(EnumEditMode.UPDATE);
 
 	    FieldModel fmJoint = new FieldModel();		
 	    fmJoint.setLabelCmp(new EFieldLabel(_I18NFrm${modelName}Edit.${currentlist.propRelName}())); //TODO: editar properties
@@ -173,12 +174,12 @@ public class PnlWizard${modelName}${num} extends PnlWizardBase {
 
 	   EInnerButton innInner = new EInnerButton(
 	   	  Frm${currentlist.relationModelName}List.class,
-	      data,
+	      (MBase)data,
 	      _Prop${modelName}.${currentlist.relationAttName},
 	      _Prop${currentlist.relationModelName}.${currentlist.firstRelAttName},
-	      this);
+	      parent);
 
-	   innInner.setEditMode(editMode);
+	   innInner.setEditMode(EnumEditMode.UPDATE);
 
 	   FieldModel fmInner = new FieldModel();
 	   fmInner.setLabelCmp(new EFieldLabel(_I18NFrm${modelName}Edit.${currentlist.propRelName}()));
