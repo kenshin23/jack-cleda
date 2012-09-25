@@ -139,6 +139,8 @@
 			
 			<xs:attribute name="modelName" type="xs:string" use="required"/>
 			<xs:attribute name="num" type="xs:string" use="required"/>
+			<xs:attribute name="package" type="xs:string" use="required"/>
+			
 		</xs:complexType>
 	</xs:element>
 
