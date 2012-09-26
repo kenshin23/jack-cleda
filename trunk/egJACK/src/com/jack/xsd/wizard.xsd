@@ -136,10 +136,7 @@
 				<xs:element ref="att" minOccurs="0" maxOccurs="unbounded" />
 				<xs:element ref="list" minOccurs="0" maxOccurs="unbounded" />
 			</xs:sequence>
-			
-			<xs:attribute name="modelName" type="xs:string" use="required"/>
 			<xs:attribute name="num" type="xs:string" use="required"/>
-			<xs:attribute name="package" type="xs:string" use="required"/>
 			
 		</xs:complexType>
 	</xs:element>
@@ -250,7 +247,8 @@
 			<xs:attribute name="modelName" type="xs:string" use="required" />
 			<xs:attribute name="modelPackage" type="xs:string" use="required" />
 			<xs:attribute name="group" type="xs:string" use="required" />
-
+			<xs:attribute name="wizIterator" type="xs:string" use="optional" />
+			
 		</xs:complexType>
 	</xs:element>
 

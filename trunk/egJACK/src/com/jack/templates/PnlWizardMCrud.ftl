@@ -52,19 +52,24 @@ import com.minotauro.sandbox.model.*;
 
 
 
-public class PnlWizard${modelName}${num} extends PnlWizardBase {
+public class PnlWizard${modelName}${wizIterator} extends PnlWizardBase {
 
-[#list att as currentAtt]
+[#list attributes.group as curGroup]
+
+[#if wizIterator == curGroup.num]
+
+
+[#list curGroup.att as currentAtt]
   protected FieldModel fm${currentAtt.name?cap_first};
 [/#list]
   
-[#list list as currentlist]
+[#list curGroup.list as currentlist]
   protected FieldModel fm${currentlist.relationModelName};
 [/#list]
 
   // --------------------------------------------------------------------------------
 
-  public PnlWizard${modelName}${num}(FrmWizardBase parent) {
+  public PnlWizard${modelName}${wizIterator}(FrmWizardBase parent) {
     super(parent);
   }
 
@@ -77,7 +82,7 @@ public class PnlWizard${modelName}${num} extends PnlWizardBase {
 
     // --------------------------------------------------------------------------------
 
-[#list att as currentAtt]
+[#list curGroup.att as currentAtt]
 
 	${currentAtt.editFieldType} txt${currentAtt.name?cap_first} = new ${currentAtt.editFieldType}();
     txt${currentAtt.name?cap_first}.setWidth(new Extent(204));
@@ -95,12 +100,12 @@ public class PnlWizard${modelName}${num} extends PnlWizardBase {
 	
 [/#list]
 
-[#list list as currentlist]
+[#list curGroup.list as currentlist]
 	sectionModel.addChild(fm${currentlist.relationModelName} = init${currentlist.propRelName}());
 [/#list]
 	
 	}
-[#list list as currentlist]
+[#list curGroup.list as currentlist]
   [#if currentlist.type=="MultJoint"]
   protected FieldModel init${currentlist.propRelName}() {
 
@@ -192,6 +197,11 @@ public class PnlWizard${modelName}${num} extends PnlWizardBase {
   
   [/#if]
   
+[/#list]  
+
+[#break]
+
+[/#if]
 [/#list]    	  
 }
 	
