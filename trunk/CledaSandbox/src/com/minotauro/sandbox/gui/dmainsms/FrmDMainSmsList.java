@@ -1,4 +1,10 @@
+// ----------------------------------------
+// Generated code, do not edit
+// ----------------------------------------
+
 package com.minotauro.sandbox.gui.dmainsms;
+
+import java.util.List;
 
 import nextapp.echo.app.Extent;
 
@@ -12,10 +18,10 @@ import com.minotauro.query.QueryCreator;
 import com.minotauro.query.bean.gui.TextFilterBean;
 import com.minotauro.sandbox.model.DMainSms;
 import com.minotauro.sandbox.model._PropDMainSms;
-
 /**
- * @author Karla Moreno
+ * @author E.G Jack™
  */
+
 public class FrmDMainSmsList extends FrmListDoc {
 
   public FrmDMainSmsList() {
