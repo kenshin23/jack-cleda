@@ -79,8 +79,8 @@ public class Crudgenerator extends URLTemplateLoader {
 							
 				fileWriter = new FileWriter(args[1]+wizInput.getPackage().replace('.', '/')+"/PnlWizard"+wizInput.getModelName()+(i+1)+".java");
 				//FileWriter fileWriter = new FileWriter(args[1]+wizInput.getPackage().replace('.', '/')+"/Frm"+wizInput.getModelName()+"Edit.java");
-				
-				configuration.getTemplate("/com/jack/templates/PnlWizardMCrud.ftl").process(wizInput.getAttributes().getGroup().get(i), fileWriter);
+				wizInput.setWizIterator(Integer.toString(i+1));
+				configuration.getTemplate("/com/jack/templates/PnlWizardMCrud.ftl").process(wizInput, fileWriter);
 				
 				fileWriter.close();
 			}
