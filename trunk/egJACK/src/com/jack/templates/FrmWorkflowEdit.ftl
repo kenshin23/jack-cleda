@@ -3,7 +3,7 @@
 [#macro recurseValidator validatorChoice currentAttribute]
 	[#list validatorChoice as currentValidatorChoice]
 		[#if currentValidatorChoice.isConditionalVal==false]
-   		.add(new ${currentValidatorChoice.validator.name}(_I18NFrmMCrudPostEdit.${currentAttribute.name}(), txt${currentAttribute.name?cap_first}))
+   		.add(new ${currentValidatorChoice.validator.name}(_I18NFrm${modelName}Edit.${currentAttribute.name}(), txt${currentAttribute.name?cap_first}))
 		[/#if]
 		[#if currentValidatorChoice.isConditionalVal==true]	
 			.add(ConditionalValidator		
@@ -85,10 +85,10 @@ public class FrmDMainSmsEdit extends FrmEditWrk {
     txt${currentAtt.name?cap_first}.setWidth(new Extent(204));
 
     fm${currentAtt.name?cap_first} = new FieldModel();
-    fm${currentAtt.name?cap_first}.setLabelCmp(new EFieldLabel(_I18NFrmMCrudPostEdit.${currentAtt.name}()));
+    fm${currentAtt.name?cap_first}.setLabelCmp(new EFieldLabel(_I18NFrm${modelName}Edit.${currentAtt.name}()));
     fm${currentAtt.name?cap_first}.setFieldCmp(txt${currentAtt.name?cap_first});
-    fm${currentAtt.name?cap_first}.setKey(_PropMCrudPost.${currentAtt.name?upper_case});
-    fm${currentAtt.name?cap_first}.setProperty(_PropMCrudPost.${currentAtt.name?upper_case});
+    fm${currentAtt.name?cap_first}.setKey(_Prop${modelName}.${currentAtt.name?upper_case});
+    fm${currentAtt.name?cap_first}.setProperty(_Prop${modelName}.${currentAtt.name?upper_case});
  	fm${currentAtt.name?cap_first}.getValidatorList()
 		[@recurseValidator validatorChoice=currentAtt.validatorChoice currentAttribute=currentAtt /]
 	;
@@ -153,7 +153,7 @@ public class FrmDMainSmsEdit extends FrmEditWrk {
 
         return !aux.isEmpty()
             ? aux.get(0).get${currentlist.relationSecAtt}().getName() +
-                " / " + aux.get(0).getName() //getname por defecto por ahora
+                " / " + aux.get(0).get${currentlist.relationFirstAtt}().getName() //getname por defecto por ahora
             : null;
       		}
     	};

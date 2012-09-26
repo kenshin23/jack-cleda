@@ -3,7 +3,7 @@
 [#macro recurseValidator validatorChoice currentAttribute]
 	[#list validatorChoice as currentValidatorChoice]
 		[#if currentValidatorChoice.isConditionalVal==false]
-   		.add(new ${currentValidatorChoice.validator.name}(_I18NFrmMCrudPostEdit.${currentAttribute.name}(), txt${currentAttribute.name?cap_first}))
+   		.add(new ${currentValidatorChoice.validator.name}(_I18NFrm${modelName}Edit.${currentAttribute.name}(), txt${currentAttribute.name?cap_first}))
 		[/#if]
 		[#if currentValidatorChoice.isConditionalVal==true]	
 			.add(ConditionalValidator		

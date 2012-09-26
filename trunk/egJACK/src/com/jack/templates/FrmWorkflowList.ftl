@@ -8,29 +8,17 @@ package com.minotauro.sandbox.gui.dmainsms;
 import java.util.List;
 
 import nextapp.echo.app.Extent;
-import nextapp.echo.app.TextField;
 
-import com.minotauro.echo.beans.EFieldLabel;
-import com.minotauro.echo.beans.ETextAreaEx;
-import com.minotauro.echo.cleda.edit.wrk.FrmEditWrk;
-import com.minotauro.echo.cleda.list.var.EInnerButton;
-import com.minotauro.echo.cleda.list.var.EJointButton;
-import com.minotauro.echo.cleda.list.var.EJointModel;
-import com.minotauro.echo.grid.FieldModel;
-import com.minotauro.echo.grid.SectionModel;
-import com.minotauro.echo.validator.impl.NotEmptyValidator;
-import com.minotauro.sandbox.gui.dinnersmsb.FrmDInnerSmsList;
-import com.minotauro.sandbox.gui.dmultjointsmsb.FrmDMultJointSmsBList;
-import com.minotauro.sandbox.gui.dsingjointsmsb.FrmDSingJointSmsBList;
+import com.minotauro.echo.cleda.list.wrk.FrmListDoc;
+import com.minotauro.echo.filter.base.FrmFilterEditor;
+import com.minotauro.echo.table.base.ETable;
+import com.minotauro.echo.table.base.TableColModel;
+import com.minotauro.echo.table.base.TableColumn;
+import com.minotauro.echo.table.renderer.LabelCellRenderer;
+import com.minotauro.query.QueryCreator;
+import com.minotauro.query.bean.gui.TextFilterBean;
 import com.minotauro.sandbox.model.${modelName};
-import com.minotauro.sandbox.model.DMultJointSmsB;
-import com.minotauro.sandbox.model.DSingJointSmsB;
-import com.minotauro.sandbox.model._PropDInnerSms;
 import com.minotauro.sandbox.model._Prop${modelName};
-import com.minotauro.sandbox.model._PropDMultJointSmsB;
-import com.minotauro.sandbox.model._PropDSingJointSmsB;
-// parametrizar paquetes con xml y xsd
-
 /**
  * @author E.G Jack™
  */
