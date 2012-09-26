@@ -10,6 +10,7 @@ import javax.xml.bind.Unmarshaller;
 
 import com.jack.crud.*;
 import com.jack.wizard.*;
+import com.jack.workflow.*;
 //import com.minotauro.sandbox.gui.mcrudpost._CledaI18N;
 
 import freemarker.cache.URLTemplateLoader;
@@ -62,14 +63,25 @@ public class Crudgenerator extends URLTemplateLoader {
 			configuration.setObjectWrapper(new BeansWrapper());
 			configuration.setTemplateLoader(this);
 			
+			
+			Configuration configuration2 = new Configuration();
+			configuration2.setObjectWrapper(new BeansWrapper());
+			configuration2.setTemplateLoader(this);
+			
 			FileWriter fileWriter;
 			
+			FileWriter fileWriter2 = new FileWriter(args[1]+wizInput.getPackage().replace('.', '/')+"/FrmWizard"+wizInput.getModelName()+".java");
+			configuration2.getTemplate("/com/jack/templates/FrmWizardMCrud.ftl").process(wizInput, fileWriter2);
+
+			fileWriter2.close();
+
 			for(int i=0;i<wizInput.getAttributes().getGroup().size();i++){
 							
 				fileWriter = new FileWriter(args[1]+wizInput.getPackage().replace('.', '/')+"/PnlWizard"+wizInput.getModelName()+(i+1)+".java");
 				//FileWriter fileWriter = new FileWriter(args[1]+wizInput.getPackage().replace('.', '/')+"/Frm"+wizInput.getModelName()+"Edit.java");
 				
-				configuration.getTemplate("/com/jack/templates/wiz.ftl").process(wizInput.getAttributes().getGroup().get(i), fileWriter);
+				configuration.getTemplate("/com/jack/templates/PnlWizardMCrud.ftl").process(wizInput.getAttributes().getGroup().get(i), fileWriter);
+				
 				fileWriter.close();
 			}
 			
@@ -83,6 +95,38 @@ public class Crudgenerator extends URLTemplateLoader {
 			configuration5.getTemplate("/com/jack/templates/CledaI18N-template2.ftl").process(wizInput, fileWriter5);
 			
 			fileWriter5.close();	
+		}
+		
+		if(args[2].toString().equals("workflow")){
+			
+			System.out.println("workflow");
+					
+			Workflow workflowInput = leerWorkflow(args[0]);
+	
+			Configuration configuration = new Configuration();
+			configuration.setObjectWrapper(new BeansWrapper());
+			configuration.setTemplateLoader(this);
+	
+			Configuration configuration2 = new Configuration();
+			configuration2.setObjectWrapper(new BeansWrapper());
+			configuration2.setTemplateLoader(this);
+	
+			Configuration configuration3 = new Configuration();
+			configuration3.setObjectWrapper(new BeansWrapper());
+			configuration3.setTemplateLoader(this);
+			
+			FileWriter fileWriter = new FileWriter(args[1]+workflowInput.getPackage().replace('.', '/')+"/_CledaI18N.java");
+			FileWriter fileWriter2 = new FileWriter(args[1]+workflowInput.getPackage().replace('.', '/')+"/Frm"+workflowInput.getModelName()+"Edit.java");
+			FileWriter fileWriter3 = new FileWriter(args[1]+workflowInput.getPackage().replace('.', '/')+"/Frm"+workflowInput.getModelName()+"List.java");
+			
+			
+			configuration.getTemplate("/com/jack/templates/CledaI18N-template3.ftl").process(workflowInput, fileWriter);
+			configuration2.getTemplate("/com/jack/templates/FrmWorkflowEdit.ftl").process(workflowInput, fileWriter2);
+			configuration3.getTemplate("/com/jack/templates/FrmWorkflowList.ftl").process(workflowInput, fileWriter3);
+	
+			fileWriter.close();
+			fileWriter2.close();
+			fileWriter3.close();
 		}
 	}
 
@@ -127,6 +171,28 @@ public class Crudgenerator extends URLTemplateLoader {
 		Wizard xmlwiz = (Wizard) unmarshaller.unmarshal(is);
 	
 		return xmlwiz;
+		
+	}
+	
+	private Workflow leerWorkflow(String XMLpath) throws Exception {
+		// ----------------------------------------
+		// Obtener el InputStream
+		// ----------------------------------------
+
+		//InputStream is = ClassLoader.getSystemResourceAsStream("com/jack/XMLobjects/crudPost.xml");
+		InputStream is = ClassLoader.getSystemResourceAsStream(XMLpath);
+		
+		// ----------------------------------------
+		// Inicializar JAXB y leer el XML
+		// ----------------------------------------
+		
+		JAXBContext jc = JAXBContext.newInstance(com.jack.workflow.ObjectFactory.class.getPackage().getName());
+	
+		Unmarshaller unmarshaller = jc.createUnmarshaller();
+	
+		Workflow xmlworkflow = (Workflow) unmarshaller.unmarshal(is);
+	
+		return xmlworkflow;
 		
 	}
 

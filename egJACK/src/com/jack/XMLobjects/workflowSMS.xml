@@ -29,26 +29,26 @@
 		<!-- ... -->
 
 		<!-- Relaciones -->
-		<list targetModelName="MCrudB" relationModelName="DMultJointSmsA"
+		<list targetModelName="MCrudB" relationModelName="DMultJointSmsB"
 			relModGetter="getSingJointSmsBList" relationFirstAtt="MainSmsRef"
 			relationSecAtt="CrudBRef" type="MultJoint" edit="false"
 			listGuiPackage="com.minotauro.sandbox.gui.dmultjointmsmsb"
 			relationAttName="MULT_JOINT_SMS_BLIST" firstRelAttName="MAIN_SMS_REF"
-			secondRelAttName="CRUD_BREF" propRelName="multJointSmsA" />
+			secondRelAttName="CRUD_BREF" propRelName="multJointSmsB" />
 			
-		<list targetModelName="MCrudB" relationModelName="dSingJointSmsB"
+		<list targetModelName="MCrudB" relationModelName="DSingJointSmsB"
 			relModGetter="getSingJointSmsBList" relationFirstAtt="MainSmsRef"
 			relationSecAtt="CrudBRef" type="SingJoint" edit="true"
 			listGuiPackage="com.minotauro.sandbox.gui.dsingjointsmsb"
 			relationAttName="SING_JOINT_SMS_BLIST" firstRelAttName="MAIN_SMS_REF"
 			secondRelAttName="CRUD_BREF" propRelName="singJointSmsB" />
 			
-		<list targetModelName="MCrudC" relationModelName="MInnerPost"
+		<list targetModelName="MCrudC" relationModelName="DInnerSms"
 			relModGetter="getInnerSmsCList" relationFirstAtt="MainSmsRef"
 			relationSecAtt="CrudCRef" type="Inner" edit="false"
 			listGuiPackage="com.minotauro.sandbox.gui.dinnersmsc"
 			relationAttName="INNER_SMS_CLIST" firstRelAttName="MAIN_SMS_REF"
-			secondRelAttName="INNER_SMS_CLIST" propRelName="innerPostC" />
+			secondRelAttName="INNER_SMS_CLIST" propRelName="innerSmsC" />
 		<!-- ... -->
 
 	</attributes>
